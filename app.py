@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
@@ -18,7 +18,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_meals")
 def get_meals():
-    return "This workings"
+    return render_template("meals.html")
 
 
 if __name__ == "__main__":
