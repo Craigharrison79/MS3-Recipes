@@ -34,7 +34,8 @@ def profile():
 @app.route("/recipes")
 def recipes():
     recipes = mongo.db.recipe.find()
-    return render_template("recipes.html", recipes=recipes)
+    return render_template("recipes.html", recipes=recipes,
+                            page_title="Recipes")
 
 
 if __name__ == "__main__":
