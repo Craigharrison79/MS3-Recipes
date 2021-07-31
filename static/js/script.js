@@ -3,4 +3,5 @@ $(document).ready(function(){
     $(".dropdown-trigger").dropdown({ hover: false });
     $('.tabs').tabs();
     $('.datepicker').datepicker();
+    $('.parallax').parallax();
   });

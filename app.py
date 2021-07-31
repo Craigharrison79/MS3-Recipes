@@ -18,8 +18,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    recipes = mongo.db.recipe.find()
-    return render_template("home.html", recipes=recipes)
+    return render_template("home.html")
 
 
 @app.route("/signup")
@@ -30,6 +29,13 @@ def signup():
 @app.route("/profile")
 def profile():
     return render_template("profile.html")
+
+
+@app.route("/recipes")
+def recipes():
+    recipes = mongo.db.recipe.find()
+    return render_template("recipes.html", recipes=recipes)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

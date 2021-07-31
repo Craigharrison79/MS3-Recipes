@@ -1,0 +1,59 @@
+{%  extends  "base.html" %}
+
+{% block content %}
+    <h2 class="center-align">Recipes</h2>
+
+    {% for recipe in recipes %}
+
+    <div class="row center-align">
+        <div class="col s5  offset-s1">
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://lorempixel.com/800/400/food/1">
+                </div>
+                <div class="card-content">
+
+                    <span class="card-title activator">{{ recipe.recipe_name }}<i
+                            class="fas fa-info-circle right"></i></span>
+                    <p>{{ recipe.description }}</p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title">{{ recipe.recipe_name }}<i class="fas fa-times right"></i></span>
+                    <p>{{ recipe.description }}</p><br>
+                    <div class="row center-align">
+                        <p><span>Cooking Time: </span> {{ recipe.cooking_time }}</p>
+                        <p><span>Serves up to: </span> {{ recipe.serves }}</p>
+                        <p><span>Added by: </span> {{ recipe.added_by }}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- second part -->
+        <div class="col s5">
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://lorempixel.com/800/400/food/1">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator">{{ recipe.recipe_name }}<i
+                            class="fas fa-info-circle right"></i></span>
+                    <p>{{ recipe.description }}</p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title">{{ recipe.recipe_name }}<i class="fas fa-times right"></i></span>
+                    <p>{{ recipe.description }}</p><br>
+                    <div class="row center-align">
+                        <p><span>Cooking Time: </span> {{ recipe.cooking_time }}</p>
+                        <p><span>Serves up to: </span> {{ recipe.serves }}</p>
+                        <p><span>Added by: </span> {{ recipe.added_by }}</p>
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+    </div>
+    
+    {% endfor%}
+{% endblock %}
