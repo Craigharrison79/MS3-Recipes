@@ -1,18 +1,8 @@
 {%  extends  "base.html" %}
 
 {% block content %}
-    <h2> click to see more </h2>
+    <h2> home page </h2>
 
-    {% for recipe in recipes %}
-        {{ recipe.recipe_name }}<br>
-        {{ recipe.description }}<br>
-        {{ recipe.ingredients }}<br>
-        {{ recipe.cooking_time }}<br>
-        {{ recipe.prep_time }}<br>
-        {{ recipe.iserves }}<br>
-        {{ recipe.create_by }}<br>
-        {{ recipe.added_by }}<br>
-        {{ recipe.method }}<br>
 
-    {% endfor%}
+    
 {% endblock %}

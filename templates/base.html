@@ -17,12 +17,13 @@
       <!-- Navbar -->
       <nav class="nav-extended">
         <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">MPT Recipes</a>
+          <a href="{{ url_for('home') }}" class="brand-logo">MPT Recipes</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Recipes</a></li>
-            <li><a href="#">Log In</a></li>
+            <li><a href="{{ url_for('signup') }}">Log In</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
           </ul>
         </div>
       </nav>
@@ -38,9 +39,9 @@
 
       <!-- Mobile navbar -->
       <ul class="sidenav" id="mobile-demo">
-        <li><a href="#">Home</a></li>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
         <li><a class="dropdown-trigger" href="#!" data-target="sidenav-dropdown">Recipes</a></li>
-        <li><a href="#">Log In</a></li>
+        <li><a href="{{ url_for('signup') }}">Log In</a></li>
       </ul>
       <!-- Dropdown Structure Recipes on Mobile-->
       <ul id="sidenav-dropdown" class="dropdown-content">
@@ -51,7 +52,6 @@
       </ul>
 
     </header>
-    <h1> MPT Recipes below</h1>
     <!-- Content -->
     {% block content %}
 

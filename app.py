@@ -22,7 +22,17 @@ def home():
     return render_template("home.html", recipes=recipes)
 
 
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
+
+
+@app.route("/profile")
+def profile():
+    return render_template("profile.html")
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)  # Change to False before submit the project
+
