@@ -4,4 +4,9 @@ $(document).ready(function(){
     $('.tabs').tabs();
     $('.datepicker').datepicker();
     $('.parallax').parallax();
+    $('.collapsible').collapsible();
+    $('.carousel.carousel-slider').carousel({
+      fullWidth: true,
+      indicators: true
+    });
   });

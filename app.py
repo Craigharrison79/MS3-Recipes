@@ -111,6 +111,11 @@ def recipes():
                             page_title="Recipes")
 
 
+@app.route("/delete_recipe")
+def delete_recipe():
+    return render_template("delete_recipe.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
