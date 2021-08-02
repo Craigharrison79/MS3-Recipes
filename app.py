@@ -111,9 +111,28 @@ def recipes():
                             page_title="Recipes")
 
 
-@app.route("/add_recipe")
+@app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-    return render_template("add_recipe.html")
+    if request.method == "POST":
+        meal = {
+            "meal_course": request.form.get("meal_course"),
+            "recipe_name": request.form.get("recipe_name"),
+            "description": request.form.get("description"),
+            "ingredients": request.form.getlist("ingredients"),
+            "method": request.form.getlist("method"),
+            "cooking_time": request.form.get("cooking_time"),
+            "prep_time": request.form.get("prep_time"),
+            "servings": request.form.get("servings"),
+            "create_by": request.form.get("create_by"),
+            "added_by": session["user"],
+            "day_added": request.form.get("day_added")
+        }
+        mongo.db.recipe.insert_one(meal)
+        flash("Recipe Successfully Added")
+        return redirect(url_for("recipes"))
+
+    courses = mongo.db.meal_courses.find().sort("meal_course", 1)
+    return render_template("add_recipe.html", courses=courses)
 
 
 @app.route("/delete_recipe")
