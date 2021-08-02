@@ -5,6 +5,7 @@ $(document).ready(function(){
     $('.datepicker').datepicker();
     $('.parallax').parallax();
     $('.collapsible').collapsible();
+    $('select').formSelect();
     $('.carousel.carousel-slider').carousel({
       fullWidth: true,
       indicators: true

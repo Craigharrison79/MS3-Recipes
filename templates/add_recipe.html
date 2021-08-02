@@ -1,0 +1,86 @@
+{%  extends  "base.html" %}
+
+{% block content %}
+
+    <h3 class="light-blue-text text-darken-4 center-align">Add Recipe</h3>
+    <div class="row">
+        <div class="col s10 m8 offset-m2">
+            <div class="card">
+                <div class="card-content">
+                    
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="fas fa-bookmark prefix"></i>
+                                <select>
+                                  <option value="" disabled selected>Choose your option</option>
+                                  <option value="1">Breakfast</option>
+                                  <option value="2">Main dish</option>
+                                  <option value="3">Dessert</option>
+                                  <option value="3">Snack</option>
+                                  <option value="3">Salad</option> 
+                                </select>
+                                <label>Type of Dish</label>
+                              </div>
+                            <div class="input-field col s12">
+                                <i class="fas fa-utensils prefix"></i>
+                                <input id="recipe_name" type="text" class="validate">
+                                <label for="recipe_name">Name of Receipe</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="fas fa-comment-dots prefix"></i>
+                                <textarea id="description" text="text" class="materialize-textarea"></textarea>
+                                <label for="description">Description</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="fas fa-clipboard-list prefix"></i>
+                                <textarea id="ingredients" text="text" class="materialize-textarea"></textarea>
+                                <label for="ingredients">Ingredients</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="fas fa-book-reader prefix"></i>
+                                <textarea id="method" text="text" class="materialize-textarea"></textarea>
+                                <label for="method">Method</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <i class="fas fa-clock prefix"></i>
+                                <input id="cooking_time" type="number" class="validate">
+                                <label for="cooking_time">Cooking time</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <i class="fas fa-hourglass-end prefix"></i>
+                                <input id="prep_time" type="number" class="validate">
+                                <label for="prep_time">Prep time</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <i class="fas fa-user-plus prefix"></i>
+                                <input id="servings" type="number" class="validate">
+                                <label for="servings">Servings</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="fas fa-users prefix"></i>
+                                <input id="create_by" type="text" class="validate">
+                                <label for="create_by">Create by</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="fas fa-user-tag prefix"></i>
+                                <input id="add_by" type="text" class="validate">
+                                <label for="add_by">Add by</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="fas fa-calendar-alt prefix"></i>
+                                <input id="day_added"type="text" class="datepicker">
+                                <label for="day_added">Day added</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button type="submit" class="col s4 offset-m4 btn-large text-shadow">
+                                Add Recipe <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        
+                        
+                    </div>
+
+
+
+{% endblock %}

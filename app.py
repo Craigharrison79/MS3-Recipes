@@ -111,6 +111,11 @@ def recipes():
                             page_title="Recipes")
 
 
+@app.route("/add_recipe")
+def add_recipe():
+    return render_template("add_recipe.html")
+
+
 @app.route("/delete_recipe")
 def delete_recipe():
     return render_template("delete_recipe.html")
