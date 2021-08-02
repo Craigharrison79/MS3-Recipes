@@ -24,7 +24,7 @@
       <!--<li><a class="dropdown-trigger" href="#!" data-target="sidenav-dropdown">Recipes</a></li>-->
             <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
             <li><a href="{{ url_for('account') }}">Log In</a></li>
-            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
           </ul>
         </div>
       </nav>
@@ -44,6 +44,7 @@
         <!--<li><a class="dropdown-trigger" href="#!" data-target="sidenav-dropdown">Recipes</a></li>-->
         <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
         <li><a href="{{ url_for('account') }}">Log In</a></li>
+        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
       </ul>
       <!-- Dropdown Structure Recipes on Mobile
       <ul id="sidenav-dropdown" class="dropdown-content">
