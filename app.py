@@ -137,7 +137,8 @@ def add_recipe():
 
 @app.route("/delete_recipe")
 def delete_recipe():
-    return render_template("delete_recipe.html")
+    recipes = mongo.db.recipe.find()
+    return render_template("delete_recipe.html", recipes=recipes)
 
 
 if __name__ == "__main__":
