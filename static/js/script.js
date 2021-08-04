@@ -13,10 +13,10 @@ $(document).ready(function(){
     $('.parallax').parallax();
     $('.collapsible').collapsible();
     $('select').formSelect();
-    $('.carousel.carousel-slider').carousel({
-      fullWidth: true,
-      indicators: true
-    });
+    $('.carousel').carousel({
+        fullWidth: true,
+        indicators: true});
+  
 
      /* Code used from Task Manager course material */
 

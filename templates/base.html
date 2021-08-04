@@ -1,59 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    {% block styles %}
-    {% endblock %}
-    <title>MPT Recipes</title>
-</head>
-<body>
-    <header>
-      <!-- Navbar -->
-      <nav class="nav-extended">
-        <div class="nav-wrapper">
-          <a href="{{ url_for('home') }}" class="brand-logo">MPT Recipes</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-      <!--<li><a class="dropdown-trigger" href="#!" data-target="sidenav-dropdown">Recipes</a></li>-->
-            <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
-            {% if session.user %}
-              <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-              <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-              {% else %}
-              <li><a href="{{ url_for('account') }}">Log In</a></li>
-            {% endif %}
-          </ul>
-        </div>
-      </nav>
 
-      <!-- Dropdown Structure Recipes on Desktop
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+  {% block styles %}
+  {% endblock %}
+  <title>MPT Recipes</title>
+</head>
+
+<body>
+  <header>
+    <!-- Navbar -->
+    <nav class="nav-extended">
+      <div class="nav-wrapper">
+        <a href="{{ url_for('home') }}" class="brand-logo">MPT Recipes</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <!--<li><a class="dropdown-trigger" href="#!" data-target="sidenav-dropdown">Recipes</a></li>-->
+          <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
+          {% if session.user %}
+          <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+          <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+          {% else %}
+          <li><a href="{{ url_for('account') }}">Log In</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Dropdown Structure Recipes on Desktop
       <ul id="dropdown1" class="dropdown-content">
         <li><a href="#!">Breakfast</a></li>
         <li><a href="#!">Main Dish</a></li>
         <li><a href="#!">Snack</a></li>
         <li><a href="#!">Dessert</a></li>
       </ul>-->
-      
 
-      <!-- Mobile navbar -->
-      <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{ url_for('home') }}">Home</a></li>
-        <!--<li><a class="dropdown-trigger" href="#!" data-target="sidenav-dropdown">Recipes</a></li>-->
-        <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
-            {% if session.user %}
-              <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-              <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-              {% else %}
-              <li><a href="{{ url_for('account') }}">Log In</a></li>
-            {% endif %}</ul>
-      <!-- Dropdown Structure Recipes on Mobile
+
+    <!-- Mobile navbar -->
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <!--<li><a class="dropdown-trigger" href="#!" data-target="sidenav-dropdown">Recipes</a></li>-->
+      <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
+      {% if session.user %}
+      <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+      <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+      {% else %}
+      <li><a href="{{ url_for('account') }}">Log In</a></li>
+      {% endif %}
+    </ul>
+    <!-- Dropdown Structure Recipes on Mobile
       <ul id="sidenav-dropdown" class="dropdown-content">
         <li><a href="#!">Breakfast</a></li>
         <li><a href="#!">Main Dish</a></li>
@@ -61,23 +66,23 @@
         <li><a href="#!">Dessert</a></li>
       </ul>-->
 
-    </header>
+  </header>
 
   <section>
     <!-- flash messages -->
     {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="row flashes">
-                    <h4 class="light-red lighten-4 center-align">{{ message }}</h4>
-                </div>
-            {% endfor %}
-        {% endif %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="row flashes">
+      <h4 class="light-red lighten-4 center-align">{{ message }}</h4>
+    </div>
+    {% endfor %}
+    {% endif %}
     {% endwith %}
 
-</section>
+  </section>
 
-<main>
+  <main>
     <!-- Content -->
     {% block content %}
 
@@ -85,11 +90,12 @@
 
   </main>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    {% block scripts %}
-    {% endblock %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  {% block scripts %}
+  {% endblock %}
 </body>
+
 </html>

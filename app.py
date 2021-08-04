@@ -24,11 +24,12 @@ def home():
     return render_template("home.html")
 
 
+# Setup and login page
 @app.route("/account", methods=["GET", "POST"])
 def account():
     return render_template("account.html")
 
-
+# Method to setup a new account
 @app.route("/new_account", methods=["GET", "POST"])
 def new_account():
     if request.method == "POST":
@@ -55,6 +56,7 @@ def new_account():
     return render_template("account.html")
 
 
+# method for user to login
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -84,6 +86,7 @@ def login():
     return render_template("account.html")
 
 
+# Render profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's usernname from db
@@ -96,6 +99,7 @@ def profile(username):
     return redirect(url_for("account.html"))
 
 
+# log user out of profile
 @app.route("/logout")
 def logout():
     # Remove user from session cookies
@@ -104,6 +108,7 @@ def logout():
     return redirect(url_for("login"))
 
 
+# Show all recipe on page
 @app.route("/recipes")
 def recipes():
     recipes = mongo.db.recipe.find()
@@ -111,6 +116,7 @@ def recipes():
                             page_title="Recipes")
 
 
+# allow user to add recipe and post them on the site. (must be login)
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
@@ -135,12 +141,27 @@ def add_recipe():
     return render_template("add_recipe.html", courses=courses)
 
 
+# render recipe to be selected to edit
+@app.route("/edit_recipe")
+def edit_recipe():
+    recipes = mongo.db.recipe.find()
+    return render_template("edit_recipe.html", recipes=recipes)
+
+
+# Allow the user to go the edit page of a particular recipe
+@app.route("/recipe_update/<recipe_id>")
+def recipe_update(recipe_id):
+    recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("recipe_update.html", recipe=recipe)
+
+
+# render recipe to be show/select for eliminate
 @app.route("/delete_recipe")
 def delete_recipe():
     recipes = mongo.db.recipe.find()
     return render_template("delete_recipe.html", recipes=recipes)
 
-
+# Allow user to pick a particular recipe to be deleted
 @app.route("/eliminate_recipe/<recipe_id>")
 def eliminate_recipe(recipe_id):
     mongo.db.recipe.remove({"_id": ObjectId(recipe_id)})

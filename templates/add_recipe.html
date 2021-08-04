@@ -4,96 +4,103 @@
 
 <h3 class="light-blue-text text-darken-4 center-align">Add Task</h3>
 
-    <div class="row">
-      <div class="col s10 m8 grey lighten-5 offset-m2">
-        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
-            <!-- category selection -->
+<div class="row">
+  <div class="col s10 m8 grey lighten-5 offset-m2">
+    <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+      <!-- category selection -->
       <br>
-			<div class="row">
-				<div class="input-field col s12">
-                    <i class="fas fa-bookmark prefix"></i>
-					<select id="meal_course" name="meal_course" class="validate" required>
-                        <option value="" disabled selected>Choose your option</option>
-                        {% for course in courses %}
-                            <option value="{{ course.meal_course }}">{{ course.meal_course }}</option>
-                        {% endfor %}
-                    </select>
-					<label for="meal_course">Type of Dish</label>
-				</div>
-			</div>
       <div class="row">
-      <div class="input-field col s12">
+        <div class="input-field col s12">
+          <i class="fas fa-bookmark prefix"></i>
+          <select id="meal_course" name="meal_course" class="validate" required>
+            <option value="" disabled selected>Choose your option</option>
+            {% for course in courses %}
+            <option value="{{ course.meal_course }}">{{ course.meal_course }}</option>
+            {% endfor %}
+          </select>
+          <label for="meal_course">Type of Dish</label>
+        </div>
+      </div>
+      <!-- Recipe name-->
+      <div class="row">
+        <div class="input-field col s12">
           <i class="fas fa-utensils prefix"></i>
           <input id="recipe_name" name="recipe_name" type="text" class="validate">
           <label for="recipe_name">Name of Receipe</label>
+        </div>
       </div>
-      </div>
+      <!-- Description-->
       <div class="row">
-      <div class="input-field col s12">
+        <div class="input-field col s12">
           <i class="fas fa-comment-dots prefix"></i>
-          <textarea id="description" name="description" text="text"
-              class="materialize-textarea"></textarea>
+          <textarea id="description" name="description" text="text" class="materialize-textarea"></textarea>
           <label for="description">Description</label>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
+      <!-- Ingredients-->
+      <div class="row">
+        <div class="input-field col s12">
           <i class="fas fa-clipboard-list prefix"></i>
-          <textarea id="ingredients" name="ingredients" text="text"
-              class="materialize-textarea"></textarea>
+          <textarea id="ingredients" name="ingredients" text="text" class="materialize-textarea"></textarea>
           <label for="ingredients">Ingredients</label>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
+      <!-- Method-->
+      <div class="row">
+        <div class="input-field col s12">
           <i class="fas fa-book-reader prefix"></i>
           <textarea id="method" name="method" text="text" class="materialize-textarea"></textarea>
           <label for="method">Method</label>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s3 offset-s1">
+      <!-- Cooking time-->
+      <div class="row">
+        <div class="input-field col s3 offset-s1">
           <i class="fas fa-clock prefix"></i>
           <input id="cooking_time" name="cooking_time" type="number" class="validate">
           <label for="cooking_time">Cooking time</label>
-      </div>
-    <div class="row">
-      <div class="input-field col s3">
-          <i class="fas fa-hourglass-end prefix"></i>
-          <input id="prep_time" name="prep_time" type="number" class="validate">
-          <label for="prep_time">Prep time</label>
-      </div>
-    <div class="row">
-      <div class="input-field col s3">
-          <i class="fas fa-user-plus prefix"></i>
-          <input id="servings" name="servings" type="number" class="validate">
-          <label for="servings">Servings</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s5 offset-m1">
-          <i class="fas fa-users prefix"></i>
-          <input id="create_by" name="create_by" type="text" class="validate">
-          <label for="create_by">Create by</label>
-      </div>
-    <div class="row">
-      <div class="input-field col s5">
-          <i class="fas fa-calendar-alt prefix"></i>
-          <input id="day_added" name="day_added" type="text" name="day_added" class="datepicker">
-          <label for="day_added">Day added</label>
-      </div>
-    </div>
+        </div>
+        <!-- Preparation time-->
+        <div class="row">
+          <div class="input-field col s3">
+            <i class="fas fa-hourglass-end prefix"></i>
+            <input id="prep_time" name="prep_time" type="number" class="validate">
+            <label for="prep_time">Prep time</label>
+          </div>
+          <!-- Number of Serving-->
+          <div class="row">
+            <div class="input-field col s3">
+              <i class="fas fa-user-plus prefix"></i>
+              <input id="servings" name="servings" type="number" class="validate">
+              <label for="servings">Servings</label>
+            </div>
+          </div>
+          <!-- Recipe create by-->
+          <div class="row">
+            <div class="input-field col s5 offset-m1">
+              <i class="fas fa-users prefix"></i>
+              <input id="create_by" name="create_by" type="text" class="validate">
+              <label for="create_by">Create by</label>
+            </div>
+            <!-- Day recipe added on-->
+            <div class="row">
+              <div class="input-field col s5">
+                <i class="fas fa-calendar-alt prefix"></i>
+                <input id="day_added" name="day_added" type="text" name="day_added" class="datepicker">
+                <label for="day_added">Day added</label>
+              </div>
+            </div>
             <!-- submit button -->
             <div class="row">
-                <div class="col s12 center-align">
-                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                        Add Task <i class="fas fa-plus-square right"></i>
-                    </button>
-                </div>
+              <div class="col s12 center-align">
+                <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                  Add Task <i class="fas fa-plus-square right"></i>
+                </button>
+              </div>
             </div>
-        </form>
-      </div>
-    </div>
-           
-           
-            {% endblock %}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
