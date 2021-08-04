@@ -16,7 +16,7 @@
                             <span>Create by: </span><em>{{ recipe.create_by }}</em>
                         </div>
                         <div class="col s4">
-                            <a href="#" class="btn-small grey accent-4">Delete</a>
+                            <a href="{{url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small grey accent-4">Delete</a>
                         </div>
                     </div>
                     <div class="collapsible-body">

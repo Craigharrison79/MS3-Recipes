@@ -135,10 +135,17 @@ def add_recipe():
     return render_template("add_recipe.html", courses=courses)
 
 
-@app.route("/delete_recipe")
-def delete_recipe():
+@app.route("/eliminate_recipe")
+def eliminate_recipe():
     recipes = mongo.db.recipe.find()
-    return render_template("delete_recipe.html", recipes=recipes)
+    return render_template("eliminate_recipe.html", recipes=recipes)
+
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipe.remove({"_id": ObjectId(recipe_id)})
+    flash("Task Successfully Deleted")
+    return redirect(url_for("home"))
 
 
 if __name__ == "__main__":
