@@ -1,6 +1,7 @@
 {%  extends  "base.html" %}
 
 {% block content %}
+<!-- Modal Trigger -->
 
 <h2 class="center-align"> Edit Recipe </h2>
 
@@ -8,7 +9,9 @@
   <div class="col s10 offset-s1">
     <div class="carousel carousel-slider center">
 
+      
       {% for recipe in recipes %}
+      {% if session.user|lower == recipe.added_by|lower %}
       <!-- Carousel card-->
       <div class="carousel-item">
         <!-- Card image-->
@@ -16,21 +19,24 @@
         <!-- Card information-->
         <div class="carousel-fixed-item white-text center">
           <h2>{{ recipe.recipe_name.upper() }}</h2>
+          <!-- Hyperlink button-->
+          
+          <a class="btn waves-effect white grey-text darken-text-2"
+          href="{{url_for('recipe_update', recipe_id=recipe._id) }}">button</a>
+            <br>
+            
           <div class="row">
             <div class="col s8 offset-m2">
               <p class="white-text">{{ recipe.description }}</p>
             </div>
-            <!-- Hyperlink button-->
           </div>
-          <a class="btn waves-effect white grey-text darken-text-2"
-            href="{{url_for('recipe_update', recipe_id=recipe._id) }}">button</a>
         </div>
-      </div>
-
+      </div> 
+      {% endif %} 
       {% endfor%}
-
     </div>
   </div>
 </div>
+
 
 {% endblock %}

@@ -142,24 +142,41 @@ def add_recipe():
 
 
 # render recipe to be selected to edit
-@app.route("/edit_recipe")
+@app.route("/edit_recipe", methods=["GET", "POST"])
 def edit_recipe():
     recipes = mongo.db.recipe.find()
     return render_template("edit_recipe.html", recipes=recipes)
 
 
-# Allow the user to go the edit page of a particular recipe
-@app.route("/recipe_update/<recipe_id>")
+@app.route("/recipe_update/<recipe_id>", methods=["GET", "POST"])
 def recipe_update(recipe_id):
+    if request.method == "POST":
+        submit = {
+            "meal_course": request.form.get("meal_course"),
+            "recipe_name": request.form.get("recipe_name"),
+            "description": request.form.get("description"),
+            "ingredients": request.form.getlist("ingredients"),
+            "method": request.form.getlist("method"),
+            "cooking_time": request.form.get("cooking_time"),
+            "prep_time": request.form.get("prep_time"),
+            "servings": request.form.get("servings"),
+            "create_by": request.form.get("create_by"),
+            "added_by": session["user"],
+            "day_added": request.form.get("day_added")
+        }
+        mongo.db.recipe.update({"_id": ObjectId(recipe_id)}, submit)
+        flash("Recipe has been Updated Successfully")
+
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("recipe_update.html", recipe=recipe)
+    courses = mongo.db.meal_courses.find().sort("meal_course", 1)
+    return render_template("recipe_update.html", recipe=recipe, courses=courses)
 
 
-# render recipe to be show/select for eliminate
 @app.route("/delete_recipe")
 def delete_recipe():
     recipes = mongo.db.recipe.find()
     return render_template("delete_recipe.html", recipes=recipes)
+
 
 # Allow user to pick a particular recipe to be deleted
 @app.route("/eliminate_recipe/<recipe_id>")

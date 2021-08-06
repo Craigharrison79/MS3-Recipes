@@ -14,8 +14,8 @@ $(document).ready(function(){
     $('.collapsible').collapsible();
     $('select').formSelect();
     $('.carousel').carousel({
-        fullWidth: true,
         indicators: true});
+    $('.modal').modal();
   
 
      /* Code used from Task Manager course material */

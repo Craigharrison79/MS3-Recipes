@@ -11,20 +11,32 @@
                 <!-- Collapsible card-->
                 <div class="collapsible-header">
                     <div class="col s1"><i class="fas fa-caret-down"></i></div>
-                    <div class="col s5">
+                    <div class="col s9">
                         <strong>{{ recipe.recipe_name.upper() }}</strong><br>
                         <span>Meal type: </span><em>{{ recipe.meal_course}}</em><br>
                         <span>Create by: </span><em>{{ recipe.create_by }}</em>
-                    </div>
-                    <!-- hyperlink button-->
-                    <div class="col s4">
-                        <a href="{{url_for('eliminate_recipe', recipe_id=recipe._id) }}"
-                            class="btn-small grey accent-4">Delete</a>
-                    </div>
+                    </div>  
                 </div>
                 <!-- Added information dropdown-->
                 <div class="collapsible-body">
-                    <span>{{ recipe.description}}</span></div>
+                    <span>{{ recipe.description}}</span>
+                    <div>
+                    <div class="row ">
+                        <br>
+                        <div class="col s1">
+                            <a href="{{url_for('eliminate_recipe', recipe_id=recipe._id) }}"
+                                class="btn-small grey accent-4">Delete</a>
+                        </div> 
+                    <!-- hyperlink button-->
+                    <div class="col s1 offset-m1">
+                        <a href="{{url_for('recipe_update', recipe_id=recipe._id) }}"
+                            class="btn-small grey accent-4">edit</a>
+                    </div> 
+                </div>
+                
+                    
+                    </div>
+                </div>
             </li>
             {% endfor %}
         </ul>
