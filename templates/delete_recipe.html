@@ -21,6 +21,7 @@
                 <div class="collapsible-body">
                     <span>{{ recipe.description}}</span>
                     <div>
+                        {% if session.user|lower == recipe.added_by|lower %}
                     <div class="row ">
                         <br>
                         <div class="col s1">
@@ -32,8 +33,9 @@
                         <a href="{{url_for('recipe_update', recipe_id=recipe._id) }}"
                             class="btn-small grey accent-4">edit</a>
                     </div> 
+                    
                 </div>
-                
+                {% endif %} 
                     
                     </div>
                 </div>
@@ -41,6 +43,12 @@
             {% endfor %}
         </ul>
     </div>
+</div>
+<div class="row center-align">
+    <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('recipes') }}">Recipe Page</a>
+    {% if session.user %}
+  <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
+  {% endif %}
 </div>
 
 {% endblock %}

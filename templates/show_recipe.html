@@ -1,0 +1,55 @@
+{%  extends  "base.html" %}
+
+{% block content %}
+
+<h2 class="center-align"> {{ recipe.recipe_name.upper() }} </h2>
+
+<div class="row">
+    <div class="col s10 m10 offset-m1">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://lorempixel.com/800/400/food/1">
+                <span class="card-title">By: {{ recipe.create_by }}</span>
+            </div>
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s8">
+                        <p>{{- recipe.description -}}</p>
+                    </div>
+                    <div class="col s2 right">
+                        <p>Cooking Time: {{ recipe.cooking_time }}</p>
+                        <p>Prep Time: {{ recipe.prep_time }}</p>
+                        <p>Servings: {{ recipe.servings }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-tabs">
+                <ul class="tabs tabs-fixed-width">
+                    <li class="tab"><a href="#test4">INGREDIENTS</a></li>
+                    <li class="tab"><a class="active" href="#test5">METHOD</a></li>
+                </ul>
+            </div>
+            <div class="card-content grey lighten-4">
+                <div id="test4">
+                    {{- recipe.ingredients -}}
+                </div>
+                <div id="test5">
+                    <div class="row">
+                        {{- recipe.method -}}
+                    </div>
+                    <div class="row">
+                        <span>Date Recipe was added: {{ recipe.day_added }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row center-align">
+                <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('recipes') }}">Back to Recipe</a>
+                {% if session.user %}
+                    <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

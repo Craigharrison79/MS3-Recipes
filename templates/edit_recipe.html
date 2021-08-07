@@ -1,7 +1,6 @@
 {%  extends  "base.html" %}
 
 {% block content %}
-<!-- Modal Trigger -->
 
 <h2 class="center-align"> Edit Recipe </h2>
 
@@ -37,6 +36,11 @@
     </div>
   </div>
 </div>
-
+<div class="row center-align">
+  <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('recipes') }}">Back to Recipe</a>
+  {% if session.user %}
+  <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
+  {% endif %}
+</div>
 
 {% endblock %}

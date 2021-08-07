@@ -90,6 +90,43 @@
 
   </main>
 
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="white-text" href="{{ url_for('home') }}">Home</a></li>
+            <li><a class="white-text" href="{{ url_for('recipes') }}">Recipes</a></li>
+          {% if session.user %}
+          <li><a class="white-text" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+          <li><a class="white-text" href="{{ url_for('logout') }}">Log Out</a></li>
+          {% else %}
+          <li><a class="white-text" href="{{ url_for('account') }}">Log In</a></li>
+          {% endif %}</ul>
+        
+          <p class="grey-text text-lighten-4">You can contact us on:
+            MPTinfo@mpt.com
+          </p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text"> Social Media Links</h5>
+          <ul class="social-links">
+            <li class="list-item"><a class="white-text" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i><span class="sr-only">Twitter</span></a></li>
+            <li class="list-item"><a class="white-text" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a></li>
+            <li class="list-item"><a class="white-text" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i><span class="sr-only">Instagram</span></a></li>
+            <li class="list-item"><a class="white-text" href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i><span class="sr-only">Youtube</span></a></li>
+        </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2014 Copyright Text
+      </div>
+    </div>
+  </footer>
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

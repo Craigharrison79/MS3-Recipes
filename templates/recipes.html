@@ -9,7 +9,7 @@
 
 <div class="row center-align">
     <!-- Recipe card 1-->
-    <div class="col s4  offset-s1">
+    <div class="col s4 offset-s2">
         <div class="card">
             <div class="card-image">
                 <img src="https://lorempixel.com/800/400/food/1">
@@ -19,7 +19,10 @@
                 <span class="card-title activator">{{ recipe.recipe_name }}<i
                         class="fas fa-info-circle right"></i></span>
                 <p>{{ recipe.description }}</p>
-            </div>
+                <br>
+                <a class="btn waves-effect white grey-text darken-text-2" href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">Go to Recipe</a>
+                
+                </div>
 
             <div class="card-reveal">
                 <span class="card-title">{{ recipe.recipe_name }}<i class="fas fa-times right"></i></span>
@@ -29,6 +32,7 @@
                     <p><span>Servings up to: </span> {{ recipe.servings }}</p>
                     <p><span>Added by: </span> {{ recipe.added_by }}</p>
                 </div>
+                <a class="btn waves-effect white grey-text darken-text-2" href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">Go to Recipe</a>
             </div>
 
         </div>
@@ -36,7 +40,7 @@
 
     {% else %}
     <!-- Recipe card 2-->
-    <div class="col s4  offset-s1">
+    <div class="col s4">
         <div class="card">
             <div class="card-image">
                 <img src="https://lorempixel.com/800/400/food/1">
@@ -46,6 +50,9 @@
                 <span class="card-title activator">{{ recipe.recipe_name }}<i
                         class="fas fa-info-circle right"></i></span>
                 <p>{{ recipe.description }}</p>
+                <br>
+                <a class="btn waves-effect white grey-text darken-text-2" href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">Go to Recipe</a>
+          
             </div>
             <div class="card-reveal">
                 <span class="card-title">{{ recipe.recipe_name }}<i class="fas fa-times right"></i></span>
@@ -55,6 +62,7 @@
                     <p><span>Serves up to: </span> {{ recipe.serves }}</p>
                     <p><span>Added by: </span> {{ recipe.added_by }}</p>
                 </div>
+                <a class="btn waves-effect white grey-text darken-text-2" href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">Go to Recipe</a>
             </div>
 
         </div>

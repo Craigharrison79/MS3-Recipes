@@ -29,6 +29,7 @@ def home():
 def account():
     return render_template("account.html")
 
+
 # Method to setup a new account
 @app.route("/new_account", methods=["GET", "POST"])
 def new_account():
@@ -114,6 +115,14 @@ def recipes():
     recipes = mongo.db.recipe.find()
     return render_template("recipes.html", recipes=recipes,
                             page_title="Recipes")
+
+
+@app.route("/show_recipe/<recipe_id>")
+def show_recipe(recipe_id):
+    recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
+    courses = mongo.db.meal_courses.find().sort("meal_course", 1)
+    return render_template("show_recipe.html", recipe=recipe, courses=courses)
+
 
 
 # allow user to add recipe and post them on the site. (must be login)
