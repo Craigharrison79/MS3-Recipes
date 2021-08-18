@@ -21,3 +21,7 @@ p {
 .icon-img i {
     padding: 20px;
 }
+
+.profile {
+    border-radius: 50%;
+}
