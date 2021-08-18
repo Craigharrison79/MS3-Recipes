@@ -93,7 +93,7 @@ def profile(username):
     # grab the session user's usernname from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
+  
     if session["user"]:
         return render_template("profile.html", username=username)
 
@@ -122,7 +122,6 @@ def show_recipe(recipe_id):
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     courses = mongo.db.meal_courses.find().sort("meal_course", 1)
     return render_template("show_recipe.html", recipe=recipe, courses=courses)
-
 
 
 # allow user to add recipe and post them on the site. (must be login)
@@ -178,7 +177,8 @@ def recipe_update(recipe_id):
 
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     courses = mongo.db.meal_courses.find().sort("meal_course", 1)
-    return render_template("recipe_update.html", recipe=recipe, courses=courses)
+    return render_template("recipe_update.html", recipe=recipe,
+                            courses=courses)
 
 
 @app.route("/delete_recipe")
@@ -199,4 +199,3 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)  # Change to False before submit the project
-

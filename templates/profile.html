@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h2 class="center-align">{{ username}}'s Profile</h2>
+<h2 class="center-align">{{ username }}'s Dashbroad</h2>
 
 <div class="row">
     <div class="col s10 m8 offset-m2">
@@ -73,18 +73,19 @@
 
             <!-- Edit card tab for settings slide up-->
             <div class="card-reveal">
+                
                 <span class="card-title grey-text text-darken-4">Edit Settings<i
                         class="fas fa-times-circle right"></i></span>
                 <div class="row">
                     <!-- First name-->
                     <div class="input-field col s6">
                         <i class="fas fa-user-edit prefix"></i>
-                        <input id="first_name" type="text" class="validate">
+                        <input id="first_name" name="first_name" type="text" class="validate" value="{{ username.first_name }}">
                         <label for="first_name">First Name</label>
                     </div>
                     <!-- Last name-->
                     <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
+                        <input id="last_name" name="last_name" type="text" class="validate">
                         <label for="last_name">Last Name</label>
                     </div>
                 </div>
@@ -92,12 +93,12 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="fas fa-weight prefix"></i>
-                        <input id="weight" type="text" class="validate">
+                        <input id="weight" name="weight" type="text" class="validate">
                         <label for="weight">Weight</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="fas fa-ruler prefix"></i>
-                        <input id="height" type="text" class="validate">
+                        <input id="height" name="height" type="text" class="validate">
                         <label for="height">Height</label>
                     </div>
                 </div>
@@ -115,7 +116,8 @@
                         </button>
                     </div>
                 </div>
+            
             </div>
         </div>
-
+        
 {% endblock %}

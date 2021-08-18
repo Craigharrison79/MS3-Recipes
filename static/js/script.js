@@ -46,5 +46,45 @@ $(document).ready(function(){
                 });
             }
         });
-    }
+    } 
   });
+
+/* Checking password and confirm Password are the same */
+function Validate() {
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+    if (password != confirmPassword) {
+        alert("Passwords do not match!");
+        return false;
+    }
+    return true;
+}
+
+
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_password 
+
+Showing Password Input */
+function showPassword() {
+    let p = document.getElementById("password");
+    if (p.type  === "password") {
+        p.type = "text";
+    } else {
+        p.type = "password";
+    } 
+    let cp = document.getElementById("confirmPassword");
+    if (cp.type === "password") {
+        cp.type = "text";
+    } else {
+        cp.type = "password";
+    } 
+}
+
+function loginPassword() {
+    let pEnter = document.getElementById("password_enter");
+    if (pEnter.type === "password") {
+        pEnter.type = "text";
+    } else {
+        pEnter.type = "password";
+    } 
+}
+

@@ -1,3 +1,7 @@
+p {
+    font-size: 22px;
+}
+
 .brand-logo {
     margin-left: 30px;
 }
@@ -8,4 +12,12 @@
 
 .margin-20px {
     margin-bottom: 20px;
+}
+
+.icon-img {
+    font-size: 40px;
+}
+
+.icon-img i {
+    padding: 20px;
 }
