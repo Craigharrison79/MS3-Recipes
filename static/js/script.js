@@ -16,6 +16,8 @@ $(document).ready(function(){
     $('.carousel').carousel({
         indicators: true});
     $('.modal').modal();
+    
+    });
   
 
      /* Code used from Task Manager course material */
@@ -87,4 +89,32 @@ function loginPassword() {
         pEnter.type = "password";
     } 
 }
+
+const form = document.querySelector("form");
+const table = document.getElementById("IngredientsTable");
+
+function addRow(e) {
+    e.preventDefault();
+    var tbody = document.getElementById("addIngredientsRow");
+    
+    const inputIngredient = document.getElementById("ingredients").value;
+    tbody.innerHTML += `
+        <tr>
+            <td>${inputIngredient}</td>
+            <td><button class="deleteBtn">Delete</button></td>
+        </tr>
+        `;
+}
+
+function deleteRow(e) {
+    if (!e.target.classList.contains("deleteBtn")) {
+        return;
+    }
+
+    const btn = e.target;
+    btn.closest("tr").remove()
+}
+
+form.addEventListener("submit", addRow);
+table.addEventListener("click", deleteRow);
 

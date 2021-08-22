@@ -36,15 +36,34 @@
           <textarea id="description" name="description" text="text" class="materialize-textarea"></textarea>
           <label for="description">Description</label>
         </div>
-      </div>
+      </div>       
       <!-- Ingredients-->
-      <div class="row">
-        <div class="input-field col s12">
+      <div class="row" id="ingredientsForm">
+        <div class="input-field col s5">
           <i class="fas fa-clipboard-list prefix"></i>
-          <textarea id="ingredients" name="ingredients" text="text" class="materialize-textarea"></textarea>
+          <input id="ingredients" name="ingredients" type="text" class="validate" onfocus="this.value=''">
           <label for="ingredients">Ingredients</label>
         </div>
+        <div class="input-field col s2">
+          <button onclick="addRow()" class="btn waves-effect white grey-text darken-text-2">
+            Add
+          </button>
+        </div>
+        <div class="col s5">
+          <table id="IngredientsTable">
+            <thead>
+              <tr>
+                <th>Ingredients</th>
+              </tr>
+            </thead>
+            <tbody id="addIngredientsRow">
+              <!-- Ingredients list will insert here -->
+            </tbody>
+          </table>
+        </div>
       </div>
+      
+      
       <!-- Method-->
       <div class="row">
         <div class="input-field col s12">
@@ -53,6 +72,7 @@
           <label for="method">Method</label>
         </div>
       </div>
+      
       <!-- Cooking time-->
       <div class="row">
         <div class="input-field col s3 offset-s1">
