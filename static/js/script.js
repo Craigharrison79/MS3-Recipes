@@ -16,8 +16,6 @@ $(document).ready(function(){
     $('.carousel').carousel({
         indicators: true});
     $('.modal').modal();
-    
-    });
   
 
      /* Code used from Task Manager course material */
