@@ -16,8 +16,8 @@ $(document).ready(function(){
     $('.carousel').carousel({
         indicators: true});
     $('.modal').modal();
-  
 
+    
      /* Code used from Task Manager course material */
 
      validateMaterializeSelect();
@@ -88,31 +88,39 @@ function loginPassword() {
     } 
 }
 
-const form = document.querySelector("form");
-const table = document.getElementById("IngredientsTable");
-
-function addRow(e) {
-    e.preventDefault();
-    var tbody = document.getElementById("addIngredientsRow");
-    
-    const inputIngredient = document.getElementById("ingredients").value;
-    tbody.innerHTML += `
-        <tr>
-            <td>${inputIngredient}</td>
-            <td><button class="deleteBtn">Delete</button></td>
-        </tr>
-        `;
+function addRow() {
+	var table = document.getElementById('ingredientsRow');
+	var rowNumber = table.rows.length;
+	var cellCount = table.rows[0].cells.length; 
+    var row = table.insertRow(rowNumber);
+    for(var i =0; i <= cellCount; i++){
+        var cell = 'cell'+i;
+		cell = row.insertCell(i);
+		var copycel = document.getElementById('col'+i).innerHTML;
+		cell.innerHTML=copycel;
+    }
 }
 
-function deleteRow(e) {
-    if (!e.target.classList.contains("deleteBtn")) {
-        return;
+function deleteRow() {
+    const TABLE = document.getElementById('ingredientsRow');
+    let rowNumber = TABLE.rows.length;
+    if (rowNumber > '1'){
+        let row = TABLE.deleteRow(rowNumber-1);
+        rowNumber--;
+    } else{
+        alert("Cannot Delete Exercise");
+    }
+}
+
+/* https://stackoverflow.com/questions/33513557/delete-dynamically-created-rows-in-javascript */
+function deleteEditedRow(link) {
+    var row = link.parentNode.parentNode;
+     var table = row.parentNode; 
+     table.removeChild(row);
     }
 
-    const btn = e.target;
-    btn.closest("tr").remove()
+function addExtraIngredients() {
+    let extraTable = document.getElementById("extraTable");
+    extraTable.style.display = 'block'
 }
-
-form.addEventListener("submit", addRow);
-table.addEventListener("click", deleteRow);
 

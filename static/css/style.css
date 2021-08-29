@@ -25,3 +25,7 @@ p {
 .profile {
     border-radius: 50%;
 }
+
+#extraTable {
+    display:  none;
+}

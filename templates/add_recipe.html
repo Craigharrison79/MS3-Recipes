@@ -38,28 +38,27 @@
         </div>
       </div>       
       <!-- Ingredients-->
-      <div class="row" id="ingredientsForm">
-        <div class="input-field col s5">
-          <i class="fas fa-clipboard-list prefix"></i>
-          <input id="ingredients" name="ingredients" type="text" class="validate" onfocus="this.value=''">
-          <label for="ingredients">Ingredients</label>
-        </div>
-        <div class="input-field col s2">
-          <button onclick="addRow()" class="btn waves-effect white grey-text darken-text-2">
-            Add
-          </button>
-        </div>
-        <div class="col s5">
-          <table id="IngredientsTable">
-            <thead>
-              <tr>
-                <th>Ingredients</th>
-              </tr>
-            </thead>
-            <tbody id="addIngredientsRow">
-              <!-- Ingredients list will insert here -->
-            </tbody>
-          </table>
+      <div class="row">
+        <table id="ingredientsRow">
+          <div class="row">
+            <div class="col s10">
+              <tbody>
+                <tr>
+                  <td id="col0" class="input-field">
+                    <i class="fas fa-clipboard-list prefix"></i>
+                    <input id="ingredients" name="ingredients" type="text" class="validate">
+                    <label for="ingredients">Ingredients</label>
+                  </td>
+                </tr>
+              </tbody>
+            </div>
+          </div>       
+        </table>
+        <div class="row">
+          <div class="col s10 offset-s4">
+              <input type="button" name="add" id="add" value="Add Ingredient" onclick="addRow()" class="btn waves-effect white grey-text darken-text-2">
+              <input type="button" name="remove" id="remove" value="Delete Ingredient" onclick="deleteRow()" class="btn waves-effect white grey-text darken-text-2">
+          </div>
         </div>
       </div>
       
@@ -113,8 +112,9 @@
             <!-- submit button -->
             <div class="row">
               <div class="col s12 center-align">
-                <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                  Add Task <i class="fas fa-plus-square right"></i>
+                <button type="submit" class="btn-large light-blue darken-1 text-shadow" id="save"
+                href="{{ url_for('recipes') }}">
+                  Add Recipe<i class="fas fa-plus-square right"></i>
                 </button>
               </div>
             </div>

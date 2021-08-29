@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Edit Task</h3>
+<h3 class="light-blue-text text-darken-4 center-align">Edit Recipe</h3>
 
 <div class="row">
   <div class="col s10 m8 grey lighten-5 offset-m2">
@@ -15,11 +15,11 @@
           <select id="meal_course" name="meal_course" class="validate" required>
             <option value="" disabled>Choose your option</option>
             {% for course in courses %}
-              {% if course.meal_course == recipe.meal_course %}
-                <option value="{{ course.meal_course }}" selected>{{ course.meal_course }}</option>
-              {% else %}
-                <option value="{{ course.meal_course }}">{{ course.meal_course }}</option>
-              {% endif %}
+            {% if course.meal_course == recipe.meal_course %}
+            <option value="{{ course.meal_course }}" selected>{{ course.meal_course }}</option>
+            {% else %}
+            <option value="{{ course.meal_course }}">{{ course.meal_course }}</option>
+            {% endif %}
             {% endfor %}
           </select>
           <label for="meal_course">Type of Dish</label>
@@ -43,14 +43,55 @@
           <label for="description">Description</label>
         </div>
       </div>
-      <!-- Ingredients-->
+      <!-- Ingredients table -->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-clipboard-list prefix"></i>
-          <textarea id="ingredients" name="ingredients" text="text" class="materialize-textarea">
-            {{- recipe.ingredients -}}
-          </textarea>
-          <label for="ingredients">Ingredients</label>
+          <table id="ingredientsTable">
+            <tr>
+              <td>
+                {% for ingredient in recipe.ingredients %}
+                <div id="ingredientsTable">
+                  <div class="col s8">
+                  <label for="ingredients">Ingredients</label>
+                  <textarea id="ingredients" name="ingredients" text="text" class="materialize-textarea">
+                    {{- ingredient -}}
+                </textarea>
+                  </div>
+                  <div class="cols2">
+                <button onclick="deleteEditedRow(this);" class="btn waves-effect white grey-text darken-text-2 right">Delete</button>
+                </div>
+                {% endfor %}
+              <td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col s10 offset-s4">
+        <a type="button" class="btn waves-effect white grey-text darken-text-2" onclick="addExtraIngredients()">Add
+          Ingredients</a>
+      </div>
+      <!-- To Add Ingredients -->
+      <div class="row" id="extraTable">
+        <table id="ingredientsRow">
+          <div class="row">
+            <div class="col s10">
+              <tbody>
+                <tr>
+                  <td id="col0" class="input-field">
+                    <i class="fas fa-clipboard-list prefix"></i>
+                    <input id="ingredients" name="ingredients" type="text" class="validate">
+                    <label for="ingredients">Ingredients</label>
+                  </td>
+                </tr>
+              </tbody>
+            </div>
+          </div>       
+        </table>
+        <div class="row">
+          <div class="col s10 offset-s4">
+              <input type="button" name="add" id="add" value="Add" onclick="addRow()" class="btn waves-effect white grey-text darken-text-2">
+              <input type="button" name="remove" id="remove" value="Delete" onclick="deleteRow()" class="btn waves-effect white grey-text darken-text-2">
+          </div>
         </div>
       </div>
       <!-- Method-->
@@ -96,25 +137,29 @@
             <div class="row">
               <div class="input-field col s5">
                 <i class="fas fa-calendar-alt prefix"></i>
-                <input id="day_added" name="day_added" type="text" name="day_added" value="{{ recipe.day_added }}" class="datepicker valiadate">
+                <input id="day_added" name="day_added" type="text" name="day_added" value="{{ recipe.day_added }}"
+                  class="datepicker valiadate">
                 <label for="day_added">Day added</label>
               </div>
             </div>
             <!-- submit button -->
             <div class="row">
               <div class="col s12 center-align">
-                <button type="submit" onclick="return confirm('Press OK to edit this Recipe');" class="btn-large light-blue darken-1 text-shadow">
-                  Edit Task <i class="fas fa-plus-square right"></i>
+                <button type="submit" onclick="return confirm('Press OK to edit this Recipe');"
+                  class="btn-large light-blue darken-1 text-shadow">
+                  Edit Recipe <i class="fas fa-plus-square right"></i>
                 </button>
               </div>
             </div>
-          </form>
+    </form>
   </div>
 </div>
 <div class="row center-align">
-  <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('recipes') }}">Back to Recipe</a>
+  <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('recipes') }}">Back to
+    Recipe</a>
   {% if session.user %}
-  <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
+  <a class="btn waves-effect white grey-text darken-text-2 margin-20px"
+    href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
   {% endif %}
 </div>
 
