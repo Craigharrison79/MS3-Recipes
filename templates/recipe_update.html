@@ -58,7 +58,7 @@
                 </textarea>
                   </div>
                   <div class="cols2">
-                <button onclick="deleteEditedRow(this);" class="btn waves-effect white grey-text darken-text-2 right">Delete</button>
+                <button onclick="rowDelete(this);" class="btn waves-effect white grey-text darken-text-2 right">Delete</button>
                 </div>
                 {% endfor %}
               <td>
@@ -94,7 +94,61 @@
           </div>
         </div>
       </div>
-      <!-- Method-->
+      <!-- Method Try-->
+      <div class="row">
+        <div class="input-field col s12">
+          <table id="methodTable">
+            <tr>
+              <td>
+                {% for m in recipe.method %}
+                <div id="methodTable">
+                  <div class="col s8">
+                    <i class="fas fa-book-reader prefix"></i>
+                    <label for="method">Method</label>
+                    <textarea id="method" name="method" text="text" class="materialize-textarea">
+                      {{- m -}}
+                    
+                </textarea>
+                  </div>
+                  <div class="cols2">
+                <button onclick="rowDelete(this);" class="btn waves-effect white grey-text darken-text-2 right">Delete</button>
+                </div>
+                {% endfor %}
+              <td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col s10 offset-s4">
+        <a type="button" class="btn waves-effect white grey-text darken-text-2" onclick="addExtraMethod()">Add
+          Ingredients</a>
+      </div>
+      <!-- To Add Method -->
+      <div class="row" id="extraMethodTable">
+        <table id="methodRow">
+          <div class="row">
+            <div class="col s10">
+              <tbody>
+                <tr>
+                  <td id="column0" class="input-field">
+                    <i class="fas fa-book-reader prefix"></i>
+                    <textarea id="method" name="method" text="text" class="materialize-textarea"></textarea>
+                    <label for="method">Method</label>
+                  </td>
+                </tr>
+              </tbody>
+            </div>
+          </div>       
+        </table>
+        <div class="row">
+          <div class="col s10 offset-s4">
+            <input type="button" name="addMethod" id="addMethod" value="Add" onclick="addMethodRow()"
+            class="btn waves-effect white grey-text darken-text-2">
+          <input type="button" name="removeMethod" id="removeMethod" value="Delete" onclick="removeMethodRow()"
+            class="btn waves-effect white grey-text darken-text-2"></div>
+        </div>
+      </div>
+      <!-- Method
       <div class="row">
         <div class="input-field col s12">
           <i class="fas fa-book-reader prefix"></i>
@@ -103,7 +157,7 @@
           </textarea>
           <label for="method">Method</label>
         </div>
-      </div>
+      </div> -->
       <!-- Cooking time-->
       <div class="row">
         <div class="input-field col s3 offset-s1">

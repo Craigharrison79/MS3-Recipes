@@ -25,32 +25,40 @@
             </div>
             <div class="card-tabs">
                 <ul class="tabs tabs-fixed-width">
-                    <li class="tab"><a href="#test4">INGREDIENTS</a></li>
-                    <li class="tab"><a class="active" href="#test5">METHOD</a></li>
+                    <li class="tab"><a href="#ingredinets">INGREDIENTS</a></li>
+                    <li class="tab"><a class="active" href="#method">METHOD</a></li>
                 </ul>
             </div>
             <div class="card-content grey lighten-4">
-                <div id="test4">
+                <div id="ingredinets">
                     <ul>
-                    {% for ingredient in recipe.ingredients %}
-                    
-                    <li>{{- ingredient -}}</li>
-                    {% endfor %}
-                </ul>
-                    </div>
-                <div id="test5">
+                        {% for ingredient in recipe.ingredients %}
+                        <li>{{- ingredient -}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div id="method">
                     <div class="row">
-                        {{- recipe.method -}}{{- recipe.ingredients -}}
-                    </div>
-                    <div class="row">
-                        <span>Date Recipe was added: {{ recipe.day_added }}</span>
+                        <div class="col s12">
+                            <ul>
+                                {% for m in recipe.method %}
+                                <li>{{- m -}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <span>Date Recipe was added: {{ recipe.day_added }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="row center-align">
-                <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('recipes') }}">Back to Recipe</a>
+                <a class="btn waves-effect white grey-text darken-text-2 margin-20px"
+                    href="{{ url_for('recipes') }}">Back to Recipe</a>
                 {% if session.user %}
-                    <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
+                <a class="btn waves-effect white grey-text darken-text-2 margin-20px"
+                    href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
                 {% endif %}
             </div>
         </div>

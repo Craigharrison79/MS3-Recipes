@@ -108,19 +108,49 @@ function deleteRow() {
         let row = TABLE.deleteRow(rowNumber-1);
         rowNumber--;
     } else{
-        alert("Cannot Delete Exercise");
+        alert("Cannot Delete Ingredients");
     }
 }
 
-/* https://stackoverflow.com/questions/33513557/delete-dynamically-created-rows-in-javascript */
-function deleteEditedRow(link) {
-    var row = link.parentNode.parentNode;
-     var table = row.parentNode; 
-     table.removeChild(row);
-    }
 
+function addMethodRow() {
+	var table = document.getElementById('methodRow');
+	var rowNum = table.rows.length;
+	var methodCellCount = table.rows[0].cells.length; 
+    var row = table.insertRow(rowNum);
+    for(var i =0; i <= methodCellCount; i++){
+        var cell = 'cell'+i;
+		cell = row.insertCell(i);
+		var copycel = document.getElementById('column'+i).innerHTML;
+		cell.innerHTML=copycel;
+    }
+} 
+
+function removeMethodRow() {
+    var table = document.getElementById('methodRow');
+    let rowNum = table.rows.length;
+    if (rowNum > '1'){
+        let row = table.deleteRow(rowNum-1);
+        rowNum--;
+    } else{
+        alert("Cannot Delete Ingredients");
+    }
+}
+/* Adding row for updating Recipe */
 function addExtraIngredients() {
     let extraTable = document.getElementById("extraTable");
     extraTable.style.display = 'block'
 }
 
+function addExtraMethod() {
+    let extraMethodTable = document.getElementById("extraMethodTable");
+    extraMethodTable.style.display = 'block'
+}
+
+
+/* Delete the add rows for Ingredients and Method */
+function rowDelete(link) {
+    var row = link.parentNode.parentNode;
+     var table = row.parentNode; 
+     table.removeChild(row);
+}
