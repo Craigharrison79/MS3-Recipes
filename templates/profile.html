@@ -6,10 +6,10 @@
 
 <div class="row">
     <div class="col s10 m8 offset-m2">
-        <div class="card">
+        <div class="card teal panel">
             <!-- Profile main card page-->
             <div class="card-content">
-                <h3 class="card-title activator center-align">Dashbroad<i class="fas fa-user-cog right"></i></h3>
+                <h3 class="card-title activator center-align">Dashbroad</h3>
                 <div class="row">
                     <img src="https://i.pinimg.com/originals/73/16/f5/7316f550de9ca0045e3d8d98a5bb5e44.png" width="110" height="110"
                         alt="default user profile avatar" class="profile">
@@ -32,7 +32,7 @@
                 <!-- Tabs for adding, updating and delete recipe-->
                 <div class="row">
                     <div class="col s12">
-                        <ul class="tabs">
+                        <ul class="tabs teal">
                             <li class="disabled"><a class="active" href="#test3"></a></li>
                             <li class="tab col s4"><a href="#test1">Create recipe</a></li>
                             <li class="tab col s4"><a href="#test2">Update recipe</a></li>
@@ -45,7 +45,7 @@
                     </div>
                     <div id="test1" class="col s12 center-align">
                         <h5>Click the button to <span>ADD</span> a recipe to the database</h5>
-                        <a class="btn waves-effect white grey-text darken-text-2 left"
+                        <a class="btn waves-effect white grey-text darken-text-2 left panel"
                             href="{{ url_for('add_recipe') }}">button</a>
                     </div>
                     <div id="test2" class="col s12 center-align">
@@ -60,55 +60,4 @@
                     </div>
                 </div>
             </div>
-
-
-            <!-- Edit card tab for settings slide up-->
-            <div class="card-reveal">
-                
-                <span class="card-title grey-text text-darken-4">Edit Settings<i
-                        class="fas fa-times-circle right"></i></span>
-                <div class="row">
-                    <!-- First name-->
-                    <div class="input-field col s6">
-                        <i class="fas fa-user-edit prefix"></i>
-                        <input id="first_name" name="first_name" type="text" class="validate" value="{{ username.first_name }}">
-                        <label for="first_name">First Name</label>
-                    </div>
-                    <!-- Last name-->
-                    <div class="input-field col s6">
-                        <input id="last_name" name="last_name" type="text" class="validate">
-                        <label for="last_name">Last Name</label>
-                    </div>
-                </div>
-                <!-- Weight and height-->
-                <div class="row">
-                    <div class="input-field col s6">
-                        <i class="fas fa-weight prefix"></i>
-                        <input id="weight" name="weight" type="text" class="validate">
-                        <label for="weight">Weight</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <i class="fas fa-ruler prefix"></i>
-                        <input id="height" name="height" type="text" class="validate">
-                        <label for="height">Height</label>
-                    </div>
-                </div>
-                <!-- Day of Birthday-->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fas fa-calendar-alt prefix"></i>
-                        <input id="birthdate" name="birthdate" type="text" class="datepicker validate" required>
-                        <label for="birthdate">birthdate</label>
-                    </div>
-                    <!-- Update profile button-->
-                    <div class="row">
-                        <button type="submit" class="col s4 offset-m4 btn-large light-blue darken-4 text-shadow">
-                            Update <i class="fas fa-edit"></i>
-                        </button>
-                    </div>
-                </div>
-            
-            </div>
-        </div>
-        
 {% endblock %}

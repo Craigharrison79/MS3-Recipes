@@ -3,6 +3,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from functools import wraps
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -16,6 +17,18 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+
+# Code from mentor Felipe Souza Alarcon
+# Decorators
+def login_required(test):
+    @wraps(test)
+    def wrap(*args, **kwargs):
+        if 'user' in session:
+            return test(*args, **kwargs)
+        else:
+            flash('You must log in first')
+            return redirect(url_for("login"))
+    return wrap
 
 
 @app.route("/")
@@ -89,6 +102,7 @@ def login():
 
 # Render profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
+@login_required
 def profile(username):
     # grab the session user's usernname from db
     username = mongo.db.users.find_one(
@@ -102,6 +116,7 @@ def profile(username):
 
 # log user out of profile
 @app.route("/logout")
+@login_required
 def logout():
     # Remove user from session cookies
     flash("You have been logged out")
@@ -117,6 +132,14 @@ def recipes():
                             page_title="Recipes")
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipe.find({"$text": {"$search": query}}))
+    return render_template("recipes.html", recipes=recipes,
+                            page_title="Recipes")
+
+
 @app.route("/show_recipe/<recipe_id>")
 def show_recipe(recipe_id):
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
@@ -126,6 +149,7 @@ def show_recipe(recipe_id):
 
 # allow user to add recipe and post them on the site. (must be login)
 @app.route("/add_recipe", methods=["GET", "POST"])
+@login_required
 def add_recipe():
     if request.method == "POST":
         meal = {
@@ -151,12 +175,14 @@ def add_recipe():
 
 # render recipe to be selected to edit
 @app.route("/edit_recipe", methods=["GET", "POST"])
+@login_required
 def edit_recipe():
     recipes = mongo.db.recipe.find()
     return render_template("edit_recipe.html", recipes=recipes)
 
 
 @app.route("/recipe_update/<recipe_id>", methods=["GET", "POST"])
+@login_required
 def recipe_update(recipe_id):
     if request.method == "POST":
         submit = {
@@ -182,6 +208,7 @@ def recipe_update(recipe_id):
 
 
 @app.route("/delete_recipe")
+@login_required
 def delete_recipe():
     recipes = mongo.db.recipe.find()
     return render_template("delete_recipe.html", recipes=recipes)
@@ -189,6 +216,7 @@ def delete_recipe():
 
 # Allow user to pick a particular recipe to be deleted
 @app.route("/eliminate_recipe/<recipe_id>")
+@login_required
 def eliminate_recipe(recipe_id):
     mongo.db.recipe.remove({"_id": ObjectId(recipe_id)})
     flash("Task Successfully Deleted")
