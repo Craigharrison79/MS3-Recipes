@@ -6,12 +6,12 @@
 
 <div class="row">
     <div class="col s10 m10 offset-m1">
-        <div class="card">
+        <div class="card teal panel">
             <div class="card-image">
                 <img src="https://lorempixel.com/800/400/food/1">
                 <span class="card-title">By: {{ recipe.create_by }}</span>
             </div>
-            <div class="card-content">
+            <div class="card-content teal">
                 <div class="row">
                     <div class="col s8">
                         <p>{{- recipe.description -}}</p>
@@ -25,11 +25,11 @@
             </div>
             <div class="card-tabs">
                 <ul class="tabs tabs-fixed-width">
-                    <li class="tab"><a href="#ingredinets">INGREDIENTS</a></li>
-                    <li class="tab"><a class="active" href="#method">METHOD</a></li>
+                    <li class="tab teal "><a href="#ingredinets">INGREDIENTS</a></li>
+                    <li class="tab teal gold-color"><a class="active" href="#method">METHOD</a></li>
                 </ul>
             </div>
-            <div class="card-content grey lighten-4">
+            <div class="card-content teal">
                 <div id="ingredinets">
                     <ul>
                         {% for ingredient in recipe.ingredients %}
@@ -54,10 +54,10 @@
                 </div>
             </div>
             <div class="row center-align">
-                <a class="btn waves-effect white grey-text darken-text-2 margin-20px"
+                <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel"
                     href="{{ url_for('recipes') }}">Back to Recipe</a>
                 {% if session.user %}
-                <a class="btn waves-effect white grey-text darken-text-2 margin-20px"
+                <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel"
                     href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
                 {% endif %}
             </div>

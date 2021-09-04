@@ -2,7 +2,28 @@
     color: rgb(143, 130, 56);
 }
 
+.tabs .tab a {
+    color: black;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+    color: black;
+}
+
+.off-white-background {
+    background-color: rgb(233, 233, 233);
+}
+
 .white {
+    color: white;
+}
+
+.fas {
+    color: rgb(0, 128, 128);
+
+}
+
+.nav-bars-color {
     color: white;
 }
 
@@ -10,6 +31,21 @@ p {
     font-size: 22px;
     color: white;
 }
+
+.visible-text {
+    font-size: 36px;
+    color: teal;
+    background-color: #191818 ;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+ul li {
+    color: white;
+    font-size: 18px;
+}
+
+
 
 .brand-logo {
     margin-left: 30px;
@@ -31,8 +67,17 @@ p {
     padding: 20px;
 }
 
+td i {
+    font-size: 25px;
+}
+
 .profile {
     border-radius: 50%;
+}
+
+.profile-img {
+    font-size: 100px;
+    margin: 30px;
 }
 
 #extraTable {

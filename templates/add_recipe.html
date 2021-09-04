@@ -2,10 +2,12 @@
 
 {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Add Recipe</h3>
+<h3 class="gold-color center-align">Add Recipe</h3>
 
 <div class="row">
-  <div class="col s10 m8 grey lighten-5 offset-m2">
+  <div class="col s10 m8 lighten-5 offset-m2 card-panel">
+    <div class="row">
+      <div class="col s10 offset-m1">
     <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
       <!-- category selection -->
       <br>
@@ -58,9 +60,9 @@
           <div class="col s10">
 
             <input type="button" name="add" id="add" value="Add" onclick="addRow()"
-              class="btn waves-effect white grey-text darken-text-2">
+              class="btn teal white-text margin-20px panel">
             <input type="button" name="remove" id="remove" value="Delete" onclick="deleteRow()"
-              class="btn waves-effect white grey-text darken-text-2">
+              class="btn teal white-text darken-text-2 margin-20px panel">
           </div>
         </div>
       </div>
@@ -85,23 +87,12 @@
           <div class="col s10">
 
             <input type="button" name="addMethod" id="addMethod" value="Add" onclick="addMethodRow()"
-              class="btn waves-effect white grey-text darken-text-2">
+              class="btn teal white-text darken-text-2 margin-20px panel">
             <input type="button" name="removeMethod" id="removeMethod" value="Delete" onclick="removeMethodRow()"
-              class="btn waves-effect white grey-text darken-text-2">
+              class="btn teal white-text darken-text-2 margin-20px panel">
           </div>
         </div>
       </div> 
-  
-
-  <!-- Method 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="fas fa-book-reader prefix"></i>
-          <textarea id="method" name="method" text="text" class="materialize-textarea"></textarea>
-          <label for="method">Method</label>
-        </div>
-      </div>
-      -->
   <!-- Cooking time-->
   <div class="row">
     <div class="input-field col s3 offset-s1">
@@ -142,20 +133,22 @@
         <!-- submit button -->
         <div class="row">
           <div class="col s12 center-align">
-            <button type="submit" class="btn-large light-blue darken-1 text-shadow" id="save"
+            <button type="submit" class="btn waves-effect teal white-text darken-text-2 panel" id="save"
               href="{{ url_for('recipes') }}">
-              Add Recipe<i class="fas fa-plus-square right"></i>
+              Add Recipe<i class="fas fa-plus-square white-text right"></i>
             </button>
           </div>
         </div>
         </form>
       </div>
     </div>
+      </div>
+    </div>
     <div class="row center-align">
-      <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('recipes') }}">Back to
+      <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel" href="{{ url_for('recipes') }}">Back to
         Recipe</a>
       {% if session.user %}
-      <a class="btn waves-effect white grey-text darken-text-2 margin-20px"
+      <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel"
         href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
       {% endif %}
     </div>

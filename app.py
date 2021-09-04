@@ -132,6 +132,7 @@ def recipes():
                             page_title="Recipes")
 
 
+# Search
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -140,6 +141,7 @@ def search():
                             page_title="Recipes")
 
 
+# Show recipe on page
 @app.route("/show_recipe/<recipe_id>")
 def show_recipe(recipe_id):
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})

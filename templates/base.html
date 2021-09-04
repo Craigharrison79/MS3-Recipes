@@ -16,13 +16,13 @@
   <title>MPT Recipes</title>
 </head>
 
-<body>
+<body class="off-white-background">
   <header>
     <!-- Navbar -->
     <nav class="nav-extended teal">
       <div class="nav-wrapper">
         <a href="{{ url_for('home') }}" class="brand-logo">MPT Recipes</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars nav-bars-color"></i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <!--<li><a class="dropdown-trigger" href="#!" data-target="sidenav-dropdown">Recipes</a></li>-->
@@ -37,15 +37,6 @@
       </div>
     </nav>
 
-    <!-- Dropdown Structure Recipes on Desktop
-      <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">Breakfast</a></li>
-        <li><a href="#!">Main Dish</a></li>
-        <li><a href="#!">Snack</a></li>
-        <li><a href="#!">Dessert</a></li>
-      </ul>-->
-
-
     <!-- Mobile navbar -->
     <ul class="sidenav" id="mobile-demo">
       <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -58,14 +49,7 @@
       <li><a href="{{ url_for('account') }}">Log In</a></li>
       {% endif %}
     </ul>
-    <!-- Dropdown Structure Recipes on Mobile
-      <ul id="sidenav-dropdown" class="dropdown-content">
-        <li><a href="#!">Breakfast</a></li>
-        <li><a href="#!">Main Dish</a></li>
-        <li><a href="#!">Snack</a></li>
-        <li><a href="#!">Dessert</a></li>
-      </ul>-->
-
+    
   </header>
 
   <section>
