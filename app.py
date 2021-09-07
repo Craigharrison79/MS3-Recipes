@@ -157,6 +157,7 @@ def add_recipe():
         meal = {
             "meal_course": request.form.get("meal_course"),
             "recipe_name": request.form.get("recipe_name"),
+            "img": request.form.get("img"),
             "description": request.form.get("description"),
             "ingredients": request.form.getlist("ingredients"),
             "method": request.form.getlist("method"),
@@ -190,6 +191,7 @@ def recipe_update(recipe_id):
         submit = {
             "meal_course": request.form.get("meal_course"),
             "recipe_name": request.form.get("recipe_name"),
+            "img": request.form.get("img"),
             "description": request.form.get("description"),
             "ingredients": request.form.getlist("ingredients"),
             "method": request.form.getlist("method"),
@@ -223,6 +225,14 @@ def eliminate_recipe(recipe_id):
     mongo.db.recipe.remove({"_id": ObjectId(recipe_id)})
     flash("Task Successfully Deleted")
     return redirect(url_for("delete_recipe"))
+
+
+@app.route("/contact_us", methods=["GET", "POST"])
+def contact():
+    if request.method == "POST":
+        flash("Thanks {}, we have received your message!".format(
+            request.form.get("name")))
+    return render_template("contact_us.html", page_title="Contact Us")
 
 
 if __name__ == "__main__":

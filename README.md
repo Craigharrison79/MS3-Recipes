@@ -1,9 +1,9 @@
-# [MPT Food Recipes](https://)
+# [MPT Food Recipes](https://ms3-recipes-site.herokuapp.com/)
 
 Third Project for my Diploma Course with the Code Institute, I read a suggestion/idea in the outline section to the milestone project.  As I work as a Personal Trainer I have lots of food recipes and always getting ask about ideas for meals to eat.  Build this site will give me a way of archiving the recipes and allow my clients to see and read them while allowing them to share any recipes or ideas with  other people.
 
-[MPT Food Recipes](https://)
-![MPT Food Recipes]()
+![MPT Food Recipes](documentation/design/Am-I-Responsive.png)
+View the site: [MPT Food Recipes](https://ms3-recipes-site.herokuapp.com/)
 
 ## Table of Content
 
@@ -154,22 +154,28 @@ I wanted to use teal as my navbar and overall color, with Spanish Bistre as my h
     - A clean inviting page to indicate what site the user is looking at.
     - Simple brake down on the site and how it works.
     - A quickly way to find the recipe you are looking for or the ingredients you are looking to cook with.
+    - Collapsible navbar on mobile devices for better visibility.
 
 - #### Recipe page
 
-    - 
+    - Search bar to quickly find any recipe with a the uses of keywords.
+    - A clear look to the recipe cards with image, name of the recipe and a short description on the recipe.
+    - A icon on the card which will show more information about the recipe as well as button link to main page showing all the information on the recipe.
 
-- #### Login /  Sign Up page
 
-    - 
+- #### Login / Sign Up page
+
+    - Login and sign up on one page using tabs to switch bewteen each section.
+    - A toggle button to show the password to help the users enter the code.
+    - On sign up page the user will have to Confirm Password before sign up, this will stop the users enter a different password to the one they think they are entering.
 
 - #### Log Out
 
-    - 
+    - Once login an log out option will appear in the navbar.
 
 - #### Profile page
 
-    - 
+    - On the users dashboard / profile page the option to create / update and delete recipes.  But only update / delete that the user has created. 
 
 - #### CRAD Features
 
@@ -182,6 +188,12 @@ I wanted to use teal as my navbar and overall color, with Spanish Bistre as my h
     - Delete recipes.
         - Button to delete the recipe file from the database.
         - A warning alert to check then you want to confirm deletion of the recipe.
+
+- #### Footer
+
+    - Have the links to the navbar in the footer.
+    - Social Media Links
+    - A button linking to a contact us page, so users / vistors can send any question to the owner of the site.
 
 - ### Future Features
 
@@ -260,6 +272,113 @@ I wanted to use teal as my navbar and overall color, with Spanish Bistre as my h
 ## Testing process can be read [here](documentation/testing/).
 
 # Deployment
+
+Repository is hosted on Github and deployed on Heroku. I developed the website using the Code Institute template on Gitpod, and pushs to GitHub by the uses of the Gitpod terminal.
+
+### Other platforms used
+
+- An account with MongoDB.
+- An account with Heroku.
+
+## Cloning the Project
+
+When you finish log into Github, navigate to the repository page, and select MS3-recipes. Above the file list, click on the Code button next to the Gitpod button (green button). Copy the URL. Open your terminal. Change the working directory to the location where you want the cloned directory. Paste the URL after you have type git clone. eg $ git clone https://github.com/Username/repository-name Press enter and this will create a local clone.
+
+Or 
+
+## Download zip files
+
+Create a repository in GitHub.
+Unzip the folder
+Upload the files into your workspace
+You can read more about this in the link below.
+
+More information on cloning repository:
+[Github Information](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+
+![github1](documentation/deployment/GitHub-2.png)
+
+## Forking the Project
+
+When you finish log into Github, navigate to the repository page, and select MS2-Quiz-Game. Top right of the page click on the fork button.
+
+More information on fork repository:
+[Github Information](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo)
+
+![github2](documentation/deployment/GitHub-1.png)
+
+## Get connection to MongoDB
+
+- Click on project
+
+![mongodb1](documentation/mongodb/mongodb-1.png)
+
+- Click on connect
+
+![mongodb2](documentation/mongodb/mongodb-2.png)
+
+- Select connect your application
+
+![mongodb3](documentation/mongodb/mongodb-3.png)
+
+- Make sure you pick Driver: Python, Version: 3.6 or later.
+
+- Replace password with the password for the root user. Replace myFirstDatabase with the name of the database that connections will use by default.
+
+![mongodb4](documentation/mongodb/mongodb-4.png)
+
+## Set up the local environment
+
+- In the command line create a file "env.py" by entering touch env.py.
+
+- Add the following to this file.
+
+![mongodb5](documentation/mongodb/env-file.png)
+
+- Add both the env.py and pycache/ to gitignore.
+
+![mongodb6](documentation/mongodb/gitignore.png)
+
+## Procfile and Requirements.txt
+
+We need to make a list of all the Python dependencies for  the project which can be done in the command line by create a file "requirements.txt.
+
+``$ pip freeze > requirements.txt`` 
+
+- When we deploy to Heroku we need a specific file that let  Heroku know how to run the project and this is done in the command line also by creating a Profile.
+
+``$ echo web: python app.py > Procfile`` (use capital P when writing Procfile).
+
+- Also make sure you remove any added line to the Procfile code as this can cause problems in Heroku running the project.
+
+- How push to GitHub.
+
+## Deployment on Heroku
+
+Log onto Heroku and to create an app by clicking on the new app button.
+
+![heroku1](documentation/deployment/heroku-new-app.png)
+
+- You need to a unique name for your application.
+ 
+- Now select the region that is closest to you.
+
+- Set your deployment method to 'GitHub'.
+
+![heroku2](documentation/deployment/GitHub-connected.png)
+
+- Find the repository that you are going to deploy.
+
+- Enable automatic deploy.
+
+![heroku3](documentation/deployment/GitHub-connected-2.png)
+
+- To Set environment in Heroku App
+
+    - Go to settings, In the config vars click show config vars.
+    - Enter your key value pairs as per your env.py file.
+
+![heroku4](documentation/deployment/config-vars.png)
 
 # Credits
 

@@ -19,7 +19,7 @@
 }
 
 .fas {
-    color: rgb(0, 128, 128);
+    color: black;
 
 }
 
@@ -41,11 +41,9 @@ p {
 }
 
 ul li {
-    color: rgb(240, 30, 30);
+    color: white;
     font-size: 18px;
 }
-
-
 
 .brand-logo {
     margin-left: 30px;
@@ -91,4 +89,9 @@ td i {
 .panel {
     margin-top: 40px;
     border-radius: 20px;
+}
+
+.image-responsive {
+    width: 200px;
+    height: 600px;
 }

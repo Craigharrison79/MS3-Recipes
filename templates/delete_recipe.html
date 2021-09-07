@@ -1,16 +1,17 @@
 {%  extends  "base.html" %}
 
 {% block content %}
-<h2 class="center-align"> Delete Recipe </h2>
+<h2 class="center-align gold-color"> Delete Recipe </h2>
 
 <div class="row">
     <div class="col s10 offset-s1">
         <ul class="collapsible popout">
             {% for recipe in recipes %}
-            <li>
+        
+            <li class="black-text">
                 <!-- Collapsible card-->
-                <div class="collapsible-header">
-                    <div class="col s1"><i class="fas fa-caret-down"></i></div>
+                <div class="collapsible-header grey lighten-2">
+                    <div class="col s1"><i class="fas fa-caret-down teal-text"></i></div>
                     <div class="col s9">
                         <strong>{{ recipe.recipe_name.upper() }}</strong><br>
                         <span>Meal type: </span><em>{{ recipe.meal_course}}</em><br>
@@ -25,12 +26,12 @@
                     <div class="row ">
                         <br>
                         <div class="col s1">
-                            <a class="waves-effect waves-light btn modal-trigger" href="{{url_for('eliminate_recipe', recipe_id=recipe._id) }}" onclick="return confirm('Press OK to Delete Recipe');">Delete</a>
+                            <a class=" btn modal-trigger" href="{{url_for('eliminate_recipe', recipe_id=recipe._id) }}" onclick="return confirm('Press OK to Delete Recipe');">Delete</a>
                         </div> 
                     <!-- hyperlink button-->
                     <div class="col s1 offset-m1">
                         <a href="{{url_for('recipe_update', recipe_id=recipe._id) }}"
-                            class="btn-small grey black-text accent-4">edit</a>
+                            class="btn teal white-text">edit</a>
                     </div> 
                     
                 </div>
@@ -44,9 +45,9 @@
     </div>
 </div>
 <div class="row center-align">
-    <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('recipes') }}">Recipe Page</a>
+    <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel" href="{{ url_for('recipes') }}">Recipe Page</a>
     {% if session.user %}
-  <a class="btn waves-effect white grey-text darken-text-2 margin-20px" href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
+  <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel" href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
   {% endif %}
 </div>
 

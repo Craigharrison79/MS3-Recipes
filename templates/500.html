@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Page 404{% endblock %}
+
+{% block content %}
+
+<div class="row valign-wrapper">
+    <div class="col s12 center-align">
+        <img class="responsive-img" src="{{ url_for('static', filename='images/500.png')}}"
+            alt="Image for page 404">
+    </div>
+    <div class="col s12 center-align">
+        <h1 class="center-align">OOPS!</h1>
+        <hr>
+        <a class="btn" href="{{ url_for('main.home') }}">Go back home</a>
+    </div>
+</div>
+{% endblock %}
