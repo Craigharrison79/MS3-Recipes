@@ -4,8 +4,9 @@
 
 <h2 class="center-align"> {{ recipe.recipe_name.upper() }} </h2>
 
+
 <div class="row">
-    <div class="col s10 m10 offset-m1">
+    <div class="col s10 offset-s1 m8 offset-m2">
         <div class="card teal panel">
             <div class="card-image">
                 <img src="{{ recipe.img }}" alt="photo" class="image-responsive">
@@ -13,22 +14,29 @@
             </div>
             <div class="card-content teal">
                 <div class="row">
-                    <div class="col s8">
-                        <p>{{- recipe.description -}}</p>
-                    </div>
-                    <div class="col s2 right">
-                        <p>Cooking Time: {{ recipe.cooking_time }}</p>
-                        <p>Prep Time: {{ recipe.prep_time }}</p>
-                        <p>Servings: {{ recipe.servings }}</p>
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="col s10 offset-s1">
+                                <p>{{- recipe.description -}}</p>
+                            </div>
+                            <div class="col s10 offset-s2">
+                                <p>Cooking Time: {{ recipe.cooking_time }}</p>
+                                <p>Prep Time: {{ recipe.prep_time }}</p>
+                                <p>Servings: {{ recipe.servings }}</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
+
             <div class="card-tabs">
                 <ul class="tabs tabs-fixed-width">
                     <li class="tab teal "><a href="#ingredinets">INGREDIENTS</a></li>
                     <li class="tab teal gold-color"><a class="active" href="#method">METHOD</a></li>
                 </ul>
             </div>
+
             <div class="card-content teal">
                 <div id="ingredinets">
                     <ul>

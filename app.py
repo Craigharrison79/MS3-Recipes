@@ -18,6 +18,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 # Code from mentor Felipe Souza Alarcon
 # Decorators
 def login_required(test):
@@ -107,7 +108,7 @@ def profile(username):
     # grab the session user's usernname from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-  
+
     if session["user"]:
         return render_template("profile.html", username=username)
 

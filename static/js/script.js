@@ -66,12 +66,14 @@ function Validate() {
 Showing Password Input */
 function showPassword() {
     let p = document.getElementById("password");
+
     if (p.type  === "password") {
         p.type = "text";
     } else {
         p.type = "password";
     } 
     let cp = document.getElementById("confirmPassword");
+
     if (cp.type === "password") {
         cp.type = "text";
     } else {
@@ -81,6 +83,7 @@ function showPassword() {
 
 function loginPassword() {
     let pEnter = document.getElementById("password_enter");
+    
     if (pEnter.type === "password") {
         pEnter.type = "text";
     } else {
@@ -139,7 +142,7 @@ function removeMethodRow() {
 /* Adding row for updating Recipe */
 function addExtraIngredients() {
     let extraTable = document.getElementById("extraTable");
-    extraTable.style.display = 'block'
+    extraTable.style.display = 'block';
 }
 
 function addExtraMethod() {

@@ -246,6 +246,8 @@ I wanted to use teal as my navbar and overall color, with Spanish Bistre as my h
     - python library to connect to MongoDB.
 - [mockflow.com](https://www.mockflow.com/) 
     - Used to design my wireframes.
+- [RandomKeygen](https://randomkeygen.com/)
+    - RandomKeygen is a free mobile-friendly tool that offers randomly generated keys and passwords you can use to secure any application, service or device.
 - [W3C CSS Validator](https://validator.w3.org) 
     - Used to check of errors in HTML code.
 - [W3C HTML Checker](https://validator.w3.org)
@@ -269,7 +271,7 @@ I wanted to use teal as my navbar and overall color, with Spanish Bistre as my h
 
 # Testing
 
-## Testing process can be read [here](documentation/testing/).
+## Testing process can be read [here](documentation/testing/testing-doc/testing.md).
 
 # Deployment
 
