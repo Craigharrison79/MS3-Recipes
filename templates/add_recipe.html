@@ -27,7 +27,7 @@
           <div class="row">
             <div class="input-field col s12">
               <i class="fas fa-utensils prefix"></i>
-              <input id="recipe_name" name="recipe_name" type="text" class="validate">
+              <input id="recipe_name" name="recipe_name" type="text" pattern="^[a-zA-Z]{5,50}$" class="validate">
               <label for="recipe_name">Name of Receipe</label>
             </div>
           </div>
@@ -43,7 +43,7 @@
           <div class="row">
             <div class="input-field col s12">
               <i class="fas fa-comment-dots prefix"></i>
-              <textarea id="description" name="description" text="text" class="materialize-textarea"></textarea>
+              <textarea id="description" name="description" text="text" class="materialize-textarea" pattern="^[a-zA-Z0-9]{5,150}$"></textarea>
               <label for="description">Description</label>
             </div>
           </div>
@@ -56,7 +56,7 @@
                     <tr>
                       <td id="col0" class="input-field">
                         <i class="fas fa-clipboard-list prefix"></i>
-                        <input id="ingredients" name="ingredients" type="text" class="validate">
+                        <input id="ingredients" name="ingredients" type="text" class="validate"  pattern="^[a-zA-Z0-9]{5,150}$">
                         <label for="ingredients">Ingredients</label>
                       </td>
                     </tr>
@@ -83,7 +83,7 @@
                     <tr>
                       <td id="column0" class="input-field">
                         <i class="fas fa-book-reader prefix"></i>
-                        <textarea id="method" name="method" text="text" class="materialize-textarea"></textarea>
+                        <textarea id="method" name="method" text="text" class="materialize-textarea" pattern="^[a-zA-Z0-9]{5,300}$"></textarea>
                         <label for="method">Method</label>
                       </td>
                     </tr>
@@ -105,21 +105,21 @@
           <div class="row">
             <div class="input-field col s10 offset-s1">
               <i class="fas fa-clock prefix"></i>
-              <input id="cooking_time" name="cooking_time" type="number" class="validate">
+              <input id="cooking_time" name="cooking_time" type="number" class="validate" pattern="^[0-9]{1,2}$">
               <label for="cooking_time">Cooking time</label>
             </div>
             <!-- Preparation time-->
             <div class="row">
               <div class="input-field col s10 offset-s1">
                 <i class="fas fa-hourglass-end prefix"></i>
-                <input id="prep_time" name="prep_time" type="number" class="validate">
+                <input id="prep_time" name="prep_time" type="number" class="validate" pattern="^[0-9]{1,2}$">
                 <label for="prep_time">Prep time</label>
               </div>
               <!-- Number of Serving-->
               <div class="row">
                 <div class="input-field col s10 offset-s1">
                   <i class="fas fa-user-plus prefix"></i>
-                  <input id="servings" name="servings" type="number" class="validate">
+                  <input id="servings" name="servings" type="number" class="validate" pattern="^[0-9]{1,2}$">
                   <label for="servings">Servings</label>
                 </div>
               </div>
@@ -127,7 +127,7 @@
               <div class="row">
                 <div class="input-field col s10 offset-s1">
                   <i class="fas fa-users prefix"></i>
-                  <input id="create_by" name="create_by" type="text" class="validate">
+                  <input id="create_by" name="create_by" type="text" class="validate" pattern="^[a-zA-Z]{5,20}$">
                   <label for="create_by">Create by</label>
                 </div>
                 <!-- Day recipe added on-->

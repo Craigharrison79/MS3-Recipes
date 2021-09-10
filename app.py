@@ -2,6 +2,7 @@ import os
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
+from flask_mail import Mail, Message
 from flask_pymongo import PyMongo
 from functools import wraps
 from bson.objectid import ObjectId
@@ -9,12 +10,25 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
-
 app = Flask(__name__)
-
+#Database
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+#Email
+app.config["MAIL_USERNAME"] = os.environ.get("MAIL_USERNAME")
+app.config["MAIL_PASSWORD"] = os.environ.get("MAIL_PASSWORD")
+app.config["MAIL_DEFAULT_SENDER"] = os.environ.get("MAIL_DEFAULT_SENDER")
+app.config["MAIL_SERVER"] = "smtp.gmail.com"
+app.config["MAIL_PORT"] = 465
+app.config["MAIL__USE_TLS"] = True
+app.config["MAIL_USE_SSL"] = True
+app.config["MAIL_DEBUG"] = False
+app.config["MAIL_MAX_EMAILS"] = 5
+app.config["MAIL_SUPPRESS_SEND"] = False
+app.config["MAIL_ASCII_ATTACHMENTS"] = False
+mail = Mail(app)
+
 
 mongo = PyMongo(app)
 
@@ -33,6 +47,15 @@ def login_required(test):
 
 
 @app.route("/")
+def index():
+    msg = Message("Hi users 7", recipients=["hosexek696@stvbz.com"])
+    msg.body = "This is the body"
+    msg.html = "<b>This is a test email send from python.</b>"
+    mail.send(msg)
+
+    return "Message has been sent again"
+
+
 @app.route("/home")
 def home():
     return render_template("home.html")
@@ -228,13 +251,49 @@ def eliminate_recipe(recipe_id):
     return redirect(url_for("delete_recipe"))
 
 
+# https://pythonhosted.org/Flask-Mail/
+# Pretty Printed https://www.youtube.com/watch?v=48Eb8JuFuUI&t=944s
 @app.route("/contact_us", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
-        flash("Thanks {}, we have received your message!".format(
-            request.form.get("name")))
-    return render_template("contact_us.html", page_title="Contact Us")
+        sender_name = request.form['name']
+        sender_email = request.form['email']
+        sender_phone = request.form['phone']
+        sender_message = request.form['message']
+        admin_email = os.environ.get("MAIL_DEFAULT_SENDER")
+        recipients = [sender_email, admin_email]
+        with mail.connect() as conn:
+            for recipient in recipients:
+                if recipient == admin_email:
+                    message = (f"<h3>Hello here is a message from: {sender_name}</h3>"
+                               "<p>Please find below message from:</p>"
+                               f"<p><b>Email:</b> {sender_email}</p> "
+                               f"<p><b>Phone:</b> {sender_phone}</p> "
+                               f"<p><b>Message:</b> {sender_message} </p>")
+                    subject = f"New query from: {sender_name}"
 
+                elif recipient == sender_email:
+                    message = (f"<h2>Welcome {sender_name},</h2>"
+                               "<p>We would like to say Hello from the Team here "
+                               "at MPT Recipe "
+                               "Thanks for your message and aim"
+                               " to respond within the next 1-2 working "
+                               "days.</p>"
+                               "<p>Kind regards</p>"
+                               "<p>MPT Recipe Team</p>"
+                               )
+                    subject = 'Thank your for your message'
+
+                msg = Message(recipients=[recipient],
+                              html=message,
+                              subject=subject)
+                conn.send(msg)
+
+        flash("Thanks {}, we have received your message!".format(
+            request.form.get("name")))  
+        return redirect(url_for('contact'))     
+    return render_template("contact_us.html", page_title="Contact Us")
+    
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
