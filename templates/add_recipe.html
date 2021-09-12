@@ -5,10 +5,10 @@
 <h3 class="gold-color center-align">Add Recipe</h3>
 
 <div class="row">
-  <div class="col s10 m8 lighten-5 offset-s1  offset-m2 card-panel">
+  <div class="col s10 m8 lighten-5 offset-s1  offset-m2 card-color">
     <div class="row">
       <div class="col s10 offset-m1">
-        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+        <form method="POST" action="{{ url_for('add_recipe') }}">
           <!-- category selection -->
           <br>
           <div class="row">
@@ -27,7 +27,7 @@
           <div class="row">
             <div class="input-field col s12">
               <i class="fas fa-utensils prefix"></i>
-              <input id="recipe_name" name="recipe_name" type="text" pattern="^[a-zA-Z]{5,50}$" class="validate">
+              <input id="recipe_name" name="recipe_name" type="text" class="validate">
               <label for="recipe_name">Name of Receipe</label>
             </div>
           </div>
@@ -64,8 +64,9 @@
                 </div>
               </div>
             </table>
-            <div class="row">
-              <div class="col s10">
+            <!-- Btn to add and delete added Ingredients inputs -->
+            <div class="row center-align">
+              <div class="col s12">
 
                 <input type="button" name="add" id="add" value="Add" onclick="addRow()"
                   class="btn teal white-text margin-20px panel">
@@ -91,9 +92,9 @@
                 </div>
               </div>
             </table>
-            <div class="row">
-              <div class="col s10">
-
+            <!-- Btn to add and delete added Method inputs -->
+            <div class="row center-align">
+              <div class="col s12">
                 <input type="button" name="addMethod" id="addMethod" value="Add" onclick="addMethodRow()"
                   class="btn teal white-text darken-text-2 margin-20px panel">
                 <input type="button" name="removeMethod" id="removeMethod" value="Delete" onclick="removeMethodRow()"
@@ -101,35 +102,40 @@
               </div>
             </div>
           </div>
+          <!-- Lower half info -->
+          <div class="row">
+            <div class="col s12">
+
           <!-- Cooking time-->
           <div class="row">
-            <div class="input-field col s10 offset-s1">
+            <div class="input-field col s10 offset-s1 m10 offset-m1 l5 offset-l1">
               <i class="fas fa-clock prefix"></i>
               <input id="cooking_time" name="cooking_time" type="number" class="validate" pattern="^[0-9]{1,2}$">
               <label for="cooking_time">Cooking time</label>
             </div>
             <!-- Preparation time-->
-            <div class="row">
-              <div class="input-field col s10 offset-s1">
+              <div class="input-field col s10 offset-s1 m10 offset-m1 l5">
                 <i class="fas fa-hourglass-end prefix"></i>
                 <input id="prep_time" name="prep_time" type="number" class="validate" pattern="^[0-9]{1,2}$">
                 <label for="prep_time">Prep time</label>
               </div>
+          </div>
+
               <!-- Number of Serving-->
               <div class="row">
-                <div class="input-field col s10 offset-s1">
+                <div class="input-field col s10 offset-s1 m5 offset-m1">
                   <i class="fas fa-user-plus prefix"></i>
                   <input id="servings" name="servings" type="number" class="validate" pattern="^[0-9]{1,2}$">
                   <label for="servings">Servings</label>
                 </div>
-              </div>
               <!-- Recipe create by-->
-              <div class="row">
-                <div class="input-field col s10 offset-s1">
+                <div class="input-field col s10 offset-s1 m5">
                   <i class="fas fa-users prefix"></i>
                   <input id="create_by" name="create_by" type="text" class="validate" pattern="^[a-zA-Z]{5,20}$">
                   <label for="create_by">Create by</label>
                 </div>
+              </div>
+
                 <!-- Day recipe added on-->
                 <div class="row">
                   <div class="input-field col s10 offset-s1">
@@ -140,13 +146,15 @@
                 </div>
                 <!-- submit button -->
                 <div class="row center-align">
-                  <div class="col s10 offset-s2">
+                  <div class="col s12">
                     <button type="submit" class="btn waves-effect teal white-text darken-text-2 panel" id="save"
                       href="{{ url_for('recipes') }}">
                       Add Recipe<i class="fas fa-plus-square white-text right"></i>
                     </button>
                   </div>
                 </div>
+              </div>
+    </div>
         </form>
       </div>
     </div>

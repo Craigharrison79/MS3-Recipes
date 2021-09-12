@@ -47,15 +47,6 @@ def login_required(test):
 
 
 @app.route("/")
-def index():
-    msg = Message("Hi users 7", recipients=["hosexek696@stvbz.com"])
-    msg.body = "This is the body"
-    msg.html = "<b>This is a test email send from python.</b>"
-    mail.send(msg)
-
-    return "Message has been sent again"
-
-
 @app.route("/home")
 def home():
     return render_template("home.html")
@@ -211,6 +202,7 @@ def edit_recipe():
 @app.route("/recipe_update/<recipe_id>", methods=["GET", "POST"])
 @login_required
 def recipe_update(recipe_id):
+    #{% if event.created_by == user._id %}
     if request.method == "POST":
         submit = {
             "meal_course": request.form.get("meal_course"),

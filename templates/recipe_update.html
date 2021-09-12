@@ -5,227 +5,259 @@
 <h3 class="gold-color center-align">Edit Recipe</h3>
 
 <div class="row">
-  <div class="col s10 m8 grey lighten-5 offset-m2">
-    <form class="col s12" method="POST" action="{{ url_for('recipe_update', recipe_id=recipe._id) }}">
-      <!-- category selection -->
-      <br>
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="fas fa-bookmark prefix"></i>
-          <select id="meal_course" name="meal_course" class="validate" required>
-            <option value="" disabled>Choose your option</option>
-            {% for course in courses %}
-            {% if course.meal_course == recipe.meal_course %}
-            <option value="{{ course.meal_course }}" selected>{{ course.meal_course }}</option>
-            {% else %}
-            <option value="{{ course.meal_course }}">{{ course.meal_course }}</option>
-            {% endif %}
-            {% endfor %}
-          </select>
-          <label for="meal_course">Type of Dish</label>
-        </div>
-      </div>
-      <!-- Recipe name-->
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="fas fa-utensils prefix"></i>
-          <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{ recipe.recipe_name }}">
-          <label for="recipe_name">Name of Receipe</label>
-        </div>
-      </div>
-      <!-- Image -->
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="fas fa-image prefix"></i>
-          <input id="img" name="img" type="text" class="validate" value="{{ recipe.img }}">
-          <label for="img">Image</label>
-        </div>
-      </div>
-      <!-- Description-->
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="fas fa-comment-dots prefix"></i>
-          <textarea id="description" name="description" text="text" class="materialize-textarea">
-            {{- recipe.description -}}
-          </textarea>
-          <label for="description">Description</label>
-        </div>
-      </div>
-      <!-- Ingredients table -->
-      <div class="row">
-        <div class="input-field col s12">
-          <table id="ingredientsTable">
-            <tr>
-              <td>
-                {% for ingredient in recipe.ingredients %}
-                <div id="ingredientsTable">
-                  <div class="col s8 input-field"">
-                    <i class="fas fa-clipboard-list prefix"></i>
-                    <label for="ingredients">Ingredients</label>
-                  <input id="ingredients" name="ingredients" type="text" class="validate" value="{{- ingredient -}}">
-                 
-                 
-                
-                  </div>
-                  <div class="cols2">
-                <button onclick="rowDelete(this);" class="btn teal white-text darken-text-2 panel right">Delete</button>
+  <div class="col s10 m8 lighten-5 offset-s1  offset-m2 card-color">
+    <div class="row">
+      <div class="col s10 offset-m1">
+        <form method="POST" action="{{ url_for('recipe_update', recipe_id=recipe._id) }}">
+          <!-- category selection -->
+          <div class="row">
+            <div class="col s10 offset-s1">
+              <br>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="fas fa-bookmark prefix"></i>
+                  <select id="meal_course" name="meal_course" class="validate" required>
+                    <option value="" disabled>Choose your option</option>
+                    {% for course in courses %}
+                    {% if course.meal_course == recipe.meal_course %}
+                    <option value="{{ course.meal_course }}" selected>{{ course.meal_course }}</option>
+                    {% else %}
+                    <option value="{{ course.meal_course }}">{{ course.meal_course }}</option>
+                    {% endif %}
+                    {% endfor %}
+                  </select>
+                  <label for="meal_course">Type of Dish</label>
                 </div>
-                {% endfor %}
-              <td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div class="col s10 offset-s4">
-        <a type="button" class="btn waves-effect red white-text darken-text-2 panel" onclick="addExtraIngredients()">Add
-          Ingredients</a>
-      </div>
-      <!-- To Add Ingredients -->
-      <div class="row" id="extraTable">
-        <table id="ingredientsRow">
-          <div class="row">
-            <div class="col s10">
-              <tbody>
-                <tr>
-                  <td id="col0" class="input-field">
-                    <i class="fas fa-clipboard-list prefix"></i>
-                    <input id="ingredients" name="ingredients" type="text" class="validate">
-                    <label for="ingredients">Ingredients</label>
-                  </td>
-                </tr>
-              </tbody>
-            </div>
-          </div>       
-        </table>
-        <div class="row">
-          <div class="col s10 offset-s4">
-              <input type="button" name="add" id="add" value="Add" onclick="addRow()" class="btn teal white-text darken-text-2 margin-20px panel">
-              <input type="button" name="remove" id="remove" value="Delete" onclick="deleteRow()" class="btn teal white-text darken-text-2 margin-20px panel">
-          </div>
-        </div>
-      </div>
-      <!-- Method Try-->
-      <div class="row">
-        <div class="input-field col s12">
-          <table id="methodTable">
-            <tr>
-              <td>
-                {% for m in recipe.method %}
-                <div id="methodTable">
-                  <div class="col s8 input-field">
-                    <i class="fas fa-book-reader prefix"></i>
-                    <label for="method">Method</label>
-                    <textarea id="method" name="method" text="text" class="materialize-textarea">
-                      {{- m -}}
-                    
-                </textarea>
-                  </div>
-                  <div class="cols2">
-                <button onclick="rowDelete(this);" class="btn teal white-text darken-text-2 panel right">Delete</button>
+              </div>
+              <!-- Recipe name-->
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="fas fa-utensils prefix"></i>
+                  <input id="recipe_name" name="recipe_name" type="text" class="validate"
+                    value="{{ recipe.recipe_name }}">
+                  <label for="recipe_name">Name of Receipe</label>
                 </div>
-                {% endfor %}
-              <td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div class="col s10 offset-s4">
-        <a type="button" class="btn waves-effect red white-text darken-text-2 panel margin-20px" onclick="addExtraMethod()">Add
-          Method</a>
-      </div>
-      <!-- To Add Method -->
-      <div class="row" id="extraMethodTable">
-        <table id="methodRow">
-          <div class="row">
-            <div class="col s10">
-              <tbody>
-                <tr>
-                  <td id="column0" class="input-field">
-                    <i class="fas fa-book-reader prefix"></i>
-                    <textarea id="method" name="method" text="text" class="materialize-textarea"></textarea>
-                    <label for="method">Method</label>
-                  </td>
-                </tr>
-              </tbody>
-            </div>
-          </div>       
-        </table>
-        <div class="row">
-          <div class="col s10 offset-s4">
-            <input type="button" name="addMethod" id="addMethod" value="Add" onclick="addMethodRow()"
-            class="btn waves-effect white grey-text darken-text-2">
-          <input type="button" name="removeMethod" id="removeMethod" value="Delete" onclick="removeMethodRow()"
-            class="btn waves-effect white grey-text darken-text-2"></div>
-        </div>
-      </div>
-      <!-- Method
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="fas fa-book-reader prefix"></i>
-          <textarea id="method" name="method" text="text" class="materialize-textarea">
-            {{- recipe.method -}}
-          </textarea>
-          <label for="method">Method</label>
-        </div>
-      </div> -->
-      <!-- Cooking time-->
-      <div class="row">
-        <div class="input-field col s3 offset-s1">
-          <i class="fas fa-clock prefix"></i>
-          <input id="cooking_time" name="cooking_time" type="number" value="{{ recipe.cooking_time }}" class="validate">
-          <label for="cooking_time">Cooking time</label>
-        </div>
-        <!-- Preparation time-->
-        <div class="row">
-          <div class="input-field col s3">
-            <i class="fas fa-hourglass-end prefix"></i>
-            <input id="prep_time" name="prep_time" type="number" value="{{ recipe.prep_time }}" class="validate">
-            <label for="prep_time">Prep time</label>
-          </div>
-          <!-- Number of Serving-->
-          <div class="row">
-            <div class="input-field col s3">
-              <i class="fas fa-user-plus prefix"></i>
-              <input id="servings" name="servings" type="number" value="{{ recipe.servings }}" class="validate">
-              <label for="servings">Servings</label>
-            </div>
-          </div>
-          <!-- Recipe create by-->
-          <div class="row">
-            <div class="input-field col s5 offset-m1">
-              <i class="fas fa-users prefix"></i>
-              <input id="create_by" name="create_by" type="text" value="{{ recipe.create_by }}" class="validate">
-              <label for="create_by">Create by</label>
-            </div>
-            <!-- Day recipe added on-->
-            <div class="row">
-              <div class="input-field col s5">
-                <i class="fas fa-calendar-alt prefix"></i>
-                <input id="day_added" name="day_added" type="text" name="day_added" value="{{ recipe.day_added }}"
-                  class="datepicker valiadate">
-                <label for="day_added">Day added</label>
+              </div>
+              <!-- Image -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="fas fa-image prefix"></i>
+                  <input id="img" name="img" type="text" class="validate" value="{{ recipe.img }}">
+                  <label for="img">Image</label>
+                </div>
+              </div>
+              <!-- Description-->
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="fas fa-comment-dots prefix"></i>
+                  <textarea id="description" name="description" text="text" class="materialize-textarea">
+                    {{- recipe.description -}}
+                  </textarea>
+                  <label for="description">Description</label>
+                </div>
+              </div>
+              <!-- Ingredients table -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <div class="row">
+                    <div class="col s12">
+                      <table id="ingredientsTable">
+                        <tr>
+                          <td>
+                            {% for ingredient in recipe.ingredients %}
+                            <div id="ingredientsTable row">
+                              <div class="col s12 m8 offset-m1 input-field">
+                                <i class="fas fa-clipboard-list prefix"></i>
+                                <label for="ingredients">Ingredients</label>
+                                <input id="ingredients" name="ingredients" type="text" class="validate"
+                                  value="{{- ingredient -}}">
+                              </div>
+                              <div class="col s12 m2 offset-m1">
+                                <button onclick="rowDelete(this);"
+                                  class="btn teal white-text darken-text-2 panel">Delete</button>
+                              </div>
+                            </div>
+                              {% endfor %}
+                          <td>
+                        </tr>
+                      </table>
+                      <div class="row">
+                        <div class="col s12 m10 offset-m1 center-align">
+                          <p class="black-text">Click here to add more ingredients to your recipe!</p>
+                          <a type="button" class="btn waves-effect red white-text darken-text-2 panel"
+                            onclick="addExtraIngredients()">Add
+                            Ingredients</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- To Add Ingredients -->
+              <div class="row" id="extraTable">
+                <table id="ingredients col s12">
+                  <div class="row">
+                    <div class="col s10">
+                      <tbody>
+                        <tr>
+                          <td id="col0" class="input-field">
+                            <i class="fas fa-clipboard-list prefix"></i>
+                            <label for="ingredients">Add Extra Ingredients</label>
+                            <input id="ingredients" name="ingredients" type="text" class="validate">
+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </div>
+                  </div>
+                </table>
+                <div class="row center-align">
+                  <div class="col s10 offset-s1">
+                    <input type="button" name="add" id="add" value="Add" onclick="addRow()"
+                      class="btn teal white-text darken-text-2 margin-20px panel">
+                    <input type="button" name="remove" id="remove" value="Delete" onclick="deleteRow()"
+                      class="btn teal white-text darken-text-2 margin-20px panel">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Method Try-->
+              <div class="row">
+                <div class="input-field col s12 m12">
+                  <div class="row">
+                    <div class="col s12">
+                      <table id="methodTable">
+                        <tr>
+                          <td>
+                            {% for m in recipe.method %}
+                            <div id="methodTable row">
+                              <div class="col s12 m8 offset-m1 input-field">
+                                <i class="fas fa-book-reader prefix"></i>
+                                <label for="method">Method</label>
+                                <textarea id="method" name="method" text="text" class="materialize-textarea">
+                              {{- m -}}
+                            
+                        </textarea>
+                              </div>
+                              <div class="col s12 m2 offset-m1">
+                                <button onclick="rowDelete(this);"
+                                  class="btn teal white-text darken-text-2 panel right">Delete</button>
+                              </div>
+                              {% endfor %}
+                          <td>
+                        </tr>
+                      </table>
+                      <div class="col s10 offset-s1 center-align">
+                        <p class="black-text">Click here to add more Instructions!</p>
+                        <a type="button" class="btn waves-effect red white-text darken-text-2 panel margin-20px"
+                          onclick="addExtraMethod()">Add
+                          Method</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- To Add Extra Method -->
+              <div class="row" id="extraMethodTable">
+                <table id="methodRow">
+                  <div class="row">
+                    <div class="col s10">
+                      <tbody>
+                        <tr>
+                          <td id="column0" class="input-field">
+                            <i class="fas fa-book-reader prefix"></i>
+                            <label for="method">Add Instructions here!</label>
+                            <textarea id="method" name="method" text="text" class="materialize-textarea"></textarea>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </div>
+                  </div>
+                </table>
+                <div class="row">
+                  <div class="col s10 offset-s4">
+                    <input type="button" name="addMethod" id="addMethod" value="Add" onclick="addMethodRow()"
+                      class="btn teal white-text darken-text-2 margin-20px panel">
+                    <input type="button" name="removeMethod" id="removeMethod" value="Delete"
+                      onclick="removeMethodRow()" class="btn teal white-text darken-text-2 margin-20px panel"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col s10 offset-s1">
+                  <!-- Cooking time-->
+                  <div class="row">
+                    <div class="input-field col s12 offset-s1 m6">
+                      <i class="fas fa-clock prefix"></i>
+                      <input id="cooking_time" name="cooking_time" type="number" value="{{ recipe.cooking_time }}"
+                        class="validate">
+                      <label for="cooking_time">Cooking time</label>
+                    </div>
+                    <!-- Preparation time-->
+                    <div class="input-field col s12 m6">
+                      <i class="fas fa-hourglass-end prefix"></i>
+                      <input id="prep_time" name="prep_time" type="number" value="{{ recipe.prep_time }}"
+                        class="validate">
+                      <label for="prep_time">Prep time</label>
+                    </div>
+                  </div>
+                  <!-- Number of Serving-->
+                  <div class="row">
+                    <div class="input-field col s12 m6">
+                      <i class="fas fa-user-plus prefix"></i>
+                      <input id="servings" name="servings" type="number" value="{{ recipe.servings }}" class="validate">
+                      <label for="servings">Servings</label>
+                    </div>
+
+                    <!-- Recipe create by-->
+
+                    <div class="input-field col s12 offset-s1 m6">
+                      <i class="fas fa-users prefix"></i>
+                      <input id="create_by" name="create_by" type="text" value="{{ recipe.create_by }}"
+                        class="validate">
+                      <label for="create_by">Create by</label>
+                    </div>
+                  </div>
+                  <!-- Day recipe added on-->
+                  <div class="row">
+                    <div class="input-field col  s12 m6 offset-m3">
+                      <i class="fas fa-calendar-alt prefix"></i>
+                      <input id="day_added" name="day_added" type="text" name="day_added" value="{{ recipe.day_added }}"
+                        class="datepicker valiadate">
+                      <label for="day_added">Day added</label>
+                    </div>
+                  </div>
+                  <!-- submit button -->
+                  <div class="row">
+                    <div class="col s12 center-align">
+                      <button type="submit" onclick="return confirm('Press OK to edit this Recipe');"
+                        class="btn waves-effect teal white-text darken-text-2 panel">
+                        Edit Recipe <i class="fas fa-plus-square right"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <!-- submit button -->
-            <div class="row">
-              <div class="col s12 center-align">
-                <button type="submit" onclick="return confirm('Press OK to edit this Recipe');"
-                  class="btn waves-effect teal white-text darken-text-2 panel">
-                  Edit Recipe <i class="fas fa-plus-square right"></i>
-                </button>
-              </div>
-            </div>
-    </form>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row center-align">
+      <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel" href="{{ url_for('recipes') }}">Back
+        to
+        Recipe</a>
+      {% if session.user %}
+      <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel"
+        href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
+      {% endif %}
+    </div>
   </div>
 </div>
-<div class="row center-align">
-  <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel" href="{{ url_for('recipes') }}">Back to
-    Recipe</a>
-  {% if session.user %}
-  <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel"
-    href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
-  {% endif %}
-</div>
+
+
+
 
 
 {% endblock %}

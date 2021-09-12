@@ -4,24 +4,28 @@
 <h2 class="center-align gold-color">{{ page_title}}</h2>
 
 <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2">
+    <div class="col s10 offset-s1 m8 offset-m2 l6 offset-l3">
         <div class="row card-panel lighten-5 panel">
-            <form action="{{ url_for('search') }}" method="post" class="col">
-                <div class="row valign-wrapper center-align">
-                    <div class="input-field col s12 m12">
-                        <i class="fas fa-search prefix teal-text text-darken-2"></i>
-                        <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                        <label for="query">Search</label>
-                        <a href="{{ url_for('recipes') }}" class="red btn text-shadow">Reset</a>
-                        <button type="submit" class="teal btn text-shadow">
-                            <i class="fas fa-search left white-text"></i> Search
-                        </button>
+            <div class="col s12 m6 l6">
+                <form action="{{ url_for('search') }}" method="post">
+                    <div class="row valign-wrapper center-align">
+                        <div class="input-field col s12 m12 l12">
+                            <i class="fas fa-search prefix teal-text text-darken-2"></i>
+                            <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                            <label for="query">Search</label>
+                            <a href="{{ url_for('recipes') }}" class="red btn text-shadow">Reset</a>
+                            <button type="submit" class="teal btn text-shadow">
+                                <i class="fas fa-search left white-text"></i> Search
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </form>
-            <p class="black-text center-align">
-                <small>Type in your keywords or ingredients to search for a recipe!</small>
-            </p>
+                </form>
+            </div>
+            <div class="col s12 m6 l6">
+                <p class="black-text center-align">
+                    <small>Type in your keywords or ingredients to search for a recipe!</small>
+                </p>
+            </div>
         </div>
     </div>
 </div>
@@ -29,73 +33,83 @@
 
 {% for recipe in recipes %}
 
-{% if loop.index % 2 != 0 %}
+{% if loop.index % 2!= 0 %}
 
-<div class="row center-align">
+<div class="row center-align card-height">
     <!-- Recipe card 1-->
-    <div class="col s10 offset-s1 m5 offset-m1">
+    <div class="col s10 offset-s1 m6 l5 offset-l1">
         <div class="card teal panel">
-            <div class="card-image">
-                <img src="{{ recipe.img }}" alt="photo">
+            <div class="col s12">
+                <div class="row">
+                    <div class="col s8 offset-s2 photo-box">
+                        <div class="card-image">
+
+                            <img img src="{{ recipe.img }}" alt="Recipe photo">
+
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card-content">
-
-                <span class="card-title activator">{{ recipe.recipe_name }}<i
-                        class="fas fa-info-circle right"></i></span>
-                <p>{{ recipe.description }}</p>
-
-                <a class="btn waves-effect black gold-color darken-text-2 panel"
-                    href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">Go to Recipe</a>
-
-            </div>
-
-            <div class="card-reveal teal">
-                <span class="card-title">{{ recipe.recipe_name }}<i class="fas fa-times right"></i></span>
-                <p>{{ recipe.description }}</p>
-                <div class="row center-align">
-                    <p><span>Cooking Time: </span> {{ recipe.cooking_time }}</p>
-                    <p><span>Servings up to: </span> {{ recipe.servings }}</p>
-                    <p><span>Added by: </span> {{ recipe.added_by }}</p>
+                <div class="row">
+                    <div class="col s10 offset-s1">
+                        <span class="card-title activator">{{ recipe.recipe_name }}
+                        </span>
+                        <div class="row">
+                            <div class="col s12 recipe-info">
+                                <p>{{ recipe.description }}</p>
+                                <br>
+                                <p><span>Cooking Time: </span> {{ recipe.cooking_time }} <span> minutes </span></p>
+                                <p><span>Servings up to: </span> {{ recipe.servings }}</p>
+                                <a class="btn waves-effect black gold-color darken-text-2 panel"
+                                    href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">Go to Recipe</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <a class="btn waves-effect black gold-color darken-text-2 panel"
-                    href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">Go to Recipe</a>
             </div>
-
         </div>
     </div>
 
     {% else %}
     <!-- Recipe card 2-->
-    <div class="col s10 offset-s1 m5">
-        <div class="card teal panel">
-            <div class="card-image">
-                <img src="{{ recipe.img }}" alt="photo">
-            </div>
-            <div class="card-content">
+    <div class="col s10 offset-s1 m6 l5">
+        <div class="card teal panel row">
+            <div class="col s12">
+                <div class="row">
+                    <div class="col s8 offset-s2 photo-box">
+                        <div class="card-image">
 
-                <span class="card-title activator">{{ recipe.recipe_name }}<i
-                        class="fas fa-info-circle right"></i></span>
-                <p>{{ recipe.description }}</p>
+                            <img img src="{{ recipe.img }}" alt="Recipe photo">
 
-                <a class="btn waves-effect black gold-color darken-text-2 panel"
-                    href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">Go to Recipe</a>
-
-            </div>
-            <div class="card-reveal teal">
-                <span class="card-title">{{ recipe.recipe_name }}<i class="fas fa-times right"></i></span>
-                <p>{{ recipe.description }}</p>
-                <div class="row center-align">
-                    <p><span>Cooking Time: </span> {{ recipe.cooking_time }}</p>
-                    <p><span>Serves up to: </span> {{ recipe.serves }}</p>
-                    <p><span>Added by: </span> {{ recipe.added_by }}</p>
+                        </div>
+                    </div>
                 </div>
-                <a class="btn waves-effect black gold-color darken-text-2 panel"
-                    href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">Go to Recipe</a>
             </div>
 
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s10 offset-s1">
+                        <span class="card-title activator">{{ recipe.recipe_name }}
+                        </span>
+                        <div class="row">
+                            <div class="col s12 recipe-info">
+                                <p>{{ recipe.description }}</p>
+                                <br>
+                                <p><span>Cooking Time: </span> {{ recipe.cooking_time }} <span> minutes </span></p>
+                                <p><span>Servings up to: </span> {{ recipe.servings }}</p>
+                                <a class="btn waves-effect black gold-color darken-text-2 panel"
+                                    href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">Go to Recipe</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
 
 {% endif %}
 

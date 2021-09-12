@@ -7,67 +7,49 @@
 <div class="row">
     <div class="col s12">
         <div class="row">
-            <div class="col s10 offset-s1">
+            <div class="col s12 m10 offset-m1 l8 offset-l2">
                 <div class="card teal panel">
                     <!-- Profile main card page-->
                     <div class="card-content">
-
-                        <div class="row">
-                            <i class="fas fa-user-circle profile-img"></i>
-
-                            <!--<img src="https://i.pinimg.com/originals/73/16/f5/7316f550de9ca0045e3d8d98a5bb5e44.png" width="110" height="110"
-                        alt="default user profile avatar" class="profile">  -->
-                            <p>As a member of MPT you can enter your recipes into the database for other people to see.
-                                Below in the contor panel
-                                you have three option,
-                                <br>
-                                <br>
-                                1. Create a recipe!
-                                <br>
-                                <br>
-                                2. Update one of your save recipes.
-                                <br>
-                                <br>
-                                3. Delete any recipe you have created.
-                            </p>
-                            <br>
-
-                        </div>
-                        <!-- Tabs for adding, updating and delete recipe-->
                         <div class="row">
                             <div class="col s12">
-                                <ul class="tabs teal">
-                                    <li class="disabled"><a class="active" href="#test3"></a></li>
-                                    <li class="tab col s4"><a href="#test1">Create recipe</a></li>
-                                    <li class="tab col s4"><a href="#test2">Update recipe</a></li>
-                                    <li class="tab col s4"><a href="#test3">Delete recipe</a></li>
-                                </ul>
-                                <div class="row">
-                                    <hr class="gold-color">
+                                <div class="row center-align">
+                                    <i class="fas fa-user-circle profile-img"></i>
                                 </div>
-                                <!-- Button of each action -->
-                            </div>
-                            <div id="test1" class="col s12 center-align">
-                                <h5 class="white-text">Click the button to <span>ADD</span> a recipe to the database
-                                </h5>
-                                <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel left"
-                                    href="{{ url_for('add_recipe') }}">button</a>
-                            </div>
-                            <div id="test2" class="col s12 center-align">
-                                <h5 class="white-text">Click the button to <span>UPDATE</span> a recipe to the database
-                                </h5>
-                                <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel center-align"
-                                    href="{{ url_for('edit_recipe') }}">button</a>
-                            </div>
-                            <div id="test3" class="col s12 center-align">
-                                <h5 class="white-text">Click the button to <span>DELETE</span> a recipe to the database
-                                </h5>
-                                <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel right"
-                                    href="{{ url_for('delete_recipe') }}">button</a>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <p>As a member of MPT you can enter your recipes into the database for other
+                                            people to see.
+                                            Below in the contor panel
+                                            you have three option,
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="center-align">
+                                    <p>
+                                        1. You can create a recipe!</p>
+                                    <div class="center-align">
+                                        <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel"
+                                            href="{{ url_for('add_recipe') }}">ADD</a>
+                                    </div>
+
+                                    <br>
+                                    <p>
+                                        2. Update one of your save recipes.
+                                        <br>
+                                        3. Delete any recipe you have created.
+                                    </p>
+                                    <div class="center-align">
+                                        <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel"
+                                            href="{{ url_for('delete_recipe') }}">Edit</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
             {% endblock %}

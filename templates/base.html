@@ -77,7 +77,7 @@
 
   <footer class="page-footer teal">
     <div class="container row">
-      <div class="col s12">
+      <div class="col s12 l12">
         <div class="row">
           <div class="col l6 s6">
             <h5 class="white-text">Links</h5>
@@ -91,29 +91,36 @@
               <li><a class="white-text" href="{{ url_for('account') }}">Log In</a></li>
               {% endif %}
             </ul>
-
-            <a class="btn waves-effect black gold-color darken-text-2 panel" href=" {{ url_for('contact') }}">Contact
-              Us</a>
-
           </div>
+
+          <!-- Social Media Links-->
           <div class="col l4 offset-l2 s6">
             <h5 class="white-text"> Social Media Links</h5>
-            <ul class="social-links">
-              <li class="list-item"><a class="white-text" href="https://www.facebook.com/" target="_blank"><i
-                    class="fab fa-facebook"></i><span class="sr-only">Twitter</span></a></li>
-              <li class="list-item"><a class="white-text" href="https://twitter.com/" target="_blank"><i
-                    class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a></li>
-              <li class="list-item"><a class="white-text" href="https://www.instagram.com/" target="_blank"><i
-                    class="fab fa-instagram"></i><span class="sr-only">Instagram</span></a></li>
-              <li class="list-item"><a class="white-text" href="https://www.youtube.com/" target="_blank"><i
-                    class="fab fa-youtube"></i><span class="sr-only">Youtube</span></a></li>
-            </ul>
+              <ul class="social-links">
+                <li class="list-item"><a class="white-text" href="https://www.facebook.com/" target="_blank"><i
+                      class="fab fa-facebook"></i><span class="sr-only">Twitter</span></a></li>
+                <li class="list-item"><a class="white-text" href="https://twitter.com/" target="_blank"><i
+                      class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a></li>
+                <li class="list-item"><a class="white-text" href="https://www.instagram.com/" target="_blank"><i
+                      class="fab fa-instagram"></i><span class="sr-only">Instagram</span></a></li>
+                <li class="list-item"><a class="white-text" href="https://www.youtube.com/" target="_blank"><i
+                      class="fab fa-youtube"></i><span class="sr-only">Youtube</span></a></li>
+              </ul>
           </div>
-        </div>
-      </div>
-      <div class="footer-copyright">
-        <div class="container teal">
-          <span>© 2021 Copyright Text</span>
+          <!-- Contact Us Btn-->
+          <div class="row">
+            <div class="col s12 l12 center-align">
+              <a class="btn waves-effect black gold-color darken-text-2 panel" href=" {{ url_for('contact') }}">Contact
+                Us</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 l12 center-align">
+                <div class="container teal">
+                  <span>© 2021 Copyright Text</span>
+                </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

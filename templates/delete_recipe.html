@@ -10,30 +10,37 @@
         
             <li class="black-text">
                 <!-- Collapsible card-->
+                <div class="row">
+                    <div class="col s12">
                 <div class="collapsible-header grey lighten-2">
                     <div class="col s1"><i class="fas fa-caret-down teal-text"></i></div>
-                    <div class="col s9">
+                    <div class="col s12 m9">
                         <strong>{{ recipe.recipe_name.upper() }}</strong><br>
                         <span>Meal type: </span><em>{{ recipe.meal_course}}</em><br>
                         <span>Create by: </span><em>{{ recipe.create_by }}</em>
                     </div>  
                 </div>
+                    </div>
+                </div>
+            
                 <!-- Added information dropdown-->
                 <div class="collapsible-body">
                     <span>{{ recipe.description}}</span>
                     <div>
                         {% if session.user|lower == recipe.added_by|lower %}
-                    <div class="row ">
-                        <br>
-                        <div class="col s1">
-                            <a class=" btn modal-trigger" href="{{url_for('eliminate_recipe', recipe_id=recipe._id) }}" onclick="return confirm('Press OK to Delete Recipe');">Delete</a>
+                    <div class="row center-align">
+                        <div class="col s12">
+                        
+                        <div class="col s12 m6 offset-s1">
+                            <a class=" btn modal-trigger teal panel" href="{{url_for('eliminate_recipe', recipe_id=recipe._id) }}" onclick="return confirm('Press OK to Delete Recipe');">Delete</a>
                         </div> 
+                        
                     <!-- hyperlink button-->
-                    <div class="col s1 offset-m1">
+                    <div class="col s12 m6 offset-s1">
                         <a href="{{url_for('recipe_update', recipe_id=recipe._id) }}"
-                            class="btn teal white-text">edit</a>
+                            class="btn teal panel">edit</a>
                     </div> 
-                    
+                </div>
                 </div>
                 {% endif %} 
                     
