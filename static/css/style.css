@@ -1,3 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;  
+} 
+
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', 'Roboto', sans-serif;    
+}
+
 .gold-color {
     color: rgb(143, 130, 56);
 }
@@ -122,4 +141,11 @@ td i {
 
 .card-color {
     background-color: #fff;
+}
+
+.contact_us {
+    background-color: white;
+    padding: 20px;
+    border: black 1px solid;
+    border-radius: 20px;
 }

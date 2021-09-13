@@ -202,24 +202,29 @@ def edit_recipe():
 @app.route("/recipe_update/<recipe_id>", methods=["GET", "POST"])
 @login_required
 def recipe_update(recipe_id):
-    #{% if event.created_by == user._id %}
-    if request.method == "POST":
-        submit = {
-            "meal_course": request.form.get("meal_course"),
-            "recipe_name": request.form.get("recipe_name"),
-            "img": request.form.get("img"),
-            "description": request.form.get("description"),
-            "ingredients": request.form.getlist("ingredients"),
-            "method": request.form.getlist("method"),
-            "cooking_time": request.form.get("cooking_time"),
-            "prep_time": request.form.get("prep_time"),
-            "servings": request.form.get("servings"),
-            "create_by": request.form.get("create_by"),
-            "added_by": session["user"],
-            "day_added": request.form.get("day_added")
-        }
-        mongo.db.recipe.update({"_id": ObjectId(recipe_id)}, submit)
-        flash("Recipe has been Updated Successfully")
+    name = mongo.db.recipe.find({"added_by": ObjectId(recipe_id)})
+    #if session.user == recipe_id.added_by:
+    if session["user"] == name:
+        flash("Prevent Access.")
+        return redirect(url_for("home"))
+    else:
+        if request.method == "POST":
+            submit = {
+                "meal_course": request.form.get("meal_course"),
+                "recipe_name": request.form.get("recipe_name"),
+                "img": request.form.get("img"),
+                "description": request.form.get("description"),
+                "ingredients": request.form.getlist("ingredients"),
+                "method": request.form.getlist("method"),
+                "cooking_time": request.form.get("cooking_time"),
+                "prep_time": request.form.get("prep_time"),
+                "servings": request.form.get("servings"),
+                "create_by": request.form.get("create_by"),
+                "added_by": session["user"],
+                "day_added": request.form.get("day_added")
+            }
+            mongo.db.recipe.update({"_id": ObjectId(recipe_id)}, submit)
+            flash("Recipe has been Updated Successfully")
 
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     courses = mongo.db.meal_courses.find().sort("meal_course", 1)

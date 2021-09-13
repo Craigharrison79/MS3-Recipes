@@ -34,7 +34,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="fas fa-utensils prefix"></i>
-                  <input id="recipe_name" name="recipe_name" type="text" class="validate" minlength="5" maxlength="30"
+                  <input id="recipe_name" name="recipe_name" type="text" class="validate" minlength="4" maxlength="50" patten="[a-zA-Z][a-zA-Z0-9-_]"
                     value="{{ recipe.recipe_name }}">
                   <label for="recipe_name">Name of Receipe</label>
                 </div>
@@ -43,7 +43,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="fas fa-image prefix"></i>
-                  <input id="img" name="img" type="text" class="validate" value="{{ recipe.img }}" minlength="5" maxlength="100">
+                  <input id="img" name="img" type="url" class="validate" value="{{ recipe.img }}" minlength="5" maxlength="100">
                   <label for="img">Image</label>
                 </div>
               </div>
@@ -51,7 +51,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="fas fa-comment-dots prefix"></i>
-                  <textarea id="description" name="description" text="text" class="materialize-textarea" minlength="5" maxlength="300">
+                  <textarea id="description" name="description" text="text" class="materialize-textarea" minlength="1" maxlength="300" patten="^[a-zA-Z]$">
                     {{- recipe.description -}}
                   </textarea>
                   <label for="description">Description</label>
@@ -70,7 +70,7 @@
                               <div class="col s12 m8 offset-m1 input-field">
                                 <i class="fas fa-clipboard-list prefix"></i>
                                 <label for="ingredients">Ingredients</label>
-                                <input id="ingredients" name="ingredients" type="text" class="validate" minlength="5" maxlength="50"
+                                <input id="ingredients" name="ingredients" type="text" class="validate" minlength="5" maxlength="50" patten="[a-zA-Z0-9]"
                                   value="{{- ingredient -}}">
                               </div>
                               <div class="col s12 m2 offset-m1">
@@ -105,7 +105,7 @@
                           <td id="col0" class="input-field">
                             <i class="fas fa-clipboard-list prefix"></i>
                             <label for="ingredients">Add Extra Ingredients</label>
-                            <input id="ingredients" name="ingredients" type="text" class="validate" minlength="5" maxlength="50">
+                            <input id="ingredients" name="ingredients" type="text" class="validate" minlength="5" maxlength="50" patten="[a-zA-Z0-9]">
 
                           </td>
                         </tr>
@@ -136,7 +136,7 @@
                               <div class="col s12 m8 offset-m1 input-field">
                                 <i class="fas fa-book-reader prefix"></i>
                                 <label for="method">Method</label>
-                                <textarea id="method" name="method" text="text" class="materialize-textarea" minlength="5" maxlength="500">
+                                <textarea id="method" name="method" text="text" class="materialize-textarea" minlength="5" maxlength="300" patten="[a-zA-Z0-9]">
                               {{- m -}}
                             
                         </textarea>
@@ -169,7 +169,7 @@
                           <td id="column0" class="input-field">
                             <i class="fas fa-book-reader prefix"></i>
                             <label for="method">Add Instructions here!</label>
-                            <textarea id="method" name="method" text="text" class="materialize-textarea" minlength="5" maxlength="500"></textarea>
+                            <textarea id="method" name="method" text="text" class="materialize-textarea" minlength="5" maxlength="300" patten="[a-zA-Z0-9]"></textarea>
                           </td>
                         </tr>
                       </tbody>
@@ -191,14 +191,14 @@
                   <div class="row">
                     <div class="input-field col s12 offset-s1 m6">
                       <i class="fas fa-clock prefix"></i>
-                      <input id="cooking_time" name="cooking_time" type="number" value="{{ recipe.cooking_time }}" minlength="1" maxlength="2"
+                      <input id="cooking_time" name="cooking_time" type="number" value="{{ recipe.cooking_time }}" pattern="^[0-9]" minlength="1" maxlength="2"
                         class="validate">
                       <label for="cooking_time">Cooking time</label>
                     </div>
                     <!-- Preparation time-->
                     <div class="input-field col s12 m6">
                       <i class="fas fa-hourglass-end prefix"></i>
-                      <input id="prep_time" name="prep_time" type="number" value="{{ recipe.prep_time }}" minlength="1" maxlength="2"
+                      <input id="prep_time" name="prep_time" type="number" value="{{ recipe.prep_time }}" pattern="^[0-9]" minlength="1" maxlength="2"
                         class="validate">
                       <label for="prep_time">Prep time</label>
                     </div>
@@ -207,7 +207,7 @@
                   <div class="row">
                     <div class="input-field col s12 m6">
                       <i class="fas fa-user-plus prefix"></i>
-                      <input id="servings" name="servings" type="number" value="{{ recipe.servings }}" class="validate" minlength="1" maxlength="2"> 
+                      <input id="servings" name="servings" type="number" value="{{ recipe.servings }}" class="validate" pattern="^[0-9]" minlength="1" maxlength="2"> 
                       <label for="servings">Servings</label>
                     </div>
 
@@ -215,7 +215,7 @@
 
                     <div class="input-field col s12 offset-s1 m6">
                       <i class="fas fa-users prefix"></i>
-                      <input id="create_by" name="create_by" type="text" value="{{ recipe.create_by }}" minlength="1" maxlength="30"
+                      <input id="create_by" name="create_by" type="text" value="{{ recipe.create_by }}" minlength="5" maxlength="30" patten="[a-zA-Z0-9]"
                         class="validate">
                       <label for="create_by">Create by</label>
                     </div>

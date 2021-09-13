@@ -27,7 +27,7 @@
           <div class="row">
             <div class="input-field col s12">
               <i class="fas fa-utensils prefix"></i>
-              <input id="recipe_name" name="recipe_name" type="text" class="validate" minlength="5" maxlength="50" required>
+              <input id="recipe_name" name="recipe_name" type="text" class="validate" minlength="4" maxlength="50" patten="[a-zA-Z][a-zA-Z0-9-_]" required>
               <label for="recipe_name">Name of Receipe</label>
             </div>
           </div>
@@ -36,7 +36,7 @@
             <p class="black-text">Find a photo on the internet and Copy and Paste the URL adress here</p>
             <div class="input-field col s12">
               <i class="fas fa-image prefix"></i>
-              <input id="img" name="img" type="text" class="validate" minlength="5" maxlength="100"required>
+              <input id="img" name="img" type="url" class="validate" minlength="5" maxlength="100" patten="[(http(s)?):\/\/(www\.)?\w-/=#%&\.\?]{2,}\.[a-z]{2,}([\w-/=#%&\.\?]*)" required>
               <label for="img">Image</label>
             </div>
           </div>
@@ -44,7 +44,7 @@
           <div class="row">
             <div class="input-field col s12">
               <i class="fas fa-comment-dots prefix"></i>
-              <textarea id="description" name="description" text="text" class="materialize-textarea" minlength="1" maxlength="300" required></textarea>
+              <textarea id="description" name="description" text="text" class="materialize-textarea" minlength="1" maxlength="300" patten="^[a-zA-Z]$" required></textarea>
               <label for="description">Description</label>
             </div>
           </div>
@@ -57,7 +57,7 @@
                     <tr>
                       <td id="col0" class="input-field">
                         <i class="fas fa-clipboard-list prefix"></i>
-                        <input id="ingredients" name="ingredients" type="text" class="validate" minlength="5" maxlength="50" required>
+                        <input id="ingredients" name="ingredients" type="text" class="validate" minlength="5" maxlength="50" patten="[a-zA-Z0-9]" required>
                         <label for="ingredients">Ingredients</label>
                       </td>
                     </tr>
@@ -85,7 +85,7 @@
                     <tr>
                       <td id="column0" class="input-field">
                         <i class="fas fa-book-reader prefix"></i>
-                        <textarea id="method" name="method" text="text" class="materialize-textarea" minlength="5" maxlength="300"required></textarea>
+                        <textarea id="method" name="method" text="text" class="materialize-textarea" minlength="5" maxlength="300" patten="[a-zA-Z0-9]" required ></textarea>
                         <label for="method">Method</label>
                       </td>
                     </tr>
@@ -112,13 +112,13 @@
           <div class="row">
             <div class="input-field col s10 offset-s1 m10 offset-m1 l5 offset-l1">
               <i class="fas fa-clock prefix"></i>
-              <input id="cooking_time" name="cooking_time" type="number" class="validate" pattern="^[0-9]{1,2}$" minlength="1" maxlength="2">
+              <input id="cooking_time" name="cooking_time" type="number" class="validate" pattern="^[0-9]" minlength="1" maxlength="2">
               <label for="cooking_time">Cooking time</label>
             </div>
             <!-- Preparation time-->
               <div class="input-field col s10 offset-s1 m10 offset-m1 l5">
                 <i class="fas fa-hourglass-end prefix"></i>
-                <input id="prep_time" name="prep_time" type="number" class="validate" pattern="^[0-9]{1,2}$" minlength="1" maxlength="2">
+                <input id="prep_time" name="prep_time" type="number" class="validate" minlength="1" maxlength="2" pattern="^[0-9]">
                 <label for="prep_time">Prep time</label>
               </div>
           </div>
@@ -127,7 +127,7 @@
               <div class="row">
                 <div class="input-field col s10 offset-s1 m5 offset-m1">
                   <i class="fas fa-user-plus prefix"></i>
-                  <input id="servings" name="servings" type="number" class="validate" pattern="^[0-9]{1,2}$" minlength="1" maxlength="2">
+                  <input id="servings" name="servings" type="number" class="validate" minlength="1" maxlength="2">
                   <label for="servings">Servings</label>
                 </div>
               <!-- Recipe create by-->
