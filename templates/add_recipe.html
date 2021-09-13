@@ -27,15 +27,16 @@
           <div class="row">
             <div class="input-field col s12">
               <i class="fas fa-utensils prefix"></i>
-              <input id="recipe_name" name="recipe_name" type="text" class="validate">
+              <input id="recipe_name" name="recipe_name" type="text" class="validate" minlength="5" maxlength="50" required>
               <label for="recipe_name">Name of Receipe</label>
             </div>
           </div>
           <!-- Image -->
           <div class="row">
+            <p class="black-text">Find a photo on the internet and Copy and Paste the URL adress here</p>
             <div class="input-field col s12">
               <i class="fas fa-image prefix"></i>
-              <input id="img" name="img" type="text" class="validate">
+              <input id="img" name="img" type="text" class="validate" minlength="5" maxlength="100"required>
               <label for="img">Image</label>
             </div>
           </div>
@@ -43,7 +44,7 @@
           <div class="row">
             <div class="input-field col s12">
               <i class="fas fa-comment-dots prefix"></i>
-              <textarea id="description" name="description" text="text" class="materialize-textarea" pattern="^[a-zA-Z0-9]{5,150}$"></textarea>
+              <textarea id="description" name="description" text="text" class="materialize-textarea" minlength="1" maxlength="300" required></textarea>
               <label for="description">Description</label>
             </div>
           </div>
@@ -56,7 +57,7 @@
                     <tr>
                       <td id="col0" class="input-field">
                         <i class="fas fa-clipboard-list prefix"></i>
-                        <input id="ingredients" name="ingredients" type="text" class="validate"  pattern="^[a-zA-Z0-9]{5,150}$">
+                        <input id="ingredients" name="ingredients" type="text" class="validate" minlength="5" maxlength="50" required>
                         <label for="ingredients">Ingredients</label>
                       </td>
                     </tr>
@@ -67,7 +68,7 @@
             <!-- Btn to add and delete added Ingredients inputs -->
             <div class="row center-align">
               <div class="col s12">
-
+                <p class="black-text">Click here to add/remove Ingredients to the list</p>
                 <input type="button" name="add" id="add" value="Add" onclick="addRow()"
                   class="btn teal white-text margin-20px panel">
                 <input type="button" name="remove" id="remove" value="Delete" onclick="deleteRow()"
@@ -84,7 +85,7 @@
                     <tr>
                       <td id="column0" class="input-field">
                         <i class="fas fa-book-reader prefix"></i>
-                        <textarea id="method" name="method" text="text" class="materialize-textarea" pattern="^[a-zA-Z0-9]{5,300}$"></textarea>
+                        <textarea id="method" name="method" text="text" class="materialize-textarea" minlength="5" maxlength="300"required></textarea>
                         <label for="method">Method</label>
                       </td>
                     </tr>
@@ -95,6 +96,7 @@
             <!-- Btn to add and delete added Method inputs -->
             <div class="row center-align">
               <div class="col s12">
+                <p class="black-text">Click here to add/remove Method to the list</p>
                 <input type="button" name="addMethod" id="addMethod" value="Add" onclick="addMethodRow()"
                   class="btn teal white-text darken-text-2 margin-20px panel">
                 <input type="button" name="removeMethod" id="removeMethod" value="Delete" onclick="removeMethodRow()"
@@ -110,13 +112,13 @@
           <div class="row">
             <div class="input-field col s10 offset-s1 m10 offset-m1 l5 offset-l1">
               <i class="fas fa-clock prefix"></i>
-              <input id="cooking_time" name="cooking_time" type="number" class="validate" pattern="^[0-9]{1,2}$">
+              <input id="cooking_time" name="cooking_time" type="number" class="validate" pattern="^[0-9]{1,2}$" minlength="1" maxlength="2">
               <label for="cooking_time">Cooking time</label>
             </div>
             <!-- Preparation time-->
               <div class="input-field col s10 offset-s1 m10 offset-m1 l5">
                 <i class="fas fa-hourglass-end prefix"></i>
-                <input id="prep_time" name="prep_time" type="number" class="validate" pattern="^[0-9]{1,2}$">
+                <input id="prep_time" name="prep_time" type="number" class="validate" pattern="^[0-9]{1,2}$" minlength="1" maxlength="2">
                 <label for="prep_time">Prep time</label>
               </div>
           </div>
@@ -125,13 +127,13 @@
               <div class="row">
                 <div class="input-field col s10 offset-s1 m5 offset-m1">
                   <i class="fas fa-user-plus prefix"></i>
-                  <input id="servings" name="servings" type="number" class="validate" pattern="^[0-9]{1,2}$">
+                  <input id="servings" name="servings" type="number" class="validate" pattern="^[0-9]{1,2}$" minlength="1" maxlength="2">
                   <label for="servings">Servings</label>
                 </div>
               <!-- Recipe create by-->
                 <div class="input-field col s10 offset-s1 m5">
                   <i class="fas fa-users prefix"></i>
-                  <input id="create_by" name="create_by" type="text" class="validate" pattern="^[a-zA-Z]{5,20}$">
+                  <input id="create_by" name="create_by" type="text" class="validate" minlength="5" maxlength="30">
                   <label for="create_by">Create by</label>
                 </div>
               </div>

@@ -8,6 +8,7 @@
   <div class="col s10 m8 lighten-5 offset-s1  offset-m2 card-color">
     <div class="row">
       <div class="col s10 offset-m1">
+        
         <form method="POST" action="{{ url_for('recipe_update', recipe_id=recipe._id) }}">
           <!-- category selection -->
           <div class="row">
@@ -33,7 +34,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="fas fa-utensils prefix"></i>
-                  <input id="recipe_name" name="recipe_name" type="text" class="validate"
+                  <input id="recipe_name" name="recipe_name" type="text" class="validate" minlength="5" maxlength="30"
                     value="{{ recipe.recipe_name }}">
                   <label for="recipe_name">Name of Receipe</label>
                 </div>
@@ -42,7 +43,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="fas fa-image prefix"></i>
-                  <input id="img" name="img" type="text" class="validate" value="{{ recipe.img }}">
+                  <input id="img" name="img" type="text" class="validate" value="{{ recipe.img }}" minlength="5" maxlength="100">
                   <label for="img">Image</label>
                 </div>
               </div>
@@ -50,7 +51,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="fas fa-comment-dots prefix"></i>
-                  <textarea id="description" name="description" text="text" class="materialize-textarea">
+                  <textarea id="description" name="description" text="text" class="materialize-textarea" minlength="5" maxlength="300">
                     {{- recipe.description -}}
                   </textarea>
                   <label for="description">Description</label>
@@ -69,7 +70,7 @@
                               <div class="col s12 m8 offset-m1 input-field">
                                 <i class="fas fa-clipboard-list prefix"></i>
                                 <label for="ingredients">Ingredients</label>
-                                <input id="ingredients" name="ingredients" type="text" class="validate"
+                                <input id="ingredients" name="ingredients" type="text" class="validate" minlength="5" maxlength="50"
                                   value="{{- ingredient -}}">
                               </div>
                               <div class="col s12 m2 offset-m1">
@@ -77,7 +78,7 @@
                                   class="btn teal white-text darken-text-2 panel">Delete</button>
                               </div>
                             </div>
-                              {% endfor %}
+                            {% endfor %}
                           <td>
                         </tr>
                       </table>
@@ -104,7 +105,7 @@
                           <td id="col0" class="input-field">
                             <i class="fas fa-clipboard-list prefix"></i>
                             <label for="ingredients">Add Extra Ingredients</label>
-                            <input id="ingredients" name="ingredients" type="text" class="validate">
+                            <input id="ingredients" name="ingredients" type="text" class="validate" minlength="5" maxlength="50">
 
                           </td>
                         </tr>
@@ -135,7 +136,7 @@
                               <div class="col s12 m8 offset-m1 input-field">
                                 <i class="fas fa-book-reader prefix"></i>
                                 <label for="method">Method</label>
-                                <textarea id="method" name="method" text="text" class="materialize-textarea">
+                                <textarea id="method" name="method" text="text" class="materialize-textarea" minlength="5" maxlength="500">
                               {{- m -}}
                             
                         </textarea>
@@ -168,7 +169,7 @@
                           <td id="column0" class="input-field">
                             <i class="fas fa-book-reader prefix"></i>
                             <label for="method">Add Instructions here!</label>
-                            <textarea id="method" name="method" text="text" class="materialize-textarea"></textarea>
+                            <textarea id="method" name="method" text="text" class="materialize-textarea" minlength="5" maxlength="500"></textarea>
                           </td>
                         </tr>
                       </tbody>
@@ -190,14 +191,14 @@
                   <div class="row">
                     <div class="input-field col s12 offset-s1 m6">
                       <i class="fas fa-clock prefix"></i>
-                      <input id="cooking_time" name="cooking_time" type="number" value="{{ recipe.cooking_time }}"
+                      <input id="cooking_time" name="cooking_time" type="number" value="{{ recipe.cooking_time }}" minlength="1" maxlength="2"
                         class="validate">
                       <label for="cooking_time">Cooking time</label>
                     </div>
                     <!-- Preparation time-->
                     <div class="input-field col s12 m6">
                       <i class="fas fa-hourglass-end prefix"></i>
-                      <input id="prep_time" name="prep_time" type="number" value="{{ recipe.prep_time }}"
+                      <input id="prep_time" name="prep_time" type="number" value="{{ recipe.prep_time }}" minlength="1" maxlength="2"
                         class="validate">
                       <label for="prep_time">Prep time</label>
                     </div>
@@ -206,7 +207,7 @@
                   <div class="row">
                     <div class="input-field col s12 m6">
                       <i class="fas fa-user-plus prefix"></i>
-                      <input id="servings" name="servings" type="number" value="{{ recipe.servings }}" class="validate">
+                      <input id="servings" name="servings" type="number" value="{{ recipe.servings }}" class="validate" minlength="1" maxlength="2"> 
                       <label for="servings">Servings</label>
                     </div>
 
@@ -214,7 +215,7 @@
 
                     <div class="input-field col s12 offset-s1 m6">
                       <i class="fas fa-users prefix"></i>
-                      <input id="create_by" name="create_by" type="text" value="{{ recipe.create_by }}"
+                      <input id="create_by" name="create_by" type="text" value="{{ recipe.create_by }}" minlength="1" maxlength="30"
                         class="validate">
                       <label for="create_by">Create by</label>
                     </div>
@@ -244,14 +245,19 @@
         </form>
       </div>
     </div>
+    
     <div class="row center-align">
-      <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel" href="{{ url_for('recipes') }}">Back
-        to
-        Recipe</a>
-      {% if session.user %}
-      <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel"
-        href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
-      {% endif %}
+      <div class="col s12">
+        <a class="btn waves-effect black gold-color darken-text-2 panel"
+          href="{{ url_for('recipes') }}">Back
+          to
+          Recipe
+        </a>
+        {% if session.user %}
+        <a class="btn waves-effect black gold-color darken-text-2 panel"
+          href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>

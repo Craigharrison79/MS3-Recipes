@@ -285,7 +285,24 @@ def contact():
             request.form.get("name")))  
         return redirect(url_for('contact'))     
     return render_template("contact_us.html", page_title="Contact Us")
-    
+
+
+@app.errorhandler(404)
+def error_404(error):
+    return render_template("404.html"), 404
+
+
+@app.errorhandler(403)
+def error_403(error):
+    flash("Sorry! Something went wrong.")
+    return render_template("home.html")
+
+
+@app.errorhandler(500)
+def error_500(error):
+    flash("Sorry! Something went wrong.")
+    return render_template("home.html")
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
