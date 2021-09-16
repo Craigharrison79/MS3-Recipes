@@ -269,9 +269,13 @@ I wanted to use teal as my navbar and overall color, with Spanish Bistre as my h
 
 - [figma](https://www.figma.com) 
 
+# Testing User Stories
+
+- ## User Stories Testing can be read [here](documentation/testing/testing-doc/storiestesting.md).
+
 # Testing
 
-## Testing process can be read [here](documentation/testing/testing-doc/testing.md).
+- ## Testing process can be read [here](documentation/testing/testing-doc/testing.md).
 
 # Deployment
 
