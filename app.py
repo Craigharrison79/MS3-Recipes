@@ -36,6 +36,10 @@ mongo = PyMongo(app)
 # Code from mentor Felipe Souza Alarcon
 # Decorators
 def login_required(test):
+    """
+    Check to see if user is login
+    if not redirected to login
+    """
     @wraps(test)
     def wrap(*args, **kwargs):
         if 'user' in session:
@@ -49,18 +53,30 @@ def login_required(test):
 @app.route("/")
 @app.route("/home")
 def home():
+    """
+    Render home page template.
+    Everyone can see this page.
+    """
     return render_template("home.html")
 
 
 # Setup and login page
 @app.route("/account", methods=["GET", "POST"])
 def account():
+    """
+    Everyone can see this page.
+    Render login and sign up page.
+    """
     return render_template("account.html")
 
 
 # Method to setup a new account
 @app.route("/new_account", methods=["GET", "POST"])
 def new_account():
+    """
+    Allow a vistor to sign up for an account.
+    if user already existing ask for a new username
+    """
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -88,6 +104,11 @@ def new_account():
 # method for user to login
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Allow a vistors / users to login for an account.
+    Check if password is correct before redirect to profile page
+    If wrong password user will be ask to enter new password
+    """
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -119,6 +140,10 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 @login_required
 def profile(username):
+    """
+    Required the user to be in session.
+    Display username and data stored from the database on user.
+    """
     # grab the session user's usernname from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -133,7 +158,11 @@ def profile(username):
 @app.route("/logout")
 @login_required
 def logout():
-    # Remove user from session cookies
+    """
+    Required the user to be in session.
+    Remove user from session cookies
+    Redirects back to login page
+    """
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
@@ -142,6 +171,11 @@ def logout():
 # Show all recipe on page
 @app.route("/recipes")
 def recipes():
+    """
+    Render recipe template
+    Get recipe detail from database
+    Allow a vistor to see all the recipe.
+    """
     recipes = mongo.db.recipe.find()
     return render_template("recipes.html", recipes=recipes,
                             page_title="Recipes")
@@ -150,6 +184,10 @@ def recipes():
 # Search
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """
+    Allow users and vistors to search for recipe, ingredients or type of meal.
+    Work from both home page and recipe page.
+    """
     query = request.form.get("query")
     recipes = list(mongo.db.recipe.find({"$text": {"$search": query}}))
     return render_template("recipes.html", recipes=recipes,
@@ -159,6 +197,10 @@ def search():
 # Show recipe on page
 @app.route("/show_recipe/<recipe_id>")
 def show_recipe(recipe_id):
+    """
+    Show the whole recipe one users pick the recipe.
+    Get all the recipe information from the database.
+    """
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     courses = mongo.db.meal_courses.find().sort("meal_course", 1)
     return render_template("show_recipe.html", recipe=recipe, courses=courses)
@@ -168,6 +210,11 @@ def show_recipe(recipe_id):
 @app.route("/add_recipe", methods=["GET", "POST"])
 @login_required
 def add_recipe():
+    """
+    Required the user to be in session.
+    Allow a user to add a recipe to the site and database.
+    Grab the information the user enter and send it to the database.
+    """
     if request.method == "POST":
         meal = {
             "meal_course": request.form.get("meal_course"),
@@ -195,6 +242,12 @@ def add_recipe():
 @app.route("/edit_recipe", methods=["GET", "POST"])
 @login_required
 def edit_recipe():
+    """
+    Required the user to be in session.
+    Get the information from database about the choosen recipe.
+    Allow the user to read and edit the information on the page.
+    The user can save any new information enter in to the form.
+    """
     recipes = mongo.db.recipe.find()
     return render_template("edit_recipe.html", recipes=recipes)
 
@@ -202,6 +255,13 @@ def edit_recipe():
 @app.route("/recipe_update/<recipe_id>", methods=["GET", "POST"])
 @login_required
 def recipe_update(recipe_id):
+    """
+    Required the user to be in session.
+    Prevent access to anyone trying to hack the url from the information.
+    Get the information from database about the choosen recipe.
+    Allow the user to read and edit the information on the page.
+    The user can save any new information enter in to the form.
+    """
     name = mongo.db.recipe.find({"added_by": ObjectId(recipe_id)})
     if session["user"] == name:
         flash("Prevent Access.")
@@ -229,17 +289,16 @@ def recipe_update(recipe_id):
     courses = mongo.db.meal_courses.find().sort("meal_course", 1)
     return render_template("recipe_update.html", recipe=recipe,
                             courses=courses)
-    
-
-    recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
-    courses = mongo.db.meal_courses.find().sort("meal_course", 1)
-    return render_template("recipe_update.html", recipe=recipe,
-                            courses=courses)
 
 
 @app.route("/delete_recipe")
 @login_required
 def delete_recipe():
+    """
+    Required the user to be in session.
+    Get the information from database about the choosen recipe.
+    Allow the user to delete the information on the page.
+    """
     recipes = mongo.db.recipe.find()
     return render_template("delete_recipe.html", recipes=recipes)
 
@@ -257,6 +316,10 @@ def eliminate_recipe(recipe_id):
 # Pretty Printed https://www.youtube.com/watch?v=48Eb8JuFuUI&t=944s
 @app.route("/contact_us", methods=["GET", "POST"])
 def contact():
+    """
+    Everyone can see this page.
+    The user can send any detail and message in to the form to the owner email.
+    """
     if request.method == "POST":
         sender_name = request.form['name']
         sender_email = request.form['email']
@@ -299,17 +362,26 @@ def contact():
 
 @app.errorhandler(404)
 def error_404(error):
+    """
+    Return error and render 404 page
+    """
     return render_template("404.html"), 404
 
 
 @app.errorhandler(403)
 def error_403(error):
+    """
+    Return error and redirect to home page
+    """
     flash("Sorry! Something went wrong.")
     return render_template("home.html")
 
 
 @app.errorhandler(500)
 def error_500(error):
+    """
+    Return error and redirect to home page
+    """
     flash("Sorry! Something went wrong.")
     return render_template("home.html")
 

@@ -116,6 +116,11 @@ The owner of the site is looking for a place were clients and like-minded people
 - The owner is building the site for the first time and is still learning Python, Flask, MongoDB and materialize.  If could hinder the owners application to build the overall features on this platform.
 - Time: to implementing feature due to learning new technical skills.
   
+## Structure
+
+![structure-first-look](documentation/design/architecture.png)
+
+Basic idea for how everything will fix together and move from one page to the next.
 
 # Design
 
@@ -133,6 +138,11 @@ I used mockup [mockflow.com](https://www.mockflow.com/)
 - [Wireframes Download PDF](https://pdf)
 - [Wireframes Download PDF](https://pdf)
 
+### Database Structure
+
+![Database-design](documentation/mongodb/mongodb.png)
+
+The users image was remove, email became a string and the recipes method was change to a array.
 
 ### Typography
 
@@ -147,13 +157,10 @@ I wanted to use teal as my navbar and overall color, with Spanish Bistre as my h
 
 ### Image
 
-Photo by <a href="https://unsplash.com/@grimnoire?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">emy</a> on <a href="https://unsplash.com/s/photos/food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
- 
- 
+ [Unsplash](https://unsplash.com/photos/XoByiBymX20) : Photo by [emy](https://unsplash.com/@grimnoire?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
-Photo by <a href="https://unsplash.com/@carolineattwood?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Caroline Attwood</a> on <a href="https://unsplash.com/s/photos/food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
+
+[Unsplash](https://unsplash.com/photos/bpPTlXWTOvg) : Photo by [Caroline Attwood](https://unsplash.com/@carolineattwood?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
 # Features
 
@@ -396,6 +403,10 @@ Log onto Heroku and to create an app by clicking on the new app button.
 
 # Credits
 
+[CodeInstitue](https://github.com/Craigharrison79/FlaskFramework) : contact us form
+
+[CodeInstitue](https://github.com/Craigharrison79/TaskManager-project) : template of the site, and code!
+
 ## Inspiration for Website
 
 ### Jamie Oliver:
@@ -412,3 +423,30 @@ To veiw the site. **[click](https://www.jamieoliver.com/recipes/)**
 
 ## Code
 
+#### Java Script
+
+[Stackoverflow](https://stackoverflow.com/questions/33513557/delete-dynamically-created-rows-in-javascript): add / delete dynamically created rows in javascript
+
+[Stackoverflow](https://stackoverflow.com/questions/33513557/delete-dynamically-created-rows-in-javascript) : add / delete dynamically created rows in javascript
+
+[etutorialspoint](https://www.etutorialspoint.com/index.php/11-dynamically-add-delete-html-table-rows-using-javascript) : Dynamically Add/Delete HTML Table Rows Using Javascript
+
+[w3schools](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_password) : password toggle
+
+[Stackoverflow](https://stackoverflow.com/questions/59187988/how-do-i-toggle-password-visibility) : password toggle
+
+[CodeInstitue](https://github.com/Craigharrison79/TaskManager-project) : category selection
+
+[Materializecss](https://materializecss.com/): Java Script code
+
+#### Python code
+
+[pythonhosted](https://pythonhosted.org/Flask-Mail/) : Flask mail
+
+[Pretty Printed](https://www.youtube.com/watch?v=48Eb8JuFuUI&t=944s) : Flask mail
+
+[Stackoverflow](https://stackoverflow.com/questions/65434221/prevent-users-from-directly-accessing-url-and-redirect-to-login-if-not-logged-in) : Prevent users from directly accessing url.
+
+Login decorators : 
+
+![Felipe Souza Alarcon](/documentation/testing/images/validator/screenshot-mentor.png)

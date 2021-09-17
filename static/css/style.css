@@ -88,6 +88,10 @@ ul li {
     padding: 20px;
 }
 
+.icon-gap {
+    margin: 1rem;
+}
+
 #icon-heading {
     font-size: 60px;
 }

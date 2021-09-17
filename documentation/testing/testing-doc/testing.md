@@ -143,6 +143,19 @@ On running the whole site through lighthouse on chrome developer tools.  I got d
 
 ![ligthhouse8](/documentation/testing/images/lighthouse/lighthouse-m-2.png)
 
+### Fix to lighthouse report
+
+- I was able to improve the overall scores but still different results for each page. On big issue was the url images affecting best pracitces score. Think next time I try something like this I want to maybe download the image to a file.
+
+![lighthousenew](/documentation/testing/images/lighthouse/lighthouse-new-home.png)
+
+![lighthousenew2](/documentation/testing/images/lighthouse/lighthouse-new-recipe.png)
+
+-   Best Practices when down but I add more recipe to this page.  Again url images.
+
+![lighthousenew3](/documentation/testing/images/lighthouse/lighthouse-new-account.png)
+
+![lighthousenew4](/documentation/testing/images/lighthouse/lighthouse-new-editrecipe.png)
 
 ##  Intersesting bugs and Issues:
 
