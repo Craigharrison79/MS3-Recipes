@@ -17,6 +17,10 @@ body {
     font-family: 'Poppins', 'Roboto', sans-serif;    
 }
 
+p {
+    font-family: 'Roboto', 'Poppins', sans-serif;   
+}
+
 .gold-color {
     color: rgb(143, 130, 56);
 }

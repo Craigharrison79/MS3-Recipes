@@ -8,7 +8,7 @@
   <div class="col s10 m8 lighten-5 offset-s1  offset-m2 card-color">
     <div class="row">
       <div class="col s10 offset-m1">
-
+        {% if session.user|lower == recipe.added_by|lower %}
         <form method="POST" action="{{ url_for('recipe_update', recipe_id=recipe._id) }}">
           <!-- category selection -->
           <div class="row">
@@ -17,7 +17,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="fas fa-bookmark prefix"></i>
-                  <select id="meal_course" name="meal_course" class="validate" required>
+                  <select id="meal_course" name="meal_course" class="validate" aria-label="mutiple select" required>
                     <option value="" disabled>Choose your option</option>
                     {% for course in courses %}
                     {% if course.meal_course == recipe.meal_course %}
@@ -34,7 +34,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="fas fa-utensils prefix"></i>
-                  <input id="recipe_name" name="recipe_name" type="text" class="validate" minlength="4" maxlength="50"
+                  <input id="recipe_name" name="recipe_name" type="text" class="validate" aria-label="recipe name" minlength="4" maxlength="50"
                     patten="[a-zA-Z][a-zA-Z0-9-_]" value="{{ recipe.recipe_name }}">
                   <label for="recipe_name">Name of Receipe</label>
                 </div>
@@ -44,7 +44,7 @@
                 <div class="input-field col s12">
                   <i class="fas fa-image prefix"></i>
                   <input id="img" name="img" type="url" class="validate" value="{{ recipe.img }}" minlength="5"
-                    maxlength="100">
+                    maxlength="100" aria-label="image">
                   <label for="img">Image</label>
                 </div>
               </div>
@@ -52,7 +52,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="fas fa-comment-dots prefix"></i>
-                  <textarea id="description" name="description" class="materialize-textarea" minlength="1"
+                  <textarea id="description" name="description" class="materialize-textarea" aria-label="description" minlength="1"
                     maxlength="300" patten="^[a-zA-Z]$">
                     {{- recipe.description -}}
                   </textarea>
@@ -72,7 +72,7 @@
                               <div class="col s12 m8 offset-m1 input-field">
                                 <i class="fas fa-clipboard-list prefix"></i>
                                 <label for="ingredients">Ingredients</label>
-                                <input id="ingredients" name="ingredients" type="text" class="validate" minlength="5"
+                                <input id="ingredients" name="ingredients" type="text" class="validate" aria-label="ingredients" minlength="5"
                                   maxlength="50" patten="[a-zA-Z0-9]" value="{{- ingredient -}}">
                               </div>
                               <div class="col s12 m2 offset-m1">
@@ -106,7 +106,7 @@
                       <td id="col0" class="input-field">
                         <i class="fas fa-clipboard-list prefix"></i>
                         <label for="ingredients1">Add Extra Ingredients</label>
-                        <input id="ingredients1" name="ingredients" type="text" class="validate" minlength="5"
+                        <input id="ingredients1" name="ingredients" type="text" class="validate" aria-label="added ingredients" minlength="5"
                           maxlength="50" patten="[a-zA-Z0-9]">
 
                       </td>
@@ -116,9 +116,9 @@
                 </table>
                 <div class="row center-align">
                   <div class="col s10 offset-s1">
-                    <input type="button" name="add" id="add" value="Add" onclick="addRow()"
+                    <input type="button" name="add" id="add" value="Add" aria-label="adding ingredient" onclick="addRow()"
                       class="btn teal white-text darken-text-2 margin-20px panel">
-                    <input type="button" name="remove" id="remove" value="Delete" onclick="deleteRow()"
+                    <input type="button" name="remove" id="remove" value="Delete" aria-label="delete ingredient" onclick="deleteRow()"
                       class="btn teal white-text darken-text-2 margin-20px panel">
                   </div>
                 </div>
@@ -137,7 +137,7 @@
                               <div class="col s12 m8 offset-m1 input-field">
                                 <i class="fas fa-book-reader prefix"></i>
                                 <label for="method">Method</label>
-                                <textarea id="method" name="method" class="materialize-textarea" minlength="5"
+                                <textarea id="method" name="method" class="materialize-textarea" aria-label="method" minlength="5"
                                   maxlength="300" patten="[a-zA-Z0-9]">
                                     {{- m -}}
                                   </textarea>
@@ -170,7 +170,7 @@
                       <td id="column0" class="input-field">
                         <i class="fas fa-book-reader prefix"></i>
                         <label for="method1">Add Instructions here!</label>
-                        <textarea id="method1" name="method" class="materialize-textarea" minlength="5"
+                        <textarea id="method1" name="method" class="materialize-textarea" aria-label="method" minlength="5"
                           maxlength="300" patten="[a-zA-Z0-9]"></textarea>
                       </td>
                     </tr>
@@ -179,9 +179,9 @@
                 </table>
                 <div class="row">
                   <div class="col s10 offset-s4">
-                    <input type="button" name="addMethod" id="addMethod" value="Add" onclick="addMethodRow()"
+                    <input type="button" name="addMethod" id="addMethod" value="Add" aria-label="adding method" onclick="addMethodRow()"
                       class="btn teal white-text darken-text-2 margin-20px panel">
-                    <input type="button" name="removeMethod" id="removeMethod" value="Delete"
+                    <input type="button" name="removeMethod" id="removeMethod" aria-label="delete method" value="Delete"
                       onclick="removeMethodRow()" class="btn teal white-text darken-text-2 margin-20px panel"></div>
                 </div>
               </div>
@@ -192,14 +192,14 @@
                   <div class="row">
                     <div class="input-field col s12 offset-s1 m6">
                       <i class="fas fa-clock prefix"></i>
-                      <input id="cooking_time" name="cooking_time" type="number" value="{{ recipe.cooking_time }}"
+                      <input id="cooking_time" name="cooking_time" type="number" aria-label="cooking time" value="{{ recipe.cooking_time }}"
                          class="validate">
                       <label for="cooking_time">Cooking time</label>
                     </div>
                     <!-- Preparation time-->
                     <div class="input-field col s12 m6">
                       <i class="fas fa-hourglass-end prefix"></i>
-                      <input id="prep_time" name="prep_time" type="number" value="{{ recipe.prep_time }}"
+                      <input id="prep_time" name="prep_time" type="number" aria-label="preparation time" value="{{ recipe.prep_time }}"
                         class="validate">
                       <label for="prep_time">Prep time</label>
                     </div>
@@ -208,7 +208,7 @@
                   <div class="row">
                     <div class="input-field col s12 m6">
                       <i class="fas fa-user-plus prefix"></i>
-                      <input id="servings" name="servings" type="number" value="{{ recipe.servings }}" class="validate"
+                      <input id="servings" name="servings" type="number" aria-label="serving" value="{{ recipe.servings }}" class="validate"
                         >
                       <label for="servings">Servings</label>
                     </div>
@@ -217,7 +217,7 @@
 
                     <div class="input-field col s12 offset-s1 m6">
                       <i class="fas fa-users prefix"></i>
-                      <input id="create_by" name="create_by" type="text" value="{{ recipe.create_by }}" minlength="5"
+                      <input id="create_by" name="create_by" type="text" aria-label="create by" value="{{ recipe.create_by }}" minlength="5"
                         maxlength="30" patten="[a-zA-Z0-9]" class="validate">
                       <label for="create_by">Create by</label>
                     </div>
@@ -226,7 +226,7 @@
                   <div class="row">
                     <div class="input-field col  s12 m6 offset-m3">
                       <i class="fas fa-calendar-alt prefix"></i>
-                      <input id="day_added1" name="day_added" type="text" name="day_added" value="{{ recipe.day_added }}"
+                      <input id="day_added1" name="day_added" type="text" name="day_added" aria-label="day recipe added on" value="{{ recipe.day_added }}"
                         class="datepicker valiadate">
                       <label for="day_added1">Day added</label>
                     </div>
@@ -245,9 +245,11 @@
             </div>
           </div>
         </form>
+        {% else: %}
       </div>
     </div>
-
+    
+    <h2 class="center-align">Prevent Access</h2>
     <div class="row center-align">
       <div class="col s12">
         <a class="btn waves-effect black gold-color darken-text-2 panel" href="{{ url_for('recipes') }}">Back
@@ -257,6 +259,7 @@
         {% if session.user %}
         <a class="btn waves-effect black gold-color darken-text-2 panel"
           href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
+        {% endif %}
         {% endif %}
       </div>
     </div>

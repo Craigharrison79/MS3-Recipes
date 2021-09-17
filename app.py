@@ -203,7 +203,6 @@ def edit_recipe():
 @login_required
 def recipe_update(recipe_id):
     name = mongo.db.recipe.find({"added_by": ObjectId(recipe_id)})
-    # if session.user == recipe_id.added_by:
     if session["user"] == name:
         flash("Prevent Access.")
         return redirect(url_for("home"))
@@ -225,6 +224,12 @@ def recipe_update(recipe_id):
             }
             mongo.db.recipe.update({"_id": ObjectId(recipe_id)}, submit)
             flash("Recipe has been Updated Successfully")
+
+    recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
+    courses = mongo.db.meal_courses.find().sort("meal_course", 1)
+    return render_template("recipe_update.html", recipe=recipe,
+                            courses=courses)
+    
 
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     courses = mongo.db.meal_courses.find().sort("meal_course", 1)
