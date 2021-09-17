@@ -136,7 +136,7 @@ function removeMethodRow() {
         let row = table.deleteRow(rowNum-1);
         rowNum--;
     } else{
-        alert("Cannot Delete Ingredients");
+        alert("Cannot Delete Method");
     }
 }
 /* Adding row for updating Recipe */

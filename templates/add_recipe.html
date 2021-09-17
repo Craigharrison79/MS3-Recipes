@@ -27,7 +27,8 @@
           <div class="row">
             <div class="input-field col s12">
               <i class="fas fa-utensils prefix"></i>
-              <input id="recipe_name" name="recipe_name" type="text" class="validate" minlength="4" maxlength="50" patten="[a-zA-Z][a-zA-Z0-9-_]" required>
+              <input id="recipe_name" name="recipe_name" type="text" class="validate" minlength="4" maxlength="50"
+                patten="[a-zA-Z][a-zA-Z0-9-_]" required>
               <label for="recipe_name">Name of Receipe</label>
             </div>
           </div>
@@ -36,7 +37,8 @@
             <p class="black-text">Find a photo on the internet and Copy and Paste the URL adress here</p>
             <div class="input-field col s12">
               <i class="fas fa-image prefix"></i>
-              <input id="img" name="img" type="url" class="validate" minlength="5" maxlength="100" patten="[(http(s)?):\/\/(www\.)?\w-/=#%&\.\?]{2,}\.[a-z]{2,}([\w-/=#%&\.\?]*)" required>
+              <input id="img" name="img" type="url" class="validate" minlength="5" maxlength="100"
+                patten="[(http(s)?):\/\/(www\.)?\w-/=#%&\.\?]{2,}\.[a-z]{2,}([\w-/=#%&\.\?]*)" required>
               <label for="img">Image</label>
             </div>
           </div>
@@ -44,26 +46,28 @@
           <div class="row">
             <div class="input-field col s12">
               <i class="fas fa-comment-dots prefix"></i>
-              <textarea id="description" name="description" text="text" class="materialize-textarea" minlength="1" maxlength="300" patten="^[a-zA-Z]$" required></textarea>
+              <textarea id="description" name="description" class="materialize-textarea" minlength="1" maxlength="300"
+                patten="^[a-zA-Z]$" required></textarea>
               <label for="description">Description</label>
             </div>
           </div>
           <!-- Ingredients-->
           <div class="row">
             <table id="ingredientsRow">
-              <div class="row">
-                <div class="col s10">
-                  <tbody>
-                    <tr>
-                      <td id="col0" class="input-field">
-                        <i class="fas fa-clipboard-list prefix"></i>
-                        <input id="ingredients" name="ingredients" type="text" class="validate" minlength="5" maxlength="50" patten="[a-zA-Z0-9]" required>
-                        <label for="ingredients">Ingredients</label>
-                      </td>
-                    </tr>
-                  </tbody>
-                </div>
-              </div>
+              <!--<div class="row">
+                <div class="col s10">-->
+              <tbody>
+                <tr>
+                  <td id="col0" class="input-field">
+                    <i class="fas fa-clipboard-list prefix"></i>
+                    <input id="ingredients" name="ingredients" type="text" class="validate" minlength="5" maxlength="50"
+                      patten="[a-zA-Z0-9]" required>
+                    <label for="ingredients">Ingredients</label>
+                  </td>
+                </tr>
+              </tbody>
+              <!-- </div>
+              </div>-->
             </table>
             <!-- Btn to add and delete added Ingredients inputs -->
             <div class="row center-align">
@@ -79,19 +83,20 @@
           <!-- Method try -->
           <div class="row">
             <table id="methodRow">
-              <div class="row">
-                <div class="col s10">
-                  <tbody>
-                    <tr>
-                      <td id="column0" class="input-field">
-                        <i class="fas fa-book-reader prefix"></i>
-                        <textarea id="method" name="method" text="text" class="materialize-textarea" minlength="5" maxlength="300" patten="[a-zA-Z0-9]" required ></textarea>
-                        <label for="method">Method</label>
-                      </td>
-                    </tr>
-                  </tbody>
-                </div>
-              </div>
+              <!--<div class="row">
+                <div class="col s10">-->
+              <tbody>
+                <tr>
+                  <td id="column0" class="input-field">
+                    <i class="fas fa-book-reader prefix"></i>
+                    <textarea id="method" name=" method" class="materialize-textarea" minlength="5" maxlength="300"
+                      patten="[a-zA-Z0-9]" required></textarea>
+                    <label for="method"> Method</label>
+                  </td>
+                </tr>
+              </tbody>
+              <!--</div>
+              </div>-->
             </table>
             <!-- Btn to add and delete added Method inputs -->
             <div class="row center-align">
@@ -108,29 +113,29 @@
           <div class="row">
             <div class="col s12">
 
-          <!-- Cooking time-->
-          <div class="row">
-            <div class="input-field col s10 offset-s1 m10 offset-m1 l5 offset-l1">
-              <i class="fas fa-clock prefix"></i>
-              <input id="cooking_time" name="cooking_time" type="number" class="validate" pattern="^[0-9]" minlength="1" maxlength="2">
-              <label for="cooking_time">Cooking time</label>
-            </div>
-            <!-- Preparation time-->
-              <div class="input-field col s10 offset-s1 m10 offset-m1 l5">
-                <i class="fas fa-hourglass-end prefix"></i>
-                <input id="prep_time" name="prep_time" type="number" class="validate" minlength="1" maxlength="2" pattern="^[0-9]">
-                <label for="prep_time">Prep time</label>
+              <!-- Cooking time-->
+              <div class="row">
+                <div class="input-field col s10 offset-s1 m10 offset-m1 l5 offset-l1">
+                  <i class="fas fa-clock prefix"></i>
+                  <input id="cooking_time" name="cooking_time" type="number" class="validate" required>
+                  <label for="cooking_time">Cooking time</label>
+                </div>
+                <!-- Preparation time-->
+                <div class="input-field col s10 offset-s1 m10 offset-m1 l5">
+                  <i class="fas fa-hourglass-end prefix"></i>
+                  <input id="prep_time" name="prep_time" type="number" class="validate" required>
+                  <label for="prep_time">Prep time</label>
+                </div>
               </div>
-          </div>
 
               <!-- Number of Serving-->
               <div class="row">
                 <div class="input-field col s10 offset-s1 m5 offset-m1">
                   <i class="fas fa-user-plus prefix"></i>
-                  <input id="servings" name="servings" type="number" class="validate" minlength="1" maxlength="2">
+                  <input id="servings" name="servings" type="number" class="validate" required>
                   <label for="servings">Servings</label>
                 </div>
-              <!-- Recipe create by-->
+                <!-- Recipe create by-->
                 <div class="input-field col s10 offset-s1 m5">
                   <i class="fas fa-users prefix"></i>
                   <input id="create_by" name="create_by" type="text" class="validate" minlength="5" maxlength="30">
@@ -138,25 +143,25 @@
                 </div>
               </div>
 
-                <!-- Day recipe added on-->
-                <div class="row">
-                  <div class="input-field col s10 offset-s1">
-                    <i class="fas fa-calendar-alt prefix"></i>
-                    <input id="day_added" name="day_added" type="text" name="day_added" class="datepicker">
-                    <label for="day_added">Day added</label>
-                  </div>
-                </div>
-                <!-- submit button -->
-                <div class="row center-align">
-                  <div class="col s12">
-                    <button type="submit" class="btn waves-effect teal white-text darken-text-2 panel" id="save"
-                      href="{{ url_for('recipes') }}">
-                      Add Recipe<i class="fas fa-plus-square white-text right"></i>
-                    </button>
-                  </div>
+              <!-- Day recipe added on-->
+              <div class="row">
+                <div class="input-field col s10 offset-s1">
+                  <i class="fas fa-calendar-alt prefix"></i>
+                  <input id="day_added" name="day_added" type="text" class="datepicker">
+                  <label for="day_added">Day added</label>
                 </div>
               </div>
-    </div>
+              <!-- submit button -->
+              <div class="row center-align">
+                <div class="col s12">
+                  <button type="submit" class="btn waves-effect teal white-text darken-text-2 panel" id="save"
+                    href="{{ url_for('recipes') }}">
+                    Add Recipe<i class="fas fa-plus-square white-text right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
     </div>

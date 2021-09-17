@@ -84,6 +84,10 @@ ul li {
     padding: 20px;
 }
 
+#icon-heading {
+    font-size: 60px;
+}
+
 td i {
     font-size: 25px;
 }
@@ -155,6 +159,10 @@ td i {
     padding: 20px;
     border: black 1px solid;
     border-radius: 20px;
+}
+
+.gap-bottom {
+    margin-bottom: 20px;
 }
 
 @media only screen and (max-width:768px) {
