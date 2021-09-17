@@ -62,7 +62,7 @@ function Validate() {
 
 
 /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_password 
-
+https://stackoverflow.com/questions/59187988/how-do-i-toggle-password-visibility
 Showing Password Input */
 function showPassword() {
     let p = document.getElementById("password");
@@ -91,19 +91,23 @@ function loginPassword() {
     } 
 }
 
+
+/* Add new ingredients to update recipes
+https://www.etutorialspoint.com/index.php/11-dynamically-add-delete-html-table-rows-using-javascript */
 function addRow() {
 	var table = document.getElementById('ingredientsRow');
 	var rowNumber = table.rows.length;
 	var cellCount = table.rows[0].cells.length; 
     var row = table.insertRow(rowNumber);
     for(var i =0; i <= cellCount; i++){
-        var cell = 'cell'+i;
-		cell = row.insertCell(i);
-		var copycel = document.getElementById('col'+i).innerHTML;
-		cell.innerHTML=copycel;
+        var block = 'cell'+i;
+		block = row.insertCell(i);
+		var newRow = document.getElementById('column'+i).innerHTML;
+		block.innerHTML=newRow;
     }
 }
 
+/* Delete new ingredients to update recipes */
 function deleteRow() {
     const TABLE = document.getElementById('ingredientsRow');
     let rowNumber = TABLE.rows.length;
@@ -115,20 +119,21 @@ function deleteRow() {
     }
 }
 
-
+/* add new Method to update recipes */
 function addMethodRow() {
 	var table = document.getElementById('methodRow');
 	var rowNum = table.rows.length;
 	var methodCellCount = table.rows[0].cells.length; 
     var row = table.insertRow(rowNum);
     for(var i =0; i <= methodCellCount; i++){
-        var cell = 'cell'+i;
-		cell = row.insertCell(i);
-		var copycel = document.getElementById('column'+i).innerHTML;
-		cell.innerHTML=copycel;
+        var block = 'cell'+i;
+		block = row.insertCell(i);
+		var newRow = document.getElementById('column'+i).innerHTML;
+		block.innerHTML=newRow;
     }
 } 
 
+/* Delete new ingredients to update recipes */
 function removeMethodRow() {
     var table = document.getElementById('methodRow');
     let rowNum = table.rows.length;
@@ -136,22 +141,25 @@ function removeMethodRow() {
         let row = table.deleteRow(rowNum-1);
         rowNum--;
     } else{
-        alert("Cannot Delete Method");
+        alert("Cannot Delete This Method");
     }
 }
-/* Adding row for updating Recipe */
+
+/* Show the Adding row for updating Recipe */
 function addExtraIngredients() {
     let extraTable = document.getElementById("extraTable");
     extraTable.style.display = 'block';
 }
 
+/* Show the Adding row for updating Recipe */
 function addExtraMethod() {
     let extraMethodTable = document.getElementById("extraMethodTable");
     extraMethodTable.style.display = 'block'
 }
 
 
-/* Delete the add rows for Ingredients and Method */
+/* Delete the add rows for Ingredients and Method
+https://stackoverflow.com/questions/33513557/delete-dynamically-created-rows-in-javascript */
 function rowDelete(link) {
     var row = link.parentNode.parentNode;
      var table = row.parentNode; 

@@ -75,10 +75,21 @@
     - Ginger programming language
 
 
-
 #### W3C CSS Jigsaw Validator
 
 - The CSS file was tested with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+
+#### Wave Accesibility
+
+- On each page I had contrast errors. It wanted me to be more black but I like the white and wanted to keep it like this.
+- Link errors on the logo in the navbar I listen to a few developer and some say to do it and other not to.  I want to use it here as on mobile you can get to the home faster.
+- Missing label and aria tag.
+    - This I fix.
+    - Some label / aria are the same because the program is looping over the same template. 
+
+![wave1](/documentation/testing/images/validator/wave-home.png)
+![wave2](/documentation/testing/images/validator/wave-recipe.png)
+![wave3](/documentation/testing/images/validator/wave-account.png)
 
 #### JSHint validator
 
@@ -88,9 +99,11 @@
 
 #### PEP 8
 
-- I run the python file throught [PEP8 online](http://pep8online.com/) and returned 4 errors (E125, E127).
+- I run the python file throught [PEP8 online](http://pep8online.com/) and returned 6 errors (E125, E127, E501).
 
-![PEP8](/documentation/testing/images/PEP8/PEP8-14.png)
+    - I left them allow as fix it one way would just throw up a another code.
+
+![PEP8](/documentation/testing/images/PEP8/PEP8-finish.png)
 
 ## Testing Performance
 
@@ -131,7 +144,38 @@ On running the whole site through lighthouse on chrome developer tools.  I got d
 ![ligthhouse8](/documentation/testing/images/lighthouse/lighthouse-m-2.png)
 
 
-##  Intersesting bugs and Issues
+##  Intersesting bugs and Issues:
 
-### Password show toggle 
+- ### Recipe Update
 
+    - On the in ingredinents and Method section when add and delete extra, the input section was disappear if you delete all the input. Then went you click on the add button to restart adding inputs again the input box would not a appear.
+        - To fix this I had to add:
+            if (rowNumber > '1') and a alert to tell the user they couldn't remove the last row.
+
+- ### Password show toggle 
+
+    - The toggle on the create account page and the sign in page was affecting each other.  I have them as one function but I decided to split them up into two function which stop the problem from happening.
+        - The is maybe a better way to do this and maybe I can come back to this in the future.
+
+- ### Contact Us Mail
+
+    - I had a issue with heroku and found it was a issue with flash mail.  It told me 2 days of trying to figure out the code and I adventure turn to the tutor at code institute.
+        - I found the problem when talking with the tutor as I had put a extra M when enter the code: 
+        app.config["MMAIL_DEFAULT_SENDER"] = os.environ.get("MAIL_DEFAULT_SENDER") instead of 
+        app.config["MAIL_DEFAULT_SENDER"] = os.environ.get("MAIL_DEFAULT_SENDER")
+
+- ### Update Page Prevent Access
+
+    - My mentor show me the was a issue that some on could still hack into the page even with the @login_required function. So I task my with the job of fix this issue.  I managed to do it after a frustrating few days.  But the code scene to be working backward.  I try this the other way but I will not work.  I ask my mentor and he mention it was working and sometimes we may not be able to explain why.
+
+    if session["user"] == name:
+        flash("Prevent Access.")
+        return redirect(url_for("home"))
+
+    this should be the other way around but I will not work if I change it to:
+
+    if session["user"] != name:
+        flash("Prevent Access.")
+        return redirect(url_for("home"))
+
+    As I don't understand why this is happen I left it knowing the function is doing the job.

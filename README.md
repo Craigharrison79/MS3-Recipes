@@ -136,6 +136,7 @@ I used mockup [mockflow.com](https://www.mockflow.com/)
 
 ### Typography
 
+I needed to have a readable font that was easy for anyone to read. A font with clean lines and open and not to forceful. I use ‘Roboto’ and ‘Poppins’ in my first project and like how they look.  Both have nice flowing lines and they go well together.  I used [Google Fonts](https://fonts.google.com/)
 
 
 ### Color Scheme

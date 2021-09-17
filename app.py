@@ -11,11 +11,11 @@ if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
-#Database
+# Database
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-#Email
+# Email
 app.config["MAIL_USERNAME"] = os.environ.get("MAIL_USERNAME")
 app.config["MAIL_PASSWORD"] = os.environ.get("MAIL_PASSWORD")
 app.config["MAIL_DEFAULT_SENDER"] = os.environ.get("MAIL_DEFAULT_SENDER")
@@ -198,12 +198,12 @@ def edit_recipe():
     recipes = mongo.db.recipe.find()
     return render_template("edit_recipe.html", recipes=recipes)
 
-
+# https://stackoverflow.com/questions/65434221/prevent-users-from-directly-accessing-url-and-redirect-to-login-if-not-logged-in
 @app.route("/recipe_update/<recipe_id>", methods=["GET", "POST"])
 @login_required
 def recipe_update(recipe_id):
     name = mongo.db.recipe.find({"added_by": ObjectId(recipe_id)})
-    #if session.user == recipe_id.added_by:
+    # if session.user == recipe_id.added_by:
     if session["user"] == name:
         flash("Prevent Access.")
         return redirect(url_for("home"))
@@ -287,8 +287,8 @@ def contact():
                 conn.send(msg)
 
         flash("Thanks {}, we have received your message!".format(
-            request.form.get("name")))  
-        return redirect(url_for('contact'))     
+            request.form.get("name")))
+        return redirect(url_for('contact'))
     return render_template("contact_us.html", page_title="Contact Us")
 
 
