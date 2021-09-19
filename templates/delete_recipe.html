@@ -31,16 +31,16 @@
                         <div class="row center-align">
                             <div class="col s12">
 
-                                <div class="col s12 m6 offset-s1">
-                                    <a class=" btn modal-trigger teal panel"
+                                <div class="col s12 m6">
+                                    <a class=" btn modal-trigger teal card-style"
                                         href="{{url_for('eliminate_recipe', recipe_id=recipe._id) }}"
                                         onclick="return confirm('Press OK to Delete Recipe');">Delete</a>
                                 </div>
 
                                 <!-- hyperlink button-->
-                                <div class="col s12 m6 offset-s1">
+                                <div class="col s12 m6">
                                     <a href="{{url_for('recipe_update', recipe_id=recipe._id) }}"
-                                        class="btn teal panel">edit</a>
+                                        class="btn teal card-style">edit</a>
                                 </div>
                             </div>
                         </div>
@@ -54,10 +54,10 @@
     </div>
 </div>
 <div class="row center-align">
-    <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel" href="{{ url_for('recipes') }}">Recipe
+    <a class="btn waves-effect black gold-color darken-text-2 margin-20px card-style" href="{{ url_for('recipes') }}">Recipe
         Page</a>
     {% if session.user %}
-    <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel"
+    <a class="btn waves-effect black gold-color darken-text-2 margin-20px card-style"
         href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
     {% endif %}
 </div>

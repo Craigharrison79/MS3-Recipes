@@ -14,7 +14,6 @@
                         <div class="card-image">
 
                             <img img src="{{ recipe.img }}" alt="Recipe photo">
-                            <span class="card-title å">By: {{ recipe.create_by }}</span>
                         </div>
                     </div>
                 </div>
@@ -35,6 +34,10 @@
                                     <p class="black-text">Cooking Time: {{ recipe.cooking_time }}</p>
                                     <p class="black-text">Prep Time: {{ recipe.prep_time }}</p>
                                     <p class="black-text">Servings: {{ recipe.servings }}</p>
+                                    <div class="margin-t10">
+                                        <span class="card-title white-text">By: {{ recipe.create_by }}</span>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -72,18 +75,18 @@
                         </div>
                         <br>
                         <div class="row center-align">
-                            <span>Date Recipe was added: {{ recipe.day_added }}</span>
+                            <span class="white-text">Date Recipe was added: {{ recipe.day_added }}</span>
                             <br>
-                            <span>Date Recipe was added: {{ recipe.added_by }}</span>
+                            <span class="white-text">Date Recipe was added: {{ recipe.added_by }}</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row center-align">
-                <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel"
+                <a class="btn waves-effect black gold-color darken-text-2 margin-20px card-style"
                     href="{{ url_for('recipes') }}">Back to Recipe</a>
                 {% if session.user %}
-                <a class="btn waves-effect black gold-color darken-text-2 margin-20px panel"
+                <a class="btn waves-effect black gold-color darken-text-2 margin-20px card-style"
                     href="{{ url_for('profile', username=session['user']) }}">Return to Profile</a>
                 {% endif %}
             </div>

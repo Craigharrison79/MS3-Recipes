@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto&display=swap');
 
-* {
+/** {
     box-sizing: border-box;
     margin: 0;
     padding: 0;  
-} 
-
+} */
+*,
 *::before,
 *::after{
     box-sizing: border-box;
@@ -13,13 +13,23 @@
     padding: 0;
 }
 
+/*--------- body  ---------*/
 body {
-    font-family: 'Poppins', 'Roboto', sans-serif;    
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    background-color: rgb(233, 233, 233);    
 }
 
 p {
-    font-family: 'Roboto', 'Poppins', sans-serif;   
+    font-family: 'Roboto', 'Poppins', sans-serif;
+    font-size: 1.6rem;   
 }
+p small {
+    font-size: 1.2rem;
+}
+
+
+
+/*-------- Colour --------*/
 
 .gold-color {
     color: rgb(143, 130, 56);
@@ -33,27 +43,133 @@ p {
     color: black;
 }
 
-.off-white-background {
-    background-color: rgb(233, 233, 233);
-}
-
 .white {
     color: white;
 }
 
 .fas {
     color: black;
-
 }
+
+.card-color {
+    /*---- Add / Edit recipe page Card ---*/
+    background-color: #fff;
+}
+
+
+/*--------- Navbar  ---------*/
 
 .nav-bars-color {
     color: white;
+    font-size: 22px;
 }
 
-p {
+.brand-logo {
+    margin-left: 30px;
+    font-size: 30px;
+}
+
+#mobile-demo {
+    width: 90%;
+}
+
+#mobile-demo li{
+    margin-top: 20px;
+}
+
+/*--------- Home Page  ---------*/
+
+/* p {
     font-size: 22px;
     color: white;
+}*/
+
+.margin-b10 {
+    /*--- margin-bottom of "As an Member" <p> --*/
+    margin-bottom: 10px;
 }
+
+.icon-gap {
+    margin: 1rem;
+}
+
+/*--------- Card Style ---------*/
+
+.card-style {
+    /*--------- rounds box ---------*/
+    margin-top: 40px;
+    border-radius: 20px;
+}
+
+/*---- Recipe page  -----*/
+
+.card {
+    border-radius: 20px;
+}
+.card-image{
+    height: 300px !important;
+    width: 100%;
+}
+.card-font-size {
+    font-size: 1.4rem;
+}
+.height-min {
+    height: 550px;
+}
+
+p small {
+    /*---- search bar text -----*/
+    display: inline-block;
+    font-size: 1.4rem;
+}
+
+/*---- Show a Recipe Page  -----*/
+
+.margin-t10 {
+    margin-top: 10px;
+}
+
+/*---- Log In / Sign Up page  -----*/
+
+#icon-heading {
+    font-size: 60px;
+}
+
+/*---- Profile  -----*/
+
+.grow-button {
+    font-size: 1.2rem;
+}
+
+.profile-img {
+    font-size: 100px;
+    margin: 30px;
+}
+
+
+/*---- Adding Recipe Form -----*/
+
+#icon-center {
+    line-height: 0px !important;
+}
+
+/*---- Contact Us Form -----*/
+
+#message {
+    height: 80px;
+}
+
+.contact_us {
+    background-color: white;
+    padding: 20px;
+    border: black 1px solid;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+
+
+
 
 .visible-text {
     font-size: 36px;
@@ -64,12 +180,8 @@ p {
 }
 
 ul li {
-    color: white;
-    font-size: 18px;
-}
-
-.brand-logo {
-    margin-left: 30px;
+    color: black;
+    font-size: 1.4rem;
 }
 
 .space-btn {
@@ -92,9 +204,6 @@ ul li {
     margin: 1rem;
 }
 
-#icon-heading {
-    font-size: 60px;
-}
 
 td i {
     font-size: 25px;
@@ -104,10 +213,7 @@ td i {
     border-radius: 50%;
 }
 
-.profile-img {
-    font-size: 100px;
-    margin: 30px;
-}
+
 
 #extraTable {
     display:  none;
@@ -117,7 +223,7 @@ td i {
     display: none;
 }
 
-.panel {
+/*.panel {
     margin-top: 40px;
     border-radius: 20px;
 }
@@ -127,17 +233,13 @@ td i {
     height: 600px;
 }
 
-.card-image img {
+/*.card-image img {
     object-fit:fill;
     max-height: 300px;
     width: 100% !important;
     border-radius: 20px;
-}
+}*/
 
-.card-image{
-    height: 300px !important;
-    width: 300px;
-}
 
 .card .card-image img {
     border-radius: 20px;
@@ -158,31 +260,106 @@ td i {
     margin-bottom: 0px;
 }
 
-.card-color {
-    background-color: #fff;
-}
-
-.contact_us {
-    background-color: white;
-    padding: 20px;
-    border: black 1px solid;
-    border-radius: 20px;
-}
 
 .gap-bottom {
     margin-bottom: 20px;
 }
 
-@media only screen and (max-width:768px) {
+/*----- Footer -----*/
+
+.social-Media-icon {
+    font-size: 20px;
+    padding: 10px;
+}
+
+#social-links {
+    display: flex;
+    justify-content: center;
+    
+}
+
+@media only screen and (min-width:1300px) {
     .card-image{
-        height: 250px !important;
-        width: 250px;
+        height: 400px !important;
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+
+    .height-min {
+        min-height: 650px;
+    }
+}
+
+
+@media only screen and (max-width:768px) {
+   /**/
+
+    p {
+        font-size: 18px;
     }
 }
 
 @media screen and (max-width: 471px) {
-    .card-image{
+    h1 {
+        font-size: 3rem;
+    }
+    h2 {
+        font-size: 2.4rem
+    }
+    h3 {
+        font-size: 2rem;
+    }
+    h4 {
+        font-size: 1.75rem;
+    }
+    .site-info li {
+        font-size: 1.2rem;
+        margin-top: 5px;
+    }
+    /*.card-image{
         height: 200px !important;
         width: 200px;
+    }*/
+    p {
+        font-size: 1.2rem;
     }
+    .brand-logo {
+        font-size: 20px !important;
+    }
+
+    .social-Media-icon {
+        font-size: 18px;
+        padding: 3px;
+    }
+    
+    #social-links {
+        display: block;
+        justify-content: center;
+        
+    }
+
+    
+}
+
+@media screen and (max-width: 370px) {
+    /*--- Recicpe card --*/
+    .height-min {
+        min-height: 650px;
+    }
+    p small {
+        display: inline-block;
+        font-size: 1rem;
+    }
+    .small-screen-text {
+        font-size: 10px;
+    }
+    .grow-button {
+        font-size: 0.90rem;
+    }
+    .auto-center {
+        margin: auto 0;
+    }
+    
+    
 }

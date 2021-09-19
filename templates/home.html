@@ -8,7 +8,7 @@
     <div class="row container">
         <div class="col m8 offset-m2 l12 center-align">
             <h1 class="header center-align white-text">MPT Recipes</h1>
-            <h3 class="header center-align black-text">HEALTHY MEALS AND FITNESS RECIPES</h3>
+            <h2 class="header center-align black-text">HEALTHY MEALS AND FITNESS RECIPES</h2>
             <p class="black-text text-darken-3 lighten-3">Here you will find delicious healthy dishes for all you needs.
                 Recipes that don't sacrifice on flavor stay true to your health goals and that the whole family can
                 enjoy.</p>
@@ -29,22 +29,24 @@
         </div>
         <div class="row">
             <div class="col s10 offset-s1 l12">
-                <div class="row card-panel lighten-5 panel">
+                <div class="row card-panel lighten-5 card-style">
                     <form action="{{ url_for('search') }}" method="post" class="col">
                         <div class="row valign-wrapper center-align">
                             <div class="input-field col s12 m10">
                                 <input type="text" name="query" id="query" minlength="3" class="validate" aria-label="search" required>
                                 <label for="query">Search</label>
-                                <a href="{{ url_for('recipes') }}" class="red btn text-shadow">Reset</a>
+                                <a href="{{ url_for('recipes') }}" class="red btn text-shadow" id="reset">Reset</a>
                                 <button type="submit" class="teal btn text-shadow">
                                     Search
                                 </button>
                             </div>
                         </div>
                     </form>
-                    <p class="black-text center-align">
-                        <small>Type in your keywords or ingredients to search for a recipe!</small>
-                    </p>
+                    <div>
+                        <p class="black-text center-align ">
+                            <small>Type in your keywords or ingredients to search for a recipe!</small>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,16 +62,16 @@
 <div class="row">
     <div class="col s12">
         <div class="row">
-            <div class="col s10 offset-s1 l10 offset-l1 teal panel center-align">
+            <div class="col s10 offset-s1 l10 offset-l1 teal card-style center-align">
                 <div class="row">
                     <div class="col s10 offset-s1 l12">
                         <h2 class="center-align">Get Inspired</h2>
 
                         <h3>As a Vistor</h3>
-                        <ul>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Find new
+                        <ul class="site-info">
+                            <li class="white-text"><i class="far fa-dot-circle"></i> Find new
                                 recipe to add spice to your meal times.</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Ideas from
+                            <li class="white-text"><i class="far fa-dot-circle"></i> Ideas from
                                 Members to inspire you.</li>
                         </ul>
                     </div>
@@ -77,14 +79,14 @@
                 <div class="row">
                     <div class="col s10 offset-s1 l12">
                         <h3>As an Member</h3>
-                        <p>As a member you can help someone else with your Creativity and Knowledge.</p>
-                        <ul>
-                            <li><span class="fa-li"><i class="fas fa-check list-icon"></i></span>You
+                        <p class="margin-b10">As a member you can help someone else with your Creativity and Knowledge.</p>
+                        <ul class="site-info">
+                            <li class="white-text"><i class="far fa-dot-circle"></i> You
                                 can add recipe to the database to share your
                                 favorite recipes.</li>
-                            <li><span class="fa-li"><i class="fas fa-check list-icon"></i></span>Have
+                            <li class="white-text"><i class="far fa-dot-circle"></i> Have
                                 a place to keep your recipe.</li>
-                            <li><span class="fa-li"><i class="fas fa-check list-icon"></i></span>Have
+                            <li class="margin-b10 white-text"><i class="far fa-dot-circle"></i> Have
                                 the ability to change and improve your recipe at the touch of a button</li>
                         </ul>
                     </div>

@@ -192,3 +192,18 @@ On running the whole site through lighthouse on chrome developer tools.  I got d
         return redirect(url_for("home"))
 
     As I don't understand why this is happen I left it knowing the function is doing the job.
+
+- ### Form resizing Issue
+
+    - When using the google dev tools to see how the performer is on responsive to changes in screen size the input field data from the database was not responsive.  But if you hit refresh the date field would correct it's self.
+    - Think this is a issue with materialize.
+
+![form1](/documentation/testing/images/validator/responsive-form-1.png)
+![form2](/documentation/testing/images/validator/responsive-form-1.png)
+
+- ### Resizing screen
+
+    - Due to the information that is displayed on the screen with CRUD and input information into the database the resizing of the screen brake at  around 200px and less.  As most devices at this present time (19-9-2021) do not have screen less then 320px.
+
+- [Read info on mobile screen size: From worship agency](https://worship.agency/mobile-screen-sizes-for-2021)
+- [Read info on mobile screen size: From accessally.com](https://accessally.com/blog/mobile-responsive-screen-sizes/#:~:text=For%20example%2C%20the%20smallest%20screen,the%20Galaxy%20phones%20and%20tablets.)
