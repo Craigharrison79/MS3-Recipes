@@ -100,7 +100,6 @@
               <!-- To Add Ingredients -->
               <div class="row" id="extraTable">
                 <table id="ingredientsRow" class="col s12">
-
                   <tbody>
                     <tr>
                       <td id="col0" class="input-field">
@@ -108,11 +107,9 @@
                         <label for="ingredients1">Add Extra Ingredients</label>
                         <input id="ingredients1" name="ingredients" type="text" class="validate" aria-label="added ingredients" minlength="5"
                           maxlength="50" patten="[a-zA-Z0-9]">
-
                       </td>
                     </tr>
                   </tbody>
-
                 </table>
                 <div class="row center-align">
                   <div class="col s10 offset-s1">
@@ -161,10 +158,10 @@
                   </div>
                 </div>
               </div>
+
               <!-- To Add Extra Method -->
               <div class="row" id="extraMethodTable">
                 <table id="methodRow">
-
                   <tbody>
                     <tr>
                       <td id="column0" class="input-field">
@@ -175,7 +172,6 @@
                       </td>
                     </tr>
                   </tbody>
-
                 </table>
                 <div class="row">
                   <div class="col s10 offset-s1">
@@ -196,6 +192,7 @@
                          class="validate">
                       <label for="cooking_time">Cooking time</label>
                     </div>
+
                     <!-- Preparation time-->
                     <div class="input-field col s12 m6">
                       <i class="fas fa-hourglass-end prefix"></i>
@@ -204,12 +201,12 @@
                       <label for="prep_time">Prep time</label>
                     </div>
                   </div>
+
                   <!-- Number of Serving-->
                   <div class="row">
                     <div class="input-field col s12 m4">
                       <i class="fas fa-user-plus prefix"></i>
-                      <input id="servings" name="servings" type="number" aria-label="serving" value="{{ recipe.servings }}" class="validate"
-                        >
+                      <input id="servings" name="servings" type="number" aria-label="serving" value="{{ recipe.servings }}" class="validate">
                       <label for="servings">Servings</label>
                     </div>
 
@@ -222,6 +219,7 @@
                       <label for="create_by">Create by</label>
                     </div>
                   </div>
+
                   <!-- Day recipe added on-->
                   <div class="row">
                     <div class="input-field col  s12 m6 offset-m3">
@@ -231,6 +229,7 @@
                       <label for="day_added1">Day added</label>
                     </div>
                   </div>
+
                   <!-- submit button -->
                   <div class="row center">
                     <div class="col s12 center-align">
@@ -245,7 +244,9 @@
             </div>
           </div>
         </form>
+
         {% else: %}
+        
       </div>
     </div>
     

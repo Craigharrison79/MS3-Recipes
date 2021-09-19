@@ -7,6 +7,7 @@
     <div class="col s10 offset-s1 m8 offset-m2 l6 offset-l3">
         <div class="row card-panel lighten-5 card-style">
             <div class="col s12 m6 l6">
+              <!-- Search Bar -->
                 <form action="{{ url_for('search') }}" method="post">
                     <div class="row valign-wrapper center-align">
                         <div class="input-field col s12 m12 l12">
@@ -22,6 +23,7 @@
                         </div>
                     </div>
                 </form>
+
             </div>
             <div class="col s12 m6 l6">
                 <p class="black-text center-align">
@@ -43,7 +45,6 @@
             <div class="card height-min border-round teal">
               <div class="card-image">
                 <img img src="{{ recipe.img }}" alt="Recipe photo">
-                
               </div>
               <div class="card-content">
                 <p class="card-font-size"><span class="card-title activator">
@@ -56,13 +57,14 @@
               </div>
             </div>
           </div>
+
         {% else %}
+
         <!-- Recipe card 2 -->
         <div class="col s10 offset-s1 m6 l5 offset-l2 ">
             <div class="card height-min border-round teal">
               <div class="card-image">
                 <img img src="{{ recipe.img }}" alt="Recipe photo">
-                
               </div>
               <div class="card-content">
                 <p class="card-font-size"><span class="card-title activator">

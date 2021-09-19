@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto&display=swap');
 
-/** {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;  
-} */
 *,
 *::before,
 *::after{
@@ -79,11 +74,6 @@ p small {
 
 /*--------- Home Page  ---------*/
 
-/* p {
-    font-size: 22px;
-    color: white;
-}*/
-
 .margin-b10 {
     /*--- margin-bottom of "As an Member" <p> --*/
     margin-bottom: 10px;
@@ -93,6 +83,8 @@ p small {
     margin: 1rem;
 }
 
+
+
 /*--------- Card Style ---------*/
 
 .card-style {
@@ -100,6 +92,8 @@ p small {
     margin-top: 40px;
     border-radius: 20px;
 }
+
+
 
 /*---- Recipe page  -----*/
 
@@ -123,17 +117,25 @@ p small {
     font-size: 1.4rem;
 }
 
+
+
 /*---- Show a Recipe Page  -----*/
 
 .margin-t10 {
     margin-top: 10px;
 }
 
+
+
+
 /*---- Log In / Sign Up page  -----*/
 
 #icon-heading {
     font-size: 60px;
 }
+
+
+
 
 /*---- Profile  -----*/
 
@@ -147,11 +149,14 @@ p small {
 }
 
 
+
 /*---- Adding Recipe Form -----*/
 
 #icon-center {
     line-height: 0px !important;
 }
+
+
 
 /*---- Contact Us Form -----*/
 
@@ -166,8 +171,6 @@ p small {
     border-radius: 20px;
     margin-top: 20px;
 }
-
-
 
 
 
@@ -192,6 +195,9 @@ ul li {
     margin-bottom: 20px;
 }
 
+
+/* --- Icons ---- */
+
 .icon-img {
     font-size: 40px;
 }
@@ -213,7 +219,7 @@ td i {
     border-radius: 50%;
 }
 
-
+/* --- Display the table with JS on adding / editing recipe page -- */
 
 #extraTable {
     display:  none;
@@ -222,23 +228,6 @@ td i {
 #extraMethodTable {
     display: none;
 }
-
-/*.panel {
-    margin-top: 40px;
-    border-radius: 20px;
-}
-
-.image-responsive {
-    width: 200px;
-    height: 600px;
-}
-
-/*.card-image img {
-    object-fit:fill;
-    max-height: 300px;
-    width: 100% !important;
-    border-radius: 20px;
-}*/
 
 
 .card .card-image img {
@@ -259,7 +248,6 @@ td i {
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
-
 
 .gap-bottom {
     margin-bottom: 20px;
@@ -293,7 +281,6 @@ td i {
 
 
 @media only screen and (max-width:768px) {
-   /**/
 
     p {
         font-size: 18px;
@@ -301,6 +288,7 @@ td i {
 }
 
 @media screen and (max-width: 471px) {
+
     h1 {
         font-size: 3rem;
     }
@@ -317,10 +305,7 @@ td i {
         font-size: 1.2rem;
         margin-top: 5px;
     }
-    /*.card-image{
-        height: 200px !important;
-        width: 200px;
-    }*/
+    
     p {
         font-size: 1.2rem;
     }
@@ -337,9 +322,7 @@ td i {
         display: block;
         justify-content: center;
         
-    }
-
-    
+    }   
 }
 
 @media screen and (max-width: 370px) {
@@ -360,6 +343,4 @@ td i {
     .auto-center {
         margin: auto 0;
     }
-    
-    
 }

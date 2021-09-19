@@ -4,7 +4,7 @@
 
 <h2 class="center-align gold-color"> {{ recipe.recipe_name.upper() }} </h2>
 
-
+<!-- Name of Recipe -->
 <div class="row">
     <div class="col s10 offset-s1 m10 offset-m1">
         <div class="card teal">
@@ -12,14 +12,13 @@
                 <div class="row">
                     <div class="col s8 offset-s2 l6 offset-l3 photo-box">
                         <div class="card-image">
-
                             <img img src="{{ recipe.img }}" alt="Recipe photo">
                         </div>
                     </div>
                 </div>
             </div>
 
-        
+            <!-- Description -->
             <div class="card-content teal">
                 <div class="row">
                     <div class="col s12">
@@ -29,6 +28,7 @@
                                 <br>
                             </div>
 
+                            <!-- All Recipe Timing Info -->
                             <div class="row center-align">
                                 <div class="col s12">
                                     <p class="black-text">Cooking Time: {{ recipe.cooking_time }}</p>
@@ -36,16 +36,16 @@
                                     <p class="black-text">Servings: {{ recipe.servings }}</p>
                                     <div class="margin-t10">
                                         <span class="card-title white-text">By: {{ recipe.create_by }}</span>
-                                    </div>
-                                    
+                                    </div> 
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Ingredients / Method Tabs -->
             <div class="card-tabs">
                 <ul class="tabs tabs-fixed-width">
                     <li class="tab teal "><a href="#ingredinets">INGREDIENTS</a></li>
@@ -53,6 +53,7 @@
                 </ul>
             </div>
 
+            <!-- Ingredients list -->
             <div class="card-content teal">
                 <div id="ingredinets">
                     <div class="row center-align">
@@ -63,17 +64,23 @@
                     </ul>
                 </div>
                 </div>
+
+                <!-- Method -->
                 <div id="method">
                     <div class="row">
                         <div class="col s12">
                             <ul>
+
                                 {% for m in recipe.method %}
-                                <li class="gap-bottom">{{- m -}}</li>
-                                
+                                <li class="gap-bottom">
+                                    {{- m -}}
+                                </li>
                                 {% endfor %}
+
                             </ul>
                         </div>
                         <br>
+                        <!-- Added Info -->
                         <div class="row center-align">
                             <span class="white-text">Date Recipe was added: {{ recipe.day_added }}</span>
                             <br>
@@ -82,6 +89,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="row center-align">
                 <a class="btn waves-effect black gold-color darken-text-2 margin-20px card-style"
                     href="{{ url_for('recipes') }}">Back to Recipe</a>

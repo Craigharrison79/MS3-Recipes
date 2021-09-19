@@ -149,7 +149,7 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, page_title="Profile")
 
     return redirect(url_for("account.html"))
 
@@ -203,7 +203,7 @@ def show_recipe(recipe_id):
     """
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     courses = mongo.db.meal_courses.find().sort("meal_course", 1)
-    return render_template("show_recipe.html", recipe=recipe, courses=courses)
+    return render_template("show_recipe.html", recipe=recipe, courses=courses, page_title="View Recipe")
 
 
 # allow user to add recipe and post them on the site. (must be login)
@@ -235,21 +235,8 @@ def add_recipe():
         return redirect(url_for("recipes"))
 
     courses = mongo.db.meal_courses.find().sort("meal_course", 1)
-    return render_template("add_recipe.html", courses=courses)
+    return render_template("add_recipe.html", courses=courses, page_title="Add Recipe")
 
-
-# render recipe to be selected to edit
-@app.route("/edit_recipe", methods=["GET", "POST"])
-@login_required
-def edit_recipe():
-    """
-    Required the user to be in session.
-    Get the information from database about the choosen recipe.
-    Allow the user to read and edit the information on the page.
-    The user can save any new information enter in to the form.
-    """
-    recipes = mongo.db.recipe.find()
-    return render_template("edit_recipe.html", recipes=recipes)
 
 # https://stackoverflow.com/questions/65434221/prevent-users-from-directly-accessing-url-and-redirect-to-login-if-not-logged-in
 @app.route("/recipe_update/<recipe_id>", methods=["GET", "POST"])
@@ -300,7 +287,8 @@ def delete_recipe():
     Allow the user to delete the information on the page.
     """
     recipes = mongo.db.recipe.find()
-    return render_template("delete_recipe.html", recipes=recipes)
+    return render_template("delete_recipe.html", recipes=recipes, 
+                            page_title="Delete Recipes")
 
 
 # Allow user to pick a particular recipe to be deleted

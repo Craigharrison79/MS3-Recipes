@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    /* materializecss code */
     $('.sidenav').sidenav();
     $(".dropdown-trigger").dropdown({ hover: false });
     $('.tabs').tabs();

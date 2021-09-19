@@ -5,14 +5,14 @@
 
 <div class="row valign-wrapper">
     <div class="col s12 center-align">
-        <div><img src="/static/image/404page.svg" alt="404 page image"></div>
-    
-   
-    <div class="col s12 center-align">
-        <h4 class="center-align black-text">OOPS! No page found.</h4>
-        <p>Please head back to the home page!</p>
-        <a class="btn card-style pulse" href="{{ url_for('home') }}">Go back home</a>
+        <div>
+            <img src="/static/image/404page.svg" alt="404 page image">
+        </div>
+        <div class="col s12 center-align">
+            <h4 class="center-align black-text">OOPS! No page found.</h4>
+            <p>Please head back to the home page!</p>
+            <a class="btn card-style pulse" href="{{ url_for('home') }}">Go back home</a>
+        </div>
     </div>
-</div>
 </div>
 {% endblock %}

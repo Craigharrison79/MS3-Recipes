@@ -7,8 +7,7 @@
     <div class="col s12">
         <div class="row">
             <div class="col s8 offset-s2">
-
-
+                <!-- Flash Message box-->
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
                 <ul class="flashes">
@@ -19,51 +18,53 @@
                 {% endif %}
                 {% endwith %}
 
-
                 <p class="black-text">Want to get in touch? Fill out the form below to send me a message and I will get
                     back to you as soon as
                     possible!</p>
                 <div class="row contact_us">
                     <div class="col s12">
+                        <!-- Form -->
                         <form method="POST" action="{{ url_for('contact') }}" name="sentMessage" id="contactForm">
                             <div>
+                                <!-- Name -->
                                 <div>
                                     <label class="black-text">Please enter your name.</label>
-                                    <input type="text" class="form-control" placeholder="Name" name="name" id="name" aria-label="name"
-                                        required>
+                                    <input type="text" class="form-control" placeholder="Name" name="name" id="name"
+                                        aria-label="name" required>
                                 </div>
                             </div>
                             <div>
+                                <!-- Email -->
                                 <div>
                                     <label class="black-text">Email Address</label>
-                                    <input type="email" class="form-control" placeholder="Email Address" name="email" aria-label="email"
-                                        id="email" required>
+                                    <input type="email" class="form-control" placeholder="Email Address" name="email"
+                                        aria-label="email" id="email" required>
                                 </div>
                             </div>
                             <div>
+                                <!-- Phone Number -->
                                 <div>
                                     <label class="black-text">Phone Number</label>
-                                    <input type="tel" placeholder="Phone Number" name="phone" id="phone" aria-label="phone" required>
+                                    <input type="tel" placeholder="Phone Number" name="phone" id="phone"
+                                        aria-label="phone" required>
                                 </div>
                             </div>
                             <div>
+                                <!-- Message -->
                                 <div>
                                     <label class="black-text">Message</label>
-                                    <textarea rows="10" class="form-control" placeholder="Message" name="message" aria-label="message"
-                                        id="message" required></textarea>
+                                    <textarea rows="10" class="form-control" placeholder="Message" name="message"
+                                        aria-label="message" id="message" required></textarea>
                                 </div>
                             </div>
                             <br>
-                            <div></div>
+                            <!-- Submit Button -->
                             <div>
                                 <button type="submit" class="btn teal" id="sendMessageButton">Send</button>
                             </div>
                         </form>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>

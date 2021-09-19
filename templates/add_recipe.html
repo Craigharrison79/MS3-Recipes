@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h3 class="gold-color center-align">Add Recipe</h3>
+<h3 class="gold-color center-align">{{ page_title }}</h3>
 
 <div class="row">
   <div class="col s10 m8 lighten-5 offset-s1  offset-m2 card-color">
@@ -54,8 +54,6 @@
           <!-- Ingredients-->
           <div class="row">
             <table id="ingredientsRow">
-              <!--<div class="row">
-                <div class="col s10">-->
               <tbody>
                 <tr>
                   <td id="col0" class="input-field">
@@ -66,8 +64,6 @@
                   </td>
                 </tr>
               </tbody>
-              <!-- </div>
-              </div>-->
             </table>
             <!-- Btn to add and delete added Ingredients inputs -->
             <div class="row center-align">
@@ -83,8 +79,6 @@
           <!-- Method try -->
           <div class="row">
             <table id="methodRow">
-              <!--<div class="row">
-                <div class="col s10">-->
               <tbody>
                 <tr>
                   <td id="column0" class="input-field">
@@ -95,8 +89,6 @@
                   </td>
                 </tr>
               </tbody>
-              <!--</div>
-              </div>-->
             </table>
             <!-- Btn to add and delete added Method inputs -->
             <div class="row center-align">
@@ -112,7 +104,6 @@
           <!-- Lower half info -->
           <div class="row">
             <div class="col s12">
-
               <!-- Cooking time-->
               <div class="row">
                 <div class="input-field col s10 offset-s1 m10 offset-m1 l5 offset-l1">
@@ -127,7 +118,6 @@
                   <label for="prep_time">Prep time</label>
                 </div>
               </div>
-
               <!-- Number of Serving-->
               <div class="row">
                 <div class="input-field col s10 offset-s1 m5 offset-m1">
@@ -142,7 +132,6 @@
                   <label for="create_by">Create by</label>
                 </div>
               </div>
-
               <!-- Day recipe added on-->
               <div class="row">
                 <div class="input-field col s10 offset-s1">
