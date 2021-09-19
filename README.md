@@ -1,6 +1,6 @@
 # [MPT Food Recipes](https://ms3-recipes-site.herokuapp.com/)
 
-Third Project for my Diploma Course with the Code Institute, I read a suggestion/idea in the outline section to the milestone project.  As I work as a Personal Trainer I have lots of food recipes and always getting ask about ideas for meals to eat.  Build this site will give me a way of archiving the recipes and allow my clients to see and read them while allowing them to share any recipes or ideas with  other people.
+This is my third Project for my Diploma Course with the Code Institute. I read  a suggestion/idea in the outline section to the milestone project. As I work as a Personal Trainer I have lots of food recipes and I am always getting asked about ideas for meals to eat. Building this site will give me a way of archiving the recipes and allow my clients to see and read them while allowing them to share any recipes or ideas with other people.
 
 ![MPT Food Recipes](documentation/design/Am-I-Responsive.png)
 View the site: [MPT Food Recipes](https://ms3-recipes-site.herokuapp.com/)
@@ -30,51 +30,51 @@ View the site: [MPT Food Recipes](https://ms3-recipes-site.herokuapp.com/)
 
 ## Strategy
 
-MPT Recipes is an online platform to store and present recipe for the user and visitors to the platform. The aim is to deliver inspiration, and share iedas for healthy food recipes.
+MPT Recipes is an online platform to store and present recipes for the user and visitors to the platform. The aim is to deliver inspiration and share ideas for healthy food recipes.
 
 - build a database of healthy recipes.
-- allow people to share ideas of health eating.
+- allow people to share ideas of healthy eating.
 - build a community of inspiration.
 
-The owner of the site is looking for a place were clients and like-minded people can share and gather information. For a tool to help the owner with his business and to give the ower's clients an add service.
+The owner of the site is looking for a place were clients and like-minded people can share and gather information, for a tool to help the owner with his business and to give the owners clients an added service.
 
 ## Goals
 
 #### Owner goal
 
-- To provide an plaform to share ideas for health recipes.
-- To provide a extra service to the owner clients.
-- To expand the ower database of recipe and there for expanding the owner's recipes list to offer the owner's clients.
+- To provide a platform to share ideas for healthy recipes.
+- To provide an extra service to the owner’s clients. 
+- To expand the owner database of recipes and therefor for expanding the owner's recipes list to offer to the owner's clients.
 
 #### User goals
 
-- To get inspiration for eating health.
-- To understand what health eathing can look like.
-- To build a reptile of go to meal of health life.
+- To get inspiration for healthy eating.
+- To understand what healthy eating can look like.
+- To build a reprepertoire of go to meals for a healthy life.
 - To find meal the whole family can eat.
 
 ## **User stories:**
 
 - First time users
 
-    - I want a responsive website that can be access on any one of my devices.
-    - I want a easy to follow plaform on which I can easily navigate throught quickly to find the information I want.
-    - I want a easy to read recipe page that displays the information clearly.
-    - I want a simple sign up page that in be done easily with little to no fuss.
-    - I want to be able to search for recipe by name or ingredients.
+    - I want a responsive website that can be accessed on any one of my devices.
+    - I want a easy to follow platform on which I can easily navigate through quickly to find the information I want.
+    - I want an easy to read recipe page that displays the information clearly.
+    - I want a simple sign up page that can be done easily with little to no fuss.
+    - I want to be able to search for a recipe by name or ingredients.
 
 - Returning users
     
-    -  I want a simple page that I can login to and make use of all the features on the platform.
-    - I need to be able to add and edit recipe to make profile account.
+    - I want a simple page that I can login to and make use of all the features on the platform.
+    - I need to be able to add and edit recipes to my profile account.
     - I want a way to contact the owner to ask questions or to make queries about the platform.
     
 - Frequent users:
 
     - I want a way to contact the owner to ask questions or to make queries about the website.
-    - I want to be able to search for recipe quickly.
-    - I need to be able to add and edit recipe to make profile account.
-    - I want a easy way to delete any recipe I no longer feel deemed to be presented on my profile.
+    - I want to be able to search for a recipe quickly.
+    - I need to be able to add and edit recipes to my profile account.
+    - I want an easy way to delete any recipes that I no longer feel deemed to be presented on my profile.
 
 ## Scope
 
@@ -113,8 +113,9 @@ The owner of the site is looking for a place were clients and like-minded people
 
 ## Building Constraints
 
-- The owner is building the site for the first time and is still learning Python, Flask, MongoDB and materialize.  If could hinder the owners application to build the overall features on this platform.
-- Time: to implementing feature due to learning new technical skills.
+- The owner is building the site for the first time and is still learning Python, Flask, MongoDB and materialize. The lack of knowledge could hinder me from fulfilling the owners overall look and features on this platform.
+- Lack of time: to implement features due to learning new technical skills.
+
   
 ## Structure
 
@@ -124,7 +125,7 @@ Basic idea for how everything will fix together and move from one page to the ne
 
 # Design
 
-A simple site that is moderm and easy on the eye.  Simple to read and easy to follow.
+A simple site that is modern and easy on the eye. Simple to read and easy to follow.
 
 ### Wireframes
 
@@ -142,16 +143,17 @@ I used mockup [mockflow.com](https://www.mockflow.com/)
 
 ![Database-design](documentation/mongodb/mongodb.png)
 
-The users image was remove, email became a string and the recipes method was change to a array.
+The users image was removed, email became a string and the recipes method was changed to an array.
 
 ### Typography
 
-I needed to have a readable font that was easy for anyone to read. A font with clean lines and open and not to forceful. I use ‘Roboto’ and ‘Poppins’ in my first project and like how they look.  Both have nice flowing lines and they go well together.  I used [Google Fonts](https://fonts.google.com/)
+I needed to have a readable font that was easy for anyone to read. A font with clean lines and open and not to forceful. I used ‘Roboto’ and ‘Poppins’ in my first project and I liked how they looked. They have nice flowing lines and they go well together. I used
+[Google Fonts](https://fonts.google.com/)
 
 
 ### Color Scheme
 
-I wanted to use teal as my navbar and overall color, with Spanish Bistre as my highlights. Inspiration came from Jamie Olivers website. I wanted a pop of colour and then a clear pallet all the way through the site. 
+I wanted to use teal as my navbar and overall color, with Spanish Bistre as my highlights. Inspiration came from Jamie Olivers website. I wanted a pop of colour and then a clear pallet all the way through the site.
 
 ![Colour Scheme](documentation/design/colours.png)
 
@@ -167,48 +169,64 @@ I wanted to use teal as my navbar and overall color, with Spanish Bistre as my h
 - #### Landing Page or menu
 
     - A clean inviting page to indicate what site the user is looking at.
-    - Simple brake down on the site and how it works.
-    - A quickly way to find the recipe you are looking for or the ingredients you are looking to cook with.
+
+    - Simple breakdown on the site and how it works.
+
+    - A quick way to find the recipes you are looking for or the ingredients you are looking to cook with.
+
     - Collapsible navbar on mobile devices for better visibility.
+
 
 - #### Recipe page
 
-    - Search bar to quickly find any recipe with a the uses of keywords.
-    - A clear look to the recipe cards with image, name of the recipe and a short description on the recipe.
-    - A icon on the card which will show more information about the recipe as well as button link to main page showing all the information on the recipe.
+    - Search bar to quickly find any recipes with the uses of keywords.
 
+    - A clean look to the recipe cards with image, name of the recipe and a short description on the recipe.
+
+    - A icon on the card which will show more information about the recipe as well as button link to the main page showing all the information on the recipe.
 
 - #### Login / Sign Up page
 
-    - Login and sign up on one page using tabs to switch bewteen each section.
+    - Login and sign up is on one page using tabs to switch between each section.
+
     - A toggle button to show the password to help the users enter the code.
-    - On sign up page the user will have to Confirm Password before sign up, this will stop the users enter a different password to the one they think they are entering.
+
+    - On sign up page the user will have to Confirm Password before signing up, this will stop the users entering a different password to the one they think they are entering.
 
 - #### Log Out
 
-    - Once login an log out option will appear in the navbar.
+    - Once login a log out option will appear in the navbar.
+
 
 - #### Profile page
 
-    - On the users dashboard / profile page the option to create / update and delete recipes.  But only update / delete that the user has created. 
+    - On the users dashboard / profile page the option to create / update and delete recipes. But only update / delete that the user has created. 
 
 - #### CRAD Features
 
     - Simple way to add recipes.
-        - Ingredients / Method input will need a dynamic table to be able to add and delete list of ingredients which then will be insert into an array in the database.
+        - Ingredients / Method input will need a dynamic table to be able to add and delete list of ingredients which then will be inserted into an array in the database.
+
     - Update recipes.
         - Will need additional table to add further more ingredients and methods.
+
         - Use of buttons to delete individual ingredients / method from the recipe record file.
-        - Alert to check then you want to confirm update of the recipe.
+
+        - Alert to check that you want to confirm the update of the recipe.
+
     - Delete recipes.
+
         - Button to delete the recipe file from the database.
-        - A warning alert to check then you want to confirm deletion of the recipe.
+
+        - A warning alert to check that you want to confirm deletion of the recipe.
 
 - #### Footer
 
     - Have the links to the navbar in the footer.
+
     - Social Media Links
-    - A button linking to a contact us page, so users / vistors can send any question to the owner of the site.
+
+    - A button linking to a contact us page, so users / visitors can send any questions to the owner of the site.
 
 - ### Future Features
 
@@ -294,7 +312,7 @@ I wanted to use teal as my navbar and overall color, with Spanish Bistre as my h
 
 # Deployment
 
-Repository is hosted on Github and deployed on Heroku. I developed the website using the Code Institute template on Gitpod, and pushs to GitHub by the uses of the Gitpod terminal.
+Repository is hosted on Github and deployed on Heroku. I developed the website using the Code Institute template on Gitpod, and push to GitHub by the uses of the Gitpod terminal.
 
 ### Other platforms used
 
@@ -303,16 +321,14 @@ Repository is hosted on Github and deployed on Heroku. I developed the website u
 
 ## Cloning the Project
 
-When you finish log into Github, navigate to the repository page, and select MS3-recipes. Above the file list, click on the Code button next to the Gitpod button (green button). Copy the URL. Open your terminal. Change the working directory to the location where you want the cloned directory. Paste the URL after you have type git clone. eg $ git clone https://github.com/Username/repository-name Press enter and this will create a local clone.
+When you finish logging into Github, navigate to the repository page, and select MS3-recipes. Above the file list, click on the Code button next to the Gitpod button (green button). Copy the URL. Open your terminal. Change the working directory to the location where you want the cloned directory. Paste the URL after you have type git clone. eg $ git clone https://github.com/Username/repository-name Press enter and this will create a local clone.
 
 Or 
 
 ## Download zip files
 
-Create a repository in GitHub.
-Unzip the folder
-Upload the files into your workspace
-You can read more about this in the link below.
+Create a repository in GitHub. Unzip the folder Upload the files into your workspace You can read more about this in the link below.
+
 
 More information on cloning repository:
 [Github Information](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
@@ -321,7 +337,7 @@ More information on cloning repository:
 
 ## Forking the Project
 
-When you finish log into Github, navigate to the repository page, and select MS2-Quiz-Game. Top right of the page click on the fork button.
+When you finish logging into Github, navigate to the repository page, and select MS3-MPT-Recipes. At top right of the page click on the fork button.
 
 More information on fork repository:
 [Github Information](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo)
@@ -346,6 +362,7 @@ More information on fork repository:
 
 - Replace password with the password for the root user. Replace myFirstDatabase with the name of the database that connections will use by default.
 
+
 ![mongodb4](documentation/mongodb/mongodb-4.png)
 
 ## Set up the local environment
@@ -362,15 +379,16 @@ More information on fork repository:
 
 ## Procfile and Requirements.txt
 
-We need to make a list of all the Python dependencies for  the project which can be done in the command line by create a file "requirements.txt.
+- We need to make a list of all the Python dependencies for the project which can be done in the command line by creating a file "requirements.txt.
 
 ``$ pip freeze > requirements.txt`` 
 
-- When we deploy to Heroku we need a specific file that let  Heroku know how to run the project and this is done in the command line also by creating a Profile.
+- When we deploy to Heroku we need a specific file that lets Heroku know how to run the project and this is done in the command line also by creating a Profile.
+
 
 ``$ echo web: python app.py > Procfile`` (use capital P when writing Procfile).
 
-- Also make sure you remove any added line to the Procfile code as this can cause problems in Heroku running the project.
+- Also make sure you remove any added lines to the Procfile code as this can cause problems in Heroku running the project.
 
 - How push to GitHub.
 
