@@ -288,8 +288,7 @@ def delete_recipe():
     Allow the user to delete the information on the page.
     """
     recipes = mongo.db.recipe.find()
-    return render_template("delete_recipe.html", recipes=recipes, 
-                            page_title="Delete Recipes")
+    return render_template("delete_recipe.html", recipes=recipes, page_title="Delete Recipes")
 
 
 # Allow user to pick a particular recipe to be deleted
