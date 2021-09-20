@@ -43,9 +43,10 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="fas fa-image prefix"></i>
-                  <input id="img" name="img" type="url" class="validate" value="{{ recipe.img }}" minlength="5"
-                    maxlength="100" aria-label="image">
+                  <input id="img" name="img" type="text" value="{{ recipe.img }}" class="validate" 
+                  patten="[(http(s)?):\/\/(www\.)?\w-/=#%&\.\?]{2,}\.[a-z]{2,}([\w-/=#%&\.\?]*)" aria-label="image">
                   <label for="img">Image</label>
+                  
                 </div>
               </div>
               <!-- Description-->
@@ -166,7 +167,7 @@
                     <tr>
                       <td id="column0" class="input-field">
                         <i class="fas fa-book-reader prefix"></i>
-                        <label for="method1">Add Instructions here!</label>
+                        <label for="method1">Add Method here!</label>
                         <textarea id="method1" name="method" class="materialize-textarea" aria-label="method" minlength="5"
                           maxlength="300" patten="[a-zA-Z0-9]"></textarea>
                       </td>

@@ -235,7 +235,7 @@ def add_recipe():
         return redirect(url_for("recipes"))
 
     courses = mongo.db.meal_courses.find().sort("meal_course", 1)
-    return render_template("add_recipe.html", courses=courses, page_title="Add Recipe")
+    return render_template("add_recipe.html", courses=courses)
 
 
 # https://stackoverflow.com/questions/65434221/prevent-users-from-directly-accessing-url-and-redirect-to-login-if-not-logged-in
@@ -271,6 +271,7 @@ def recipe_update(recipe_id):
             }
             mongo.db.recipe.update({"_id": ObjectId(recipe_id)}, submit)
             flash("Recipe has been Updated Successfully")
+            return redirect(url_for("recipes"))
 
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     courses = mongo.db.meal_courses.find().sort("meal_course", 1)

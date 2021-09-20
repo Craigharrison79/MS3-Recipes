@@ -95,20 +95,76 @@ function loginPassword() {
 
 /* Add new ingredients to update recipes
 https://www.etutorialspoint.com/index.php/11-dynamically-add-delete-html-table-rows-using-javascript */
+
 function addRow() {
 	var table = document.getElementById('ingredientsRow');
 	var rowNumber = table.rows.length;
 	var cellCount = table.rows[0].cells.length; 
     var row = table.insertRow(rowNumber);
     for(var i =0; i <= cellCount; i++){
-        var block = 'cell'+i;
-		block = row.insertCell(i);
-		var newRow = document.getElementById('column'+i).innerHTML;
-		block.innerHTML=newRow;
+        var cell = 'cell'+i;
+		cell = row.insertCell(i);
+		var copycel = document.getElementById('col'+i).innerHTML;
+		cell.innerHTML=copycel;
+    }
+}
+function deleteRow() {
+    const TABLE = document.getElementById('ingredientsRow');
+    let rowNumber = TABLE.rows.length;
+    if (rowNumber > '1'){
+        let row = TABLE.deleteRow(rowNumber-1);
+        rowNumber--;
+    } else{
+        alert("Cannot Delete Ingredients");
+    }
+}
+function addMethodRow() {
+	var table = document.getElementById('methodRow');
+	var rowNum = table.rows.length;
+	var methodCellCount = table.rows[0].cells.length; 
+    var row = table.insertRow(rowNum);
+    for(var i =0; i <= methodCellCount; i++){
+        var cell = 'cell'+i;
+		cell = row.insertCell(i);
+		var copycel = document.getElementById('column'+i).innerHTML;
+		cell.innerHTML=copycel;
+    }
+} 
+function removeMethodRow() {
+    var table = document.getElementById('methodRow');
+    let rowNum = table.rows.length;
+    if (rowNum > '1'){
+        let row = table.deleteRow(rowNum-1);
+        rowNum--;
+    } else{
+        alert("Cannot Delete Ingredients");
+    }
+}
+/* Adding row for updating Recipe */
+function addExtraIngredients() {
+    let extraTable = document.getElementById("extraTable");
+    extraTable.style.display = 'block';
+}
+
+function addExtraMethod() {
+    let extraMethodTable = document.getElementById("extraMethodTable");
+    extraMethodTable.style.display = 'block'
+}
+
+/*function addRow() {
+	var table = document.getElementById('ingredientsRow');
+	var rowNumber = table.rows.length;
+	var cellCount = table.rows[0].cells.length; 
+    var row = table.insertRow(rowNumber);
+    for(var i =0; i <= cellCount; i++){
+        var cell = 'cell'+i;
+		cell = row.insertCell(i);
+		var copycel= document.getElementById('column'+i).innerHTML;
+		cell.innerHTML=copycel;
     }
 }
 
-/* Delete new ingredients to update recipes */
+/* Delete new ingredients to update recipes 
 function deleteRow() {
     const TABLE = document.getElementById('ingredientsRow');
     let rowNumber = TABLE.rows.length;
@@ -120,21 +176,21 @@ function deleteRow() {
     }
 }
 
-/* add new Method to update recipes */
+/* add new Method to update recipes 
 function addMethodRow() {
 	var table = document.getElementById('methodRow');
 	var rowNum = table.rows.length;
 	var methodCellCount = table.rows[0].cells.length; 
     var row = table.insertRow(rowNum);
     for(var i =0; i <= methodCellCount; i++){
-        var block = 'cell'+i;
-		block = row.insertCell(i);
+        var cell1 = 'cell'+i;
+		cell1 = row.insertCell(i);
 		var newRow = document.getElementById('column'+i).innerHTML;
-		block.innerHTML=newRow;
+		cell1.innerHTML=newRow;
     }
 } 
 
-/* Delete new ingredients to update recipes */
+/* Delete new ingredients to update recipes 
 function removeMethodRow() {
     var table = document.getElementById('methodRow');
     let rowNum = table.rows.length;
@@ -146,17 +202,17 @@ function removeMethodRow() {
     }
 }
 
-/* Show the Adding row for updating Recipe */
+/* Show the Adding row for updating Recipe 
 function addExtraIngredients() {
     let extraTable = document.getElementById("extraTable");
     extraTable.style.display = 'block';
 }
 
-/* Show the Adding row for updating Recipe */
+/* Show the Adding row for updating Recipe 
 function addExtraMethod() {
     let extraMethodTable = document.getElementById("extraMethodTable");
     extraMethodTable.style.display = 'block'
-}
+}*/
 
 
 /* Delete the add rows for Ingredients and Method
