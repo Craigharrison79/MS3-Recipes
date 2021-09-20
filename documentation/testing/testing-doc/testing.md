@@ -169,6 +169,18 @@ On running the whole site through lighthouse on chrome developer tools, I got di
 
 ![lighthousenew4](/documentation/testing/images/lighthouse/lighthouse-new-editrecipe.png)
 
+## Responsiveness and compatibility
+
+- Testing the website through the following browsers.
+
+![Responsiveness](/documentation/testing/images/validator/browser-test.png)
+
+
+
+- Testing the website through the following devices.
+
+![Compatibility](/documentation/testing/images/validator/device-test.png)
+
 ##  Intersesting bugs and Issues:
 
 - ### Recipe Update
@@ -223,3 +235,16 @@ On running the whole site through lighthouse on chrome developer tools, I got di
 
 - [Read info on mobile screen size: From worship agency](https://worship.agency/mobile-screen-sizes-for-2021)
 - [Read info on mobile screen size: From accessally.com](https://accessally.com/blog/mobile-responsive-screen-sizes/#:~:text=For%20example%2C%20the%20smallest%20screen,the%20Galaxy%20phones%20and%20tablets.)
+
+- ### Safari browser
+
+    - One issue on the recipe_update page with the add ingredients / method button which being in the extra input boxes.  Is not showing up as a red colour but as a white / grey colour.
+
+![safari](/documentation/testing/images/validator/safari-btn.png)
+
+
+- ### Issue with the add_recipe and recipe_update page.
+
+    - Day of handing in this project the website input fields crash. Something had been remove /change in the file and the input data was not being sent to the database. Also the additional field input boxes on the ingredients and method were not responding to the user clicking on the buttons.
+        - I had to look back over old code to find the problem. I replace part of the js code (function addRow, deleteRow, addMethodRow and removeMethodRow).
+        Remove the input type from url to text in the image input on both the add recipe and update recipe page. This fix the problem with sending data to the database and the additional input boxes working correctly but on the edit recipe page the is sometime a extra empty input boxes produce when saving the recipe.  This is something I will have to fix in the future as I ran out of time with this project.  As the user of the site will probably not see or pick up on this issue as the recipe card show no indication of a input or that the is some wrong. I hate that is issue is here but I not sure how to fix it and time is running out.
